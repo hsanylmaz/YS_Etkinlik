@@ -30,7 +30,7 @@ Hedeflenen Beceriler: `+n:r===`degerlendirme`?t.degerlendirme=n:r===`kaynakca`&&
 `).forEach(e=>{o.appendChild(S(e.trim(),f,r))})}function y(e,t,n){if(e>=_.length)return;let r=_[e],i=m(r,`tc`);if(t>=i.length)return;let a=i[t];m(a,`p`).forEach(e=>{e.parentNode&&e.parentNode.removeChild(e)}),m(a,`tbl`).forEach(e=>{e.parentNode&&e.parentNode.removeChild(e)});let o=n.replace(/<br\s*\/?>/gi,`
 `).split(`
 `),s=0;for(;s<o.length;){let e=o[s].trim();if(e.startsWith(`|`)){let e=[];for(;s<o.length&&o[s].trim().startsWith(`|`);)e.push(o[s].trim()),s++;if(e.length>=2){let t=b(e);if(t){a.appendChild(x(t,f));continue}}e.forEach(e=>{a.appendChild(S(e,f))})}else{if(e){let t=e.startsWith(`###`)||e.startsWith(`##`)||e.startsWith(`#`),n=e.replace(/^#+\s*/,``);a.appendChild(S(n,f,t))}else a.appendChild(S(``,f));s++}}a.lastChild&&a.lastChild.nodeName!==`w:p`&&a.appendChild(S(``,f))}function b(e){let t=[];return e.filter(e=>!e.match(/^\|?\s*[-:| ]+\s*\|?$/)).forEach(e=>{let n=e.split(`|`).map(e=>e.trim()).filter((e,t,n)=>t>0&&t<n.length-1);n.length>0&&t.push(n)}),t.length===0?null:t}function x(e,t){let n=t.createElementNS(p,`w:tbl`),r=t.createElementNS(p,`w:tblPr`),i=t.createElementNS(p,`w:tblW`);i.setAttribute(`w:w`,`5000`),i.setAttribute(`w:type`,`pct`),r.appendChild(i);let a=t.createElementNS(p,`w:tblBorders`);return[`top`,`left`,`bottom`,`right`,`insideH`,`insideV`].forEach(e=>{let n=t.createElementNS(p,`w:border`);n.setAttribute(`w:val`,`single`),n.setAttribute(`w:sz`,`4`),n.setAttribute(`w:space`,`0`),n.setAttribute(`w:color`,e.startsWith(`inside`)?`E2E8F0`:`CCCCCC`),a.appendChild(n)}),r.appendChild(a),n.appendChild(r),e.forEach((e,r)=>{let i=t.createElementNS(p,`w:tr`);e.forEach(n=>{let a=t.createElementNS(p,`w:tc`),o=t.createElementNS(p,`w:tcPr`),s=t.createElementNS(p,`w:tcW`);s.setAttribute(`w:w`,Math.floor(5e3/e.length).toString()),s.setAttribute(`w:type`,`pct`),o.appendChild(s);let c=t.createElementNS(p,`w:tcMar`);[`top`,`left`,`bottom`,`right`].forEach(e=>{let n=t.createElementNS(p,`w:${e}`);n.setAttribute(`w:w`,`120`),n.setAttribute(`w:type`,`dxa`),c.appendChild(n)}),o.appendChild(c),a.appendChild(o);let l=r===0;a.appendChild(S(n,t,l)),i.appendChild(a)}),n.appendChild(i)}),n}function S(e,t,n=!1){let r=t.createElementNS(p,`w:p`),i=t.createElementNS(p,`w:pPr`),a=t.createElementNS(p,`w:spacing`);a.setAttribute(`w:line`,`240`),a.setAttribute(`w:lineRule`,`auto`),i.appendChild(a);let o=t.createElementNS(p,`w:rPr`),s=t.createElementNS(p,`w:rFonts`);s.setAttribute(`w:ascii`,`Times New Roman`),s.setAttribute(`w:hAnsi`,`Times New Roman`),s.setAttribute(`w:eastAsia`,`Times New Roman`),o.appendChild(s);let c=t.createElementNS(p,`w:sz`);if(c.setAttribute(`w:val`,`22`),o.appendChild(c),n&&o.appendChild(t.createElementNS(p,`w:b`)),i.appendChild(o),r.appendChild(i),e){let i=t.createElementNS(p,`w:r`),a=t.createElementNS(p,`w:rPr`),o=t.createElementNS(p,`w:rFonts`);o.setAttribute(`w:ascii`,`Times New Roman`),o.setAttribute(`w:hAnsi`,`Times New Roman`),a.appendChild(o);let s=t.createElementNS(p,`w:sz`);s.setAttribute(`w:val`,`22`),a.appendChild(s),n&&a.appendChild(t.createElementNS(p,`w:b`)),i.appendChild(a);let c=t.createElementNS(p,`w:t`);c.textContent=e,i.appendChild(c),r.appendChild(i)}return r}let C=parseInt(i||l.sure||`40`,10)||40,w=Math.max(0,C-10),T=w>35?10:5,E=Math.max(0,w-T);v(0,1,l.etkinlikId||`ETK-01`),v(1,1,l.baslik||``,!0),v(2,1,l.genelBakis||``),v(3,1,`${C} Dakika`),v(4,2,l.kademe||``),v(5,2,l.sinifSeviyesi||``),v(6,2,l.dersAdi||``),v(7,2,l.unite||``),v(8,2,l.konu||``),v(9,2,l.kazanimlar||``),v(10,2,l.donanim||``),v(11,2,l.cevrimIci||``),v(12,2,l.ogretimMateryalleri||``),v(13,1,(r.length>0?r:l.etkinlikAlani?[l.etkinlikAlani]:[]).join(`, `)),v(13,2,``),v(13,3,``);let D=(l.ogrencilerinKonumu||``).toLowerCase(),O=D.includes(`bireysel`)||D.includes(`individual`)?`☒ Bireysel`:`☐ Bireysel`,k=D.includes(`grup`)||D.includes(`ekip`)||D.includes(`group`)||D.includes(`team`)?`☒ Küçük Gruplar`:`☐ Küçük Gruplar`,A=D.includes(`sınıf`)||D.includes(`tüm`)||D.includes(`class`)||D.includes(`whole`)?`☒ Tüm Sınıf`:`☐ Tüm Sınıf`;v(14,1,O),v(14,2,k),v(14,3,A);let j=(l.ogretmeninRolü||``).toLowerCase(),M=j.includes(`lider`)||j.includes(`leader`)?`☒ Lider`:`☐ Lider`,N=j.includes(`rehber`)||j.includes(`guide`)||j.includes(`facilitator`)?`☒ Rehber`:`☐ Rehber`,P=j.includes(`gözlemci`)||j.includes(`gozlemci`)||j.includes(`observer`)?`☒ Gözlemci`:`☐ Gözlemci`;v(15,1,M),v(15,2,N),v(15,3,P),v(16,2,l.hazirlik||``),v(17,2,l.uygulama||``),v(18,2,l.etkinlikSonu||``),v(19,2,l.degerlendirme||``),v(21,1,l.kaynakca||``),y(22,1,l.ekler||``);function F(e,t,n,r){if(e>=_.length)return;let i=m(_[e],`tc`);if(t>=i.length)return;let a=i[t],o=m(a,`t`);for(let e=0;e<o.length;e++)o[e].textContent.includes(n)&&(o[e].textContent=o[e].textContent.replace(n,r))}F(16,0,`... dk.`,`${w} dk.`),F(17,1,`... dk.`,`${E} dk.`),F(18,1,`... dk.`,`${T} dk.`),F(19,0,`... dk.`,`10 dk.`),F(19,1,`... dk.`,`10 dk.`);let I=new XMLSerializer().serializeToString(f);return u.file(`word/document.xml`,I),await u.generateAsync({type:`blob`})}async function ve(e,t,n=`Etkinlik_Plani.docx`,r={}){try{let i=await _e(e,t,r),a=window.URL.createObjectURL(i),o=document.createElement(`a`);o.href=a,o.download=n,document.body.appendChild(o),o.click(),setTimeout(()=>{window.URL.revokeObjectURL(a),document.body.contains(o)&&document.body.removeChild(o)},1e3)}catch(e){throw console.error(e),Error(`Word belgesi oluşturulurken bir hata oluştu: `+e.message)}}var ye=`https://script.google.com/macros/s/AKfycbwoVzgixP13K7r6i-Wt0DBDsROWJT0VW9NYy6g6cIlAyfHhvionjeUuj9WmvhDh-bxPkQ/exec`;async function be(e,t){let n=await fetch(ye,{method:`POST`,mode:`cors`,headers:{"Content-Type":`text/plain;charset=utf-8`},body:JSON.stringify({action:`upload`,filename:t,mimeType:`application/vnd.openxmlformats-officedocument.wordprocessingml.document`,base64Data:e})});if(!n.ok)throw Error(`Apps Script Web Uygulaması yanıt vermedi.`);let r=await n.json();if(r.status!==`success`)throw Error(r.message||`Bilinmeyen hata`);return{url:r.url,fileId:r.fileId,deleteToken:r.deleteToken}}async function xe(e,t){let n=await fetch(ye,{method:`POST`,mode:`cors`,headers:{"Content-Type":`text/plain;charset=utf-8`},body:JSON.stringify({action:`delete`,fileId:e,deleteToken:t})});if(!n.ok)throw Error(`Apps Script Web Uygulaması yanıt vermedi.`);let r=await n.json();if(r.status!==`success`)throw Error(r.message||`Bilinmeyen hata`);return!0}async function Se(e){try{let t=await fetch(ye,{method:`POST`,mode:`cors`,headers:{"Content-Type":`text/plain;charset=utf-8`},body:JSON.stringify({action:`getNextNumber`,outcomeCode:e})});if(t.ok){let e=await t.json();if(e.status===`success`&&typeof e.nextNumber==`number`)return e.nextNumber}}catch(e){console.warn(`Failed to get next number from Drive, using local fallback`,e)}return(JSON.parse(localStorage.getItem(`drive_outcome_counters`)||`{}`)[e]||0)+1}function Ce(e,t){try{let n=JSON.parse(localStorage.getItem(`drive_outcome_counters`)||`{}`);n[e]=Math.max(n[e]||0,t),localStorage.setItem(`drive_outcome_counters`,JSON.stringify(n))}catch(e){console.error(`Failed to save local counter`,e)}}var we=`fcl_saved_scenarios_v1`,Te=`fcl_gemini_api_key_v1`,Ee=`fcl_my_uploads_v1`;function De(){let[e,t]=(0,v.useState)(``),[n,r]=(0,v.useState)(!1),[i,a]=(0,v.useState)(!1),[o,s]=(0,v.useState)([]),[c,l]=(0,v.useState)(`etkinlikPlani`),[u,d]=(0,v.useState)(``),[f,p]=(0,v.useState)(`5`),[m,h]=(0,v.useState)(`auto`),[g,_]=(0,v.useState)(`40`),[y,b]=(0,v.useState)(``),[x,S]=(0,v.useState)(`tr`),[C,w]=(0,v.useState)(``),[T,E]=(0,v.useState)([]),[D,O]=(0,v.useState)([`İletişim`,`İş Birliği`,`Eleştirel Düşünme`,`Yaratıcılık`]),[k,j]=(0,v.useState)(!1),[M,N]=(0,v.useState)(!1),[F,L]=(0,v.useState)(null),[B,ee]=(0,v.useState)(null),[H,te]=(0,v.useState)([]),[ne,re]=(0,v.useState)(!1),[ie,ae]=(0,v.useState)(``),[oe,me]=(0,v.useState)(``),[ge,ye]=(0,v.useState)(!1),[De,Oe]=(0,v.useState)(`idle`),[ke,Ae]=(0,v.useState)({show:!1,message:``,type:`success`}),[W,je]=(0,v.useState)(1);(0,v.useEffect)(()=>{t(localStorage.getItem(Te)||``),s(JSON.parse(localStorage.getItem(we)||`[]`))},[]),(0,v.useEffect)(()=>{fetch(`/YS_Etkinlik/kazanimlar.json?v=${Date.now()}`).then(e=>e.json()).then(e=>ee(e)).catch(e=>console.error(`Kazanımlar veritabanı yüklenemedi:`,e))},[]),(0,v.useEffect)(()=>{oe&&window.MathJax&&setTimeout(()=>{let e=document.getElementById(`resultContent`);e&&window.MathJax.typesetPromise([e]).catch(e=>console.log(`MathJax error:`,e.message))},300)},[oe]);let G=(e,t=`success`)=>{Ae({show:!0,message:e,type:t}),setTimeout(()=>{Ae(e=>({...e,show:!1}))},4e3)},Me=e=>{t(e),localStorage.setItem(Te,e),G(`Ayarlar başarıyla kaydedildi.`,`success`)},Ne=()=>{ye(!0),setTimeout(()=>{let e=document.getElementById(`layoutSection`);e&&e.scrollIntoView({behavior:`smooth`,block:`start`})},100)},Pe=e=>{let t=he(e||ie||``);return`${t.dersAdi||u||`BilinmeyenDers`}_${t.sinifSeviyesi||f||`BilinmeyenSinif`}_${c||`etkinlikPlani`}_${(t.kazanimlar||C||``).substring(0,30)}`.replace(/[^a-zA-Z0-9ığüşöçİĞÜŞÖÇ]+/g,`_`)},Fe=()=>{let e=Pe();return JSON.parse(localStorage.getItem(Ee)||`{}`)[e]?`uploaded`:`idle`};return(0,v.useEffect)(()=>{oe&&Oe(Fe())},[oe,ie]),(0,U.jsxs)(`div`,{className:`min-h-screen bg-gradient-to-tr from-slate-50 via-slate-100 to-indigo-50/30 p-4 md:p-8 font-sans`,children:[(0,U.jsxs)(`header`,{className:`max-w-4xl mx-auto glass-panel rounded-3xl p-6 mb-8 bg-white shadow-md border border-slate-100 flex flex-col gap-5 items-center text-center`,children:[(0,U.jsxs)(`div`,{className:`flex flex-col items-center`,children:[(0,U.jsxs)(`h1`,{className:`text-2xl md:text-3xl font-black text-slate-800 tracking-tight flex items-center gap-2.5`,children:[(0,U.jsx)(`img`,{src:`/YS_Etkinlik/logo.jpg`,alt:`Logo`,className:`w-8 h-8 md:w-10 md:h-10 rounded-xl shadow-sm border border-slate-100 object-cover`}),(0,U.jsx)(`span`,{children:`Yenilikçi Sınıf Eğitim Atölyesi`})]}),(0,U.jsx)(`p`,{className:`text-slate-500 font-medium text-xs md:text-sm mt-1`,children:`Yapay Zeka Destekli Aktif Öğrenme Planlayıcısı ve Senaryo Tasarımcısı`})]}),(0,U.jsx)(`div`,{className:`w-full h-px bg-slate-100`}),(0,U.jsxs)(`div`,{className:`w-full flex flex-col lg:flex-row justify-between items-center gap-4`,children:[(0,U.jsxs)(`div`,{className:`flex flex-wrap justify-center lg:justify-start items-center gap-3`,children:[(0,U.jsxs)(`div`,{className:`bg-indigo-50 text-indigo-700 px-3.5 py-1.5 rounded-2xl text-[10px] md:text-xs font-bold border border-indigo-100 shadow-sm leading-relaxed text-left`,children:[(0,U.jsx)(`div`,{children:`👨‍🏫 Hasan YILMAZ - Matematik Öğretmeni`}),(0,U.jsx)(`div`,{className:`text-indigo-600/90 font-medium`,children:`Ordu Yeğitek Proje Koordinatörü`})]}),(0,U.jsxs)(`a`,{href:`https://www.instagram.com/hsan.ylmaz`,target:`_blank`,rel:`noopener noreferrer`,className:`flex items-center gap-1.5 px-3.5 py-2 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 rounded-xl text-xs font-bold text-white hover:opacity-90 hover:shadow transition-all shadow-sm active:scale-95 whitespace-nowrap`,children:[(0,U.jsxs)(`svg`,{className:`w-3.5 h-3.5 text-white`,xmlns:`http://www.w3.org/2000/svg`,viewBox:`0 0 24 24`,fill:`none`,stroke:`currentColor`,strokeWidth:`2.2`,strokeLinecap:`round`,strokeLinejoin:`round`,children:[(0,U.jsx)(`rect`,{width:`20`,height:`20`,x:`2`,y:`2`,rx:`5`,ry:`5`}),(0,U.jsx)(`path`,{d:`M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z`}),(0,U.jsx)(`line`,{x1:`17.5`,x2:`17.51`,y1:`6.5`,y2:`6.5`})]}),(0,U.jsx)(`span`,{children:`@hsan.ylmaz`})]})]}),(0,U.jsxs)(`div`,{className:`flex flex-wrap items-center justify-center gap-2`,children:[(0,U.jsxs)(`button`,{onClick:()=>a(!0),className:`flex items-center gap-1.5 px-3 py-2 bg-white border border-slate-200 rounded-xl text-xs font-bold text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm active:scale-95 whitespace-nowrap`,children:[(0,U.jsx)(R,{className:`w-3.5 h-3.5 text-indigo-500`}),(0,U.jsx)(`span`,{children:`Kayıtlı Senaryolar`}),o.length>0&&(0,U.jsx)(`span`,{className:`bg-indigo-600 text-white rounded-full text-[9px] w-4.5 h-4.5 flex items-center justify-center font-bold`,children:o.length})]}),(0,U.jsxs)(`a`,{href:`https://drive.google.com/drive/folders/1O3TVQP_i8sZfpBStbSlgwZk3U7kL0du3?usp=drive_link`,target:`_blank`,rel:`noopener noreferrer`,className:`flex items-center gap-1.5 px-3 py-2 bg-white border border-slate-200 rounded-xl text-xs font-bold text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm active:scale-95 whitespace-nowrap`,children:[(0,U.jsx)(I,{className:`w-4 h-4 text-blue-500 animate-pulse`}),(0,U.jsx)(`span`,{children:`Drive Arşivi`})]}),(0,U.jsxs)(`button`,{onClick:()=>r(!0),className:`flex items-center gap-1.5 px-3 py-2 bg-white border border-slate-200 rounded-xl text-xs font-bold text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm active:scale-95 whitespace-nowrap`,children:[(0,U.jsx)(V,{className:`w-3.5 h-3.5 text-indigo-500`}),(0,U.jsx)(`span`,{children:`API Ayarları`})]})]})]})]}),(0,U.jsxs)(`div`,{className:`max-w-4xl mx-auto space-y-8`,children:[!oe&&!ne&&(0,U.jsxs)(`section`,{className:`glass-panel rounded-3xl p-8 md:p-12 text-center bg-white shadow-xl border border-slate-100 space-y-8`,children:[(0,U.jsx)(`div`,{className:`flex justify-center`,children:(0,U.jsx)(`div`,{className:`bg-indigo-50 p-4 rounded-full text-4xl shadow-inner animate-pulse`,children:`🔮`})}),(0,U.jsxs)(`div`,{className:`space-y-3`,children:[(0,U.jsx)(`h3`,{className:`text-2xl md:text-3xl font-extrabold text-slate-800 tracking-tight`,children:`Eğitim Atölyesine Hoş Geldiniz!`}),(0,U.jsx)(`p`,{className:`text-sm md:text-base text-slate-500 max-w-2xl mx-auto`,children:`Aşağıdaki form aracılığıyla ders bilgilerini, kazanımları ve öğrenme alanlarını girerek yapay zeka destekli, Maarif Model uyumlu etkinlik planınızı veya öğrenme senaryonuzu anında tasarlayabilirsiniz.`})]}),(0,U.jsxs)(`div`,{className:`grid grid-cols-1 md:grid-cols-3 gap-8 text-left max-w-4xl mx-auto pt-6 border-t border-slate-100`,children:[(0,U.jsxs)(`div`,{className:`bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-indigo-200 hover:shadow-md transition-all`,children:[(0,U.jsx)(`div`,{className:`text-xs font-extrabold text-indigo-600 mb-1`,children:`ADIM 1`}),(0,U.jsx)(`h4`,{className:`font-bold text-slate-800 text-sm md:text-base mb-2`,children:`API Ayarını Yapın`}),(0,U.jsx)(`p`,{className:`text-xs md:text-sm text-slate-500 leading-relaxed`,children:`Sağ üstteki "API Ayarları" menüsünden ücretsiz aldığınız Gemini API anahtarınızı tanımlayın.`})]}),(0,U.jsxs)(`div`,{className:`bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-indigo-200 hover:shadow-md transition-all`,children:[(0,U.jsx)(`div`,{className:`text-xs font-extrabold text-indigo-600 mb-1`,children:`ADIM 2`}),(0,U.jsx)(`h4`,{className:`font-bold text-slate-800 text-sm md:text-base mb-2`,children:`Bilgileri Doldurun`}),(0,U.jsx)(`p`,{className:`text-xs md:text-sm text-slate-500 leading-relaxed`,children:`Ders adı, süre, sınıf seviyesi, kazanım bilgileri ile öğrenme alanlarını ve hedeflenen 4C becerilerini seçin.`})]}),(0,U.jsxs)(`div`,{className:`bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-indigo-200 hover:shadow-md transition-all`,children:[(0,U.jsx)(`div`,{className:`text-xs font-extrabold text-indigo-600 mb-1`,children:`ADIM 3`}),(0,U.jsx)(`h4`,{className:`font-bold text-slate-800 text-sm md:text-base mb-2`,children:`Senaryo Üretin`}),(0,U.jsx)(`p`,{className:`text-xs md:text-sm text-slate-500 leading-relaxed`,children:`En alttaki "Senaryo/Plan Metnini Oluştur" butonuna basarak yapay zekanın pedagojik planı çizmesini izleyin!`})]})]}),(0,U.jsxs)(`div`,{className:`pt-4 flex flex-wrap justify-center gap-3 text-xs md:text-sm font-bold text-slate-600`,children:[(0,U.jsx)(`span`,{className:`bg-slate-100 px-4 py-2 rounded-full border border-slate-200 shadow-sm`,children:`📐 2D Sınıf Çizimi`}),(0,U.jsx)(`span`,{className:`bg-slate-100 px-4 py-2 rounded-full border border-slate-200 shadow-sm`,children:`💾 Yerel Arşivleme`}),(0,U.jsx)(`span`,{className:`bg-slate-100 px-4 py-2 rounded-full border border-slate-200 shadow-sm`,children:`▲ Drive Entegrasyonu`}),(0,U.jsx)(`span`,{className:`bg-slate-100 px-4 py-2 rounded-full border border-slate-200 shadow-sm`,children:`📄 Word Şablon Doldurucu`})]})]}),(0,U.jsx)(`section`,{children:(0,U.jsx)(se,{belgeTuru:c,setBelgeTuru:l,ders:u,setDers:d,sinif:f,setSinif:p,teknik:m,setTeknik:h,sure:g,setSure:_,yapayZekaAraclari:y,setYapayZekaAraclari:b,belgeDili:x,setBelgeDili:S,kazanim:C,setKazanim:w,selectedZones:T,setSelectedZones:E,selectedSkills:D,setSelectedSkills:O,useMebKit:k,setUseMebKit:j,use3DPrinter:M,setUse3DPrinter:N,onSubmit:async()=>{if(!e){G(`Lütfen sağ üstteki API Ayarları menüsünden geçerli bir Gemini API Anahtarı girin.`,`error`),r(!0);return}if(!u||!C||!g){G(`Lütfen ders adı, etkinlik süresi ve kazanım alanlarını doldurun.`,`error`);return}let t=H.length>0?`${C}<br><br><b>Süreç Bileşenleri:</b><br>- ${H.join(`<br>- `)}`:C,n=H.length>0?`${C}\n\nSüreç Bileşenleri:\n- ${H.join(`
-- `)}`:C,i=parseInt(g);if(isNaN(i)||i>80||i<=0){G(`Etkinlik süresi en fazla 80 dakika ve sıfardan büyük olmalıdır!`,`error`);return}if(T.length===0){G(`Lütfen en az bir öğrenme alanı seçin.`,`error`);return}if(D.length===0){G(`Lütfen en az bir 4C Becerisi seçin.`,`error`);return}re(!0),ye(!1),me(``),ae(``),je(1);let a=[],o=x===`en`?`English`:x===`de`?`German`:x===`fr`?`French`:x===`ar`?`Arabic`:`Türkçe`;try{let r=(e,t)=>{let n=setTimeout(()=>{je(e)},t);a.push(n)};r(2,3500),r(3,7500),r(4,12e3),r(5,17e3),setTimeout(()=>{let e=document.getElementById(`loadingSection`);e&&e.scrollIntoView({behavior:`smooth`,block:`center`})},100);let i=parseInt(f),s=i>=5&&i<=8?`Temel Eğitim`:`Ortaöğretim`,l=[`Etkileşimli Tahta`,`8 Adet Tümleşik Bilgisayar`,`12 Adet Dizüstü Bilgisayar`,`Simülasyon Platformu`,`Zekâ Oyunları Seti`];k&&l.push(`10 Adet MEB-KİT`,`3 Adet Mobil Robot Platform Kiti`),M&&l.push(`3B Yazıcı`);let d=l.join(`, `),p=[`Tekerlekli Öğrenci Masaları`,`Öğrenci Sandalyeleri`,`Öğrenci Tabureleri`,`Tekerlekli Puf`,`Öğretmen Kürsüsü`,`Laptop Şarj İstasyonu`,`Sabit Bilgisayar Masaları`,`2 Adet Duvara Sabit Katlanır Masa`,`Magnet Panosu`];k&&p.push(`Robotik Kodlama Masası`),M&&p.push(`3 Boyutlu Yazıcı Masası ve Dolabı`);let h=p.join(`, `),_=m===`auto`?`Aktif Öğrenme Tekniği: (Yapay Zeka tarafından kılavuzda yer alan İş Birlikli, Probleme Dayalı, Sorgulamaya Dayalı, Yapılandırmacı, Tasarıma Dayalı, Oyun Temelli, Proje Tabanlı pedagojilerden en uygunu seçilmelidir)`:`Aktif Öğrenme Tekniği (Pedagojik Yaklaşım): ${m}`,v=m===`auto`?`Seçilen Öğrenme Yaklaşımı`:m,b=`Fiziksel Ortam, Mobilya ve Teknoloji: Yapay Zeka, SADECE şu donanımları seçip yerleştirmelidir:\nMobilyalar: ${h}\nTeknolojiler: ${d}\nÖNEMLİ: Sınıftaki 2 katlanır masa duvara sabittir. Grup, istasyon çalışmalarında esneklik için mutlaka 'Tekerlekli Öğrenci Masalarını' birleştirerek kullandır.`,S=y?`KULLANILACAK ARAÇLAR: Öğretmen bu senaryoda SADECE şu yapay zeka veya Web 2.0 araçlarını kullanmak istiyor: "${y}". Lütfen senaryonun tüm adımlarını (özellikle Çevrim İçi Araçlar bölümünü) YALNIZCA bu araçlar üzerine kurgula, kesinlikle farklı bir dijital araç ekleme.`:`KULLANILACAK ARAÇLAR: MEB kılavuzlarına ve pedagojik yaklaşıma uygun, güncel ve etkili yapay zeka (AI) ve Web 2.0 araçlarını (örneğin ChatGPT, Canva, Padlet vb. arasından en uygunlarını) sen seçip senaryoya mantıklı bir şekilde entegre et.`,w=D.join(`, `),E=``,O=``,A=``,j=``,N=``,P=``,F=``,I=``;if(x===`en`)I=c===`etkinlikPlani`?`TECHNOLOGY SUPPORTED ACTIVE LEARNING LESSON PLAN`:`TECHNOLOGY FOCUSED LEARNING SCENARIO`,E=`You are a pedagogy expert AI assistant specialized in designing Technology-Supported Active Learning Lesson Plans in accordance with modern curriculum standards. You must write the entire output in English.`,A=`
+- `)}`:C,i=parseInt(g);if(isNaN(i)||i>80||i<=0){G(`Etkinlik süresi en fazla 80 dakika ve sıfardan büyük olmalıdır!`,`error`);return}if(T.length===0){G(`Lütfen en az bir öğrenme alanı seçin.`,`error`);return}if(D.length===0){G(`Lütfen en az bir 4C Becerisi seçin.`,`error`);return}re(!0),ye(!1),me(``),ae(``),je(1);let a=[],o=x===`en`?`English`:x===`de`?`German`:x===`fr`?`French`:x===`ar`?`Arabic`:`Türkçe`;try{let r=(e,t)=>{let n=setTimeout(()=>{je(e)},t);a.push(n)};r(2,3500),r(3,7500),r(4,12e3),r(5,17e3),setTimeout(()=>{let e=document.getElementById(`loadingSection`);e&&e.scrollIntoView({behavior:`smooth`,block:`center`})},100);let i=parseInt(f),s=i>=5&&i<=8?`Temel Eğitim`:`Ortaöğretim`,l=[`Etkileşimli Tahta`,`8 Adet Tümleşik Bilgisayar`,`12 Adet Dizüstü Bilgisayar`,`Simülasyon Platformu`,`Zekâ Oyunları Seti`];k&&l.push(`10 Adet MEB-KİT`,`3 Adet Mobil Robot Platform Kiti`),M&&l.push(`3B Yazıcı`);let d=l.join(`, `),p=[`Tekerlekli Öğrenci Masaları`,`Öğrenci Sandalyeleri`,`Öğrenci Tabureleri`,`Tekerlekli Puf`,`Öğretmen Kürsüsü`,`Laptop Şarj İstasyonu`,`Sabit Bilgisayar Masaları`,`2 Adet Duvara Sabit Katlanır Masa`,`Magnet Panosu`];k&&p.push(`Robotik Kodlama Masası`),M&&p.push(`3 Boyutlu Yazıcı Masası ve Dolabı`);let h=p.join(`, `),_=m===`auto`?`Aktif Öğrenme Tekniği: (Yapay Zeka tarafından kılavuzda yer alan İş Birlikli, Probleme Dayalı, Sorgulamaya Dayalı, Yapılandırmacı, Tasarıma Dayalı, Oyun Temelli, Proje Tabanlı pedagojilerden en uygunu seçilmelidir)`:`Aktif Öğrenme Tekniği (Pedagojik Yaklaşım): ${m}`,v=m===`auto`?`Seçilen Öğrenme Yaklaşımı`:m,b=`Fiziksel Ortam, Mobilya ve Teknoloji: Yapay Zeka, SADECE şu donanımları seçip yerleştirmelidir:\nMobilyalar: ${h}\nTeknolojiler: ${d}\nÖNEMLİ: Sınıftaki 2 katlanır masa duvara sabittir. Grup, istasyon çalışmalarında esneklik için mutlaka 'Tekerlekli Öğrenci Masalarını' birleştirerek kullandır.`,S=y?`KULLANILACAK ARAÇLAR: Öğretmen bu senaryoda SADECE şu yapay zeka veya Web 2.0 araçlarını kullanmak istiyor: "${y}". Lütfen senaryonun tüm adımlarını (özellikle Çevrim İçi Araçlar bölümünü) YALNIZCA bu araçlar üzerine kurgula, kesinlikle farklı bir dijital araç ekleme.`:`KULLANILACAK ARAÇLAR: MEB kılavuzlarına ve pedagojik yaklaşıma uygun, güncel ve etkili yapay zeka (AI) ve Web 2.0 araçlarını (örneğin ChatGPT, Canva, Padlet vb. arasından en uygunlarını) sen seçip senaryoya mantıklı bir şekilde entegre et.`,C=D.join(`, `),w=``,E=``,O=``,A=``,j=``,N=``,P=``,F=``;if(x===`en`)F=c===`etkinlikPlani`?`TECHNOLOGY SUPPORTED ACTIVE LEARNING LESSON PLAN`:`TECHNOLOGY FOCUSED LEARNING SCENARIO`,w=`You are a pedagogy expert AI assistant specialized in designing Technology-Supported Active Learning Lesson Plans in accordance with modern curriculum standards. You must write the entire output in English.`,O=`
 IMPORTANT - BIBLIOGRAPHY GUIDELINES:
 The Bibliography section MUST be written according to the "Innovative Classroom Bibliography Writing Guide":
 - Do NOT use bullet points, dashes (-), numbering or indentation. Write as plain text.
@@ -39,25 +39,25 @@ The Bibliography section MUST be written according to the "Innovative Classroom 
 - For Books: Author Last Name, A. (Year). Book title. Publisher.
 - For Curriculum: Ministry of National Education. (2024). [Subject] curriculum. Board of Education. Retrieved 10 May 2026 URL
 - For Online Tools: Platform Name. (n.d.). Content title. Retrieved 10 May 2026 URL
-`,j=`
+`,A=`
 CURRICULUM RULE:
 Ensure "Unit/Theme/Learning Area" and "Subject/Content Framework" matches the Course Name (${u}), Grade Level (${f}) and Objectives (${n}). Do not invent them; make sure they correspond to actual curriculum frameworks.
-`,N=`
+`,j=`
 PEDAGOGICAL & METHODOLOGICAL RULES:
 1. Roles: Students are active researchers, teacher is a facilitator. Eliminate passive lecturing.
-2. 4C Skills: Emphasize how students demonstrate Communication, Collaboration, Critical Thinking, and Creativity (${w}).
+2. 4C Skills: Emphasize how students demonstrate Communication, Collaboration, Critical Thinking, and Creativity (${C}).
 3. Technology: Align technology tools with active production and coding.
-`,P=`
+`,N=`
 RECOMMENDED WEB 2.0 / AI TOOLS:
 - Research/Information: Perplexity, Google Scholar, EBA
 - Collaboration: Padlet, Mentimeter, Miro
 - Coding/Modeling: MEB-KİT Simulator, Tinkercad, Scratch
 - Media/Design: Canva, CapCut, Adobe Express
 - Interaction: Genially, Prezi, Kahoot
-`,F=`
+`,P=`
 APPLICATION GUIDELINE RULE:
 If "MEB-KİT", "3D Printer" or any advanced tool is used, add a detailed "Application Guideline" table under the APPENDICES section.
-`,O=c===`etkinlikPlani`?`
+`,E=c===`etkinlikPlani`?`
 Format Rule: Output MUST be in the exact markdown table format below. Do not add any text before or after the table.
 
 | General Information | Descriptions |
@@ -103,7 +103,7 @@ Format Rule: Output MUST be in the exact markdown tables format below. Do not ad
 | **Overview** | (General summary of the scenario) |
 | **Learning Outcomes / Objectives** | (Bullet points) |
 | **Related Curriculum Objectives** | ${t} |
-| **Skills** | (Highlight 4C skills: ${w}) |
+| **Skills** | (Highlight 4C skills: ${C}) |
 
 | Preparation | Descriptions |
 |---|---|
@@ -114,7 +114,7 @@ Format Rule: Output MUST be in the exact markdown tables format below. Do not ad
 
 | Implementation | Descriptions |
 |---|---|
-| **Learning Activities** | (Steps matching selected areas - ${T.join(`, `)} - and active learning pedagogy. Total duration must be ${g} minutes. Append (Related Skills: ${w}) to each step.) |
+| **Learning Activities** | (Steps matching selected areas - ${T.join(`, `)} - and active learning pedagogy. Total duration must be ${g} minutes. Append (Related Skills: ${C}) to each step.) |
 
 | Evaluation | Descriptions |
 |---|---|
@@ -130,32 +130,32 @@ Format Rule: Output MUST be in the exact markdown tables format below. Do not ad
 
 ### APPENDICES
 (Write assessment forms, rubrics, and instructions outside the tables, as separate markdown tables.)
-`;else if(x===`de`)I=c===`etkinlikPlani`?`TECHNOLOGIEGESTÜTZTER LEHRPLAN FÜR AKTIVES LERNEN`:`TECHNOLOGIEORIENTIERTES LERNSZENARIO`,E=`Sie sind ein KI-Assistent für Pädagogik, der auf den Entwurf von technologiegestützten Unterrichtsplänen für aktives Lernen spezialisiert ist. Sie müssen die Ausgabe vollständig auf Deutsch verfassen.`,A=`
+`;else if(x===`de`)F=c===`etkinlikPlani`?`TECHNOLOGIEGESTÜTZTER LEHRPLAN FÜR AKTIVES LERNEN`:`TECHNOLOGIEORIENTIERTES LERNSZENARIO`,w=`Sie sind ein KI-Assistent für Pädagogik, der auf den Entwurf von technologiegestützten Unterrichtsplänen für aktives Lernen spezialisiert ist. Sie müssen die Ausgabe vollständig auf Deutsch verfassen.`,O=`
 WICHTIG - LITERATURVERZEICHNIS-RICHTLINIEN:
 Der Literaturverzeichnis-Bereich MUSS gemäß den Richtlinien verfasst werden:
 - KEINE Aufzählungspunkte, Bindestriche (-), Nummerierungen oder Einrückungen verwenden. Als einfachen Text schreiben.
 - Die Referenzen alphabetisch sortieren, NICHT in Kategorien unterteilen.
 - Am Ende jedes Eintrags <br><br> hinzufügen.
 - Bücher: Nachname, A. (Jahr). Buchtitel. Verlag.
-`,j=`
+`,A=`
 LEHRPLANREGEL:
 Stellen Sie sicher, dass die Abschnitte "Einheit/Thema/Lernbereich" und "Inhaltsrahmen" zum Fach (${u}), der Klassenstufe (${f}) und den Lernzielen (${n}) passen. Erfinden Sie diese nicht frei, sondern nutzen Sie reale Lehrplanstrukturen.
-`,N=`
+`,j=`
 PÄDAGOGISCHE REGELN:
 1. Rollen: Schüler sind aktive Forscher, der Lehrer ist Begleiter. Vermeiden Sie Frontalunterricht.
-2. 4C-Fähigkeiten: Betonen Sie, wie Schüler Kommunikation, Kollaboration, kritisches Denken und Kreativität (${w}) demonstrieren.
+2. 4C-Fähigkeiten: Betonen Sie, wie Schüler Kommunikation, Kollaboration, kritisches Denken und Kreativität (${C}) demonstrieren.
 3. Technologie: Richten Sie technologische Werkzeuge an aktiver Produktion und Programmierung aus.
-`,P=`
+`,N=`
 EMPFOHLENE WEB 2.0 / KI-TOOLS:
 - Recherche: Perplexity, Google Scholar, EBA
 - Kollaboration: Padlet, Mentimeter, Miro
 - Programmierung/Modellierung: MEB-KİT Simulator, Tinkercad, Scratch
 - Medien/Design: Canva, CapCut, Adobe Express
 - Interaktion: Genially, Prezi, Kahoot
-`,F=`
+`,P=`
 RICHTLINIE FÜR ANWENDUNGEN:
 Wenn "MEB-KİT", "3D-Drucker" oder ein fortgeschrittenes Tool verwendet wird, fügen Sie eine detaillierte "Anwendungsrichtlinie" als Tabelle im Abschnitt ANHÄNGE hinzu.
-`,O=c===`etkinlikPlani`?`
+`,E=c===`etkinlikPlani`?`
 Formatregel: Die Ausgabe MUSS im exakten Markdown-Tabellenformat unten erfolgen. Fügen Sie keinen Text vor oder nach der Tabelle hinzu.
 
 | Allgemeine Informationen | Beschreibungen |
@@ -201,7 +201,7 @@ Formatregel: Die Ausgabe MUSS im exakten Markdown-Tabellenformat unten erfolgen.
 | **Überblick** | (Zusammenfassung des Szenarios) |
 | **Lernergebnisse / Ziele** | (Aufzählungspunkte) |
 | **Relevante Lehrplanziele** | ${t} |
-| **Fertigkeiten** | (4C-Fähigkeiten hervorheben: ${w}) |
+| **Fertigkeiten** | (4C-Fähigkeiten hervorheben: ${C}) |
 
 | Vorbereitung | Beschreibungen |
 |---|---|
@@ -212,7 +212,7 @@ Formatregel: Die Ausgabe MUSS im exakten Markdown-Tabellenformat unten erfolgen.
 
 | Durchführung | Beschreibungen |
 |---|---|
-| **Lernaktivitäten** | (Schritte passend zu den ausgewählten Lernbereichen - ${T.join(`, `)} - und Methoden. Gesamtdauer muss ${g} Minuten betragen. Hängen Sie (Relevante Fertigkeiten: ${w}) an jeden Schritt an.) |
+| **Lernaktivitäten** | (Schritte passend zu den ausgewählten Lernbereichen - ${T.join(`, `)} - und Methoden. Gesamtdauer muss ${g} Minuten betragen. Hängen Sie (Relevante Fertigkeiten: ${C}) an jeden Schritt an.) |
 
 | Bewertung | Beschreibungen |
 |---|---|
@@ -228,32 +228,32 @@ Formatregel: Die Ausgabe MUSS im exakten Markdown-Tabellenformat unten erfolgen.
 
 ### ANHÄNGE
 (Formulare, Rubriken und Anleitungen als separate Markdown-Tabellen unten einfügen.)
-`;else if(x===`fr`)I=c===`etkinlikPlani`?`PLAN DE COURS D'APPRENTISSAGE ACTIF AVEC TECHNOLOGIE`:`SCÉNARIO D'APPRENTISSAGE ORIENTÉ TECHNOLOGIE`,E=`Vous êtes un assistant IA expert en pédagogie, spécialisé dans la conception de plans de cours d'apprentissage actif soutenus par la technologie. Vous devez écrire l'intégralité de la sortie en français.`,A=`
+`;else if(x===`fr`)F=c===`etkinlikPlani`?`PLAN DE COURS D'APPRENTISSAGE ACTIF AVEC TECHNOLOGIE`:`SCÉNARIO D'APPRENTISSAGE ORIENTÉ TECHNOLOGIE`,w=`Vous êtes un assistant IA expert en pédagogie, spécialisé dans la conception de plans de cours d'apprentissage actif soutenus par la technologie. Vous devez écrire l'intégralité de la sortie en français.`,O=`
 IMPORTANT - DIRECTIVES POUR LA BIBLIOGRAPHIE:
 La section Bibliographie DOIT respecter les règles suivantes:
 - NE PAS utiliser de puces, de tirets (-), de numérotation ou d'indentation. Écrire en texte brut.
 - Trier les références par ordre alphabétique, NE PAS diviser par catégories.
 - Ajouter <br><br> à la fin de chaque entrée.
 - Livres: Nom de famille de l'auteur, A. (Année). Titre du livre. Éditeur.
-`,j=`
+`,A=`
 RÈGLE DU PROGRAMME:
 Assurez-vous que les sections "Unité/Thème/Domaine d'apprentissage" et "Sujet/Cadre de contenu" correspondent au nom du cours (${u}), au niveau de classe (${f}) et aux objectifs (${n}). Ne les inventez pas; assurez-vous qu'ils correspondent aux cadres de programme réels.
-`,N=`
+`,j=`
 RÈGLES PÉDAGOGIQUES:
 1. Rôles: Les élèves sont des chercheurs actifs, l'enseignant est un facilitateur. Pas de cours magistral passif.
-2. Compétences 4C: Soulignez comment les élèves démontrent la communication, la collaboration, la pensée critique et la créativité (${w}).
+2. Compétences 4C: Soulignez comment les élèves démontrent la communication, la collaboration, la pensée critique et la créativité (${C}).
 3. Technologie: Orientez les outils technologiques vers la production active et le codage.
-`,P=`
+`,N=`
 OUTILS WEB 2.0 / IA RECOMMANDÉS:
 - Recherche: Perplexity, Google Scholar, EBA
 - Collaboration: Padlet, Mentimeter, Miro
 - Codage/Modélisation: Simulateur MEB-KİT, Tinkercad, Scratch
 - Médias/Design: Canva, CapCut, Adobe Express
 - Interaction: Genially, Prezi, Kahoot
-`,F=`
+`,P=`
 GUIDE D'APPLICATION:
 Si "MEB-KİT", "Imprimante 3D" ou un outil avancé est utilisé, ajoutez un tableau détaillé de "Directives d'application" dans la section ANNEXES.
-`,O=c===`etkinlikPlani`?`
+`,E=c===`etkinlikPlani`?`
 Règle de format: La sortie DOIT être dans le format exact du tableau Markdown ci-dessous. N'ajoutez aucun texte avant ou après le tableau.
 
 | Informations Générales | Descriptions |
@@ -299,7 +299,7 @@ Règle de format: La sortie DOIT être dans le format exact du tableau Markdown 
 | **Aperçu** | (Résumé du scénario) |
 | **Résultats d'apprentissage / Objectifs** | (Puces) |
 | **Objectifs du programme associés** | ${t} |
-| **Compétences** | (Mettre en valeur les compétences 4C: ${w}) |
+| **Compétences** | (Mettre en valeur les compétences 4C: ${C}) |
 
 | Préparation | Descriptions |
 |---|---|
@@ -310,7 +310,7 @@ Règle de format: La sortie DOIT être dans le format exact du tableau Markdown 
 
 | Mise en œuvre | Descriptions |
 |---|---|
-| **Activités d'apprentissage** | (Étapes selon les zones choisies - ${T.join(`, `)} - et la pédagogie. Total doit faire ${g} minutes. Ajoutez (Compétences associées: ${w}) à chaque étape.) |
+| **Activités d'apprentissage** | (Étapes selon les zones choisies - ${T.join(`, `)} - et la pédagogie. Total doit faire ${g} minutes. Ajoutez (Compétences associées: ${C}) à chaque étape.) |
 
 | Évaluation | Descriptions |
 |---|---|
@@ -326,31 +326,31 @@ Règle de format: La sortie DOIT être dans le format exact du tableau Markdown 
 
 ### ANNEXES
 (Formulaires, rubriques et instructions sous forme de tableaux Markdown séparés ci-dessous.)
-`;else if(x===`ar`)I=c===`etkinlikPlani`?`خطة درس التعلم النشط المدعوم بالتكنولوجيا`:`سيناريو التعلم الموجه نحو التكنولوجيا`,E=`أنت مساعد ذكاء اصطناعي خبير في أصول التدريس ومستشار لتصميم خطط الدروس والسيناريوهات التعليمية المتوافقة مع معايير المناهج الحديثة. يجب أن تكتب المخرجات باللغة العربية الفصحى بالكامل.`,A=`
+`;else if(x===`ar`)F=c===`etkinlikPlani`?`خطة درس التعلم النشط المدعوم بالتكنولوجيا`:`سيناريو التعلم الموجه نحو التكنولوجيا`,w=`أنت مساعد ذكاء اصطناعي خبير في أصول التدريس ومستشار لتصميم خطط الدروس والسيناريوهات التعليمية المتوافقة مع معايير المناهج الحديثة. يجب أن تكتب المخرجات باللغة العربية الفصحى بالكامل.`,O=`
 هام - قواعد كتابة المراجع:
 يجب كتابة قسم المراجع وفقًا للقواعد التالية:
 - لا تستخدم النقاط أو الشرطات (-) أو الترقيم. اكتبها كنص عادي.
 - رتب المراجع أبجديًا، ولا تقسمها إلى فئات.
 - أضف <br><br> في نهاية كل مرجع.
-`,j=`
+`,A=`
 قاعدة المنهج:
 تأكد من أن أقسام "الوحدة/الموضوع/مجال التعلم" و"إطار المحتوى" مطابقة للمادة (${u})، والمستوى الصفي (${f})، ونواتج التعلم (${n}).
-`,N=`
+`,j=`
 القواعد التربوية:
 1. الأدوار: الطلاب باحثون نشطون، والمعلم موجه. الغِ الإلقاء التلقيني تمامًا.
-2. مهارات القرن 21: ركز على كيفية إظهار الطلاب لمهارات التواصل والتعاون والتفكير الناقد والابتكار (${w}).
+2. مهارات القرن 21: ركز على كيفية إظهار الطلاب لمهارات التواصل والتعاون والتفكير الناقد والابتكار (${C}).
 3. التكنولوجيا: وجه الأدوات الرقمية نحو الإنتاج والبرمجة النشطة.
-`,P=`
+`,N=`
 الأدوات الرقمية الموصى بها:
 - البحث: Perplexity, Google Scholar, EBA
 - التعاون: Padlet, Mentimeter, Miro
 - البرمجة والنمذجة: MEB-KİT Simulator, Tinkercad, Scratch
 - الوسائط والتصميم: Canva, CapCut, Adobe Express
 - التفاعل والتقييم: Genially, Prezi, Kahoot
-`,F=`
+`,P=`
 قاعدة إرشادات التطبيق:
 إذا تم استخدام "MEB-KİT" أو "طابعة ثلاثية الأبعاد"، فأضف جدولاً تفصيليًا لـ "إرشادات التطبيق" في قسم الملحقات.
-`,O=c===`etkinlikPlani`?`
+`,E=c===`etkinlikPlani`?`
 قاعدة التنسيق: يجب أن تكون المخرجات بتنسيق جدول Markdown التالي تمامًا. لا تضف أي نص قبل أو بعد الجدول.
 
 | معلومات عامة | التوضيحات |
@@ -396,7 +396,7 @@ Règle de format: La sortie DOIT être dans le format exact du tableau Markdown 
 | **نظرة عامة** | (ملخص عام للسيناريو) |
 | **نواتج التعلم / الأهداف** | (نقاط) |
 | **أهداف المنهج ذات الصلة** | ${t} |
-| **المهارات** | (التركيز على مهارات القرن 21: ${w}) |
+| **المهارات** | (التركيز على مهارات القرن 21: ${C}) |
 
 | التحضير | التوضيحات |
 |---|---|
@@ -407,7 +407,7 @@ Règle de format: La sortie DOIT être dans le format exact du tableau Markdown 
 
 | التنفيذ | التوضيحات |
 |---|---|
-| **أنشطة التعلم** | (الخطوات وفقًا لمجالات التعلم المختارة - ${T.join(`, `)} - وأصول التعلم النشط. المجموع ${g} دقيقة. أضف (المهارات ذات الصلة: ${w}) لكل خطوة.) |
+| **أنشطة التعلم** | (الخطوات وفقًا لمجالات التعلم المختارة - ${T.join(`, `)} - وأصول التعلم النشط. المجموع ${g} دقيقة. أضف (المهارات ذات الصلة: ${C}) لكل خطوة.) |
 
 | التقييم | التوضيحات |
 |---|---|
@@ -423,7 +423,7 @@ Règle de format: La sortie DOIT être dans le format exact du tableau Markdown 
 
 ### الملحقات
 (اكتب نماذج التقييم والقواعد الإرشادية خارج الجدول الرئيسي كجداول ماركداون منفصلة بالأسفل.)
-`;else{I=c===`etkinlikPlani`?`TEKNOLOJİ DESTEKLİ AKTİF ÖĞRENME ETKİNLİK PLANI`:`TEKNOLOJİ ODAKLI ÖĞRENME SENARYOSU`,E=`Sen, Yenilikçi Sınıf Eğitim Atölyesi için MEB müfredat standartlarına tam uyumlu çalışan pedagoji uzmanı bir yapay zeka asistanısın. Görevin, öğretmenin verdiği bilgiler doğrultusunda "Teknoloji Destekli Aktif Öğrenme Etkinlik Planı" hazırlamaktır.`,A=`
+`;else{F=c===`etkinlikPlani`?`TEKNOLOJİ DESTEKLİ AKTİF ÖĞRENME ETKİNLİK PLANI`:`TEKNOLOJİ ODAKLI ÖĞRENME SENARYOSU`,w=`Sen, Yenilikçi Sınıf Eğitim Atölyesi için MEB müfredat standartlarına tam uyumlu çalışan pedagoji uzmanı bir yapay zeka asistanısın. Görevin, öğretmenin verdiği bilgiler doğrultusunda "Teknoloji Destekli Aktif Öğrenme Etkinlik Planı" hazırlamaktır.`,O=`
 ÖNEMLİ - KAYNAKÇA YAZIM KURALLARI:
 Eklenen Kaynakça bölümü "Yenilikçi Sınıf Kaynakça Yazım Rehberi"ne uygun OLMALIDIR:
 - Madde işareti (bullet), tire (-), numaralandırma veya girinti KESİNLİKLE KULLANMA. Düz metin olarak yaz.
@@ -435,28 +435,28 @@ Eklenen Kaynakça bölümü "Yenilikçi Sınıf Kaynakça Yazım Rehberi"ne uygu
 - Çevrim İçi Araçlar (Kendi ürettiği içerik): Milli Eğitim Bakanlığı. (Yıl, Gün Ay). YS-İçeriğin adı. Platform Adı. Erişim tarihi 10 Mayıs 2026 URL
 - Öğretim Programları: Milli Eğitim Bakanlığı. (2024). [Ders Adı] dersi öğretim programı. Talim ve Terbiye Kurulu Başkanlığı. Erişim tarihi 10 Mayıs 2026 URL
 DİKKAT: Kaynakça tablosunun içine sadece düz metin kaynakları yaz. Çevrim İçi Araçlar bölümünde belirttiğiniz araçları kaynakçaya eklemeyi UNUTMAYIN!
-`,j=`
+`,A=`
 ÖNEMLİ MÜFREDAT KURALI (TÜRKİYE YÜZYILI MAARİF MODELİ 2024/2026):
 "Ünite/Tema/Öğrenme Alanı" ve "Konu/İçerik Çerçevesi" bölümlerini kesinlikle uydurmayın veya genel geçer şekilde doldurmayın. Öğretmenin girdiği "Ders" (Örn: Matematik, Temel Matematik, Matematik Uygulamaları, Fen Bilimleri, Fizik, Kimya, Biyoloji, Türkçe, Türk Dili ve Edebiyatı, Sosyal Bilgiler, Tarih, T.C. İnkılap Tarihi ve Atatürkçülük, Coğrafya, Felsefe vb.), "Sınıf Seviyesi" ve "Kazanım" bilgilerini analiz edin. 
 Bu bilgileri MEB'in güncel Türkiye Yüzyılı Maarif Modeli öğretim programları ile eşleştirerek, tam ve doğru "Öğrenme Alanı/Tema/Ünite" adını ve "Konu/İçerik Çerçevesi"ni tespit edip tablodaki ilgili alanlara yazın.
-`;let e=[];k&&e.push(`MEB-KİT Simülatörü`,`Scratch`),M&&e.push(`Tinkercad`),e.length===0&&e.push(`EBA Etkileşimli İçerikler`,`Canva`),N=`
+`;let e=[];k&&e.push(`MEB-KİT Simülatörü`,`Scratch`),M&&e.push(`Tinkercad`),e.length===0&&e.push(`EBA Etkileşimli İçerikler`,`Canva`),j=`
 PEDAGOJİK VE METODOLOJİK KURALLAR:
 1. Rol Tanımları: Öğrenciler aktif araştırmacı, öğretmen ise rehberdir. Geleneksel düz anlatımı tamamen ortadan kaldırın.
 2. 4C Entegrasyonu: Her adımda öğrencilerin İletişim, İş Birliği, Eleştirel Düşünme ve Yaratıcılık becerilerini nasıl sergilediğini açıklayın.
 3. Teknolojinin Rolü: Teknolojiyi sadece sunum veya tüketim için değil, esnek öğrenme alanlarına uygun olarak aktif üretim ve analiz için konumlandırın.
 ${k?`- MEB-KİT Kodlama ve devre tasarımlarını (Scratch tabanlı) etkinliğe entegre edebilirsiniz.`:`- KESİNLİKLE MEB-KİT (veya MEB KİT) kullanımı, kodlaması, devre tasarımı veya Scratch tabanlı elektronik kodlama önermeyin/yazmayın.`}
 ${M?`- 3B Tasarım/Modelleme (Tinkercad vb.) ve 3B Yazıcıdan fiziksel baskı almayı etkinliğe entegre edebilirsiniz.`:`- KESİNLİKLE 3B (3 boyutlu) tasarım, 3B modelleme, Tinkercad kullanımı veya 3B Yazıcıdan baskı almayı önermeyin/yazmayın.`}
-`,P=`
+`,N=`
 KATEGORİLERE GÖRE TAVSİYE EDİLEN YAPAY ZEKA VE WEB 2.0 ARAÇLARI:
 - Bilgi Toplama/Araştırma: Perplexity, Google Akademik, EBA
 - İş Birliği/Geri Bildirim: Padlet, Mentimeter, Miro
 - İçerik Geliştirme/Kodlama: ${e.join(`, `)}
 - Üretim/Medya Tasarımı: Canva, CapCut, Adobe Express
 - Sunum/Etkileşim: Genially, Prezi, Kahoot
-`,F=`
+`,P=`
 ÖNEMLİ YÖNERGE KURALI:
 ${k||M?`Eğer senaryoda ${k?`"MEB-KİT" `:``}${M?`"3B Yazıcı" `:``}kullanılıyorsa, EKLER bölümüne KESİNLİKLE detaylı bir "Uygulama Yönergesi" tablosu ekleyin (${k?`devre bağlantıları, pin yapılandırmaları `:``}${M?`veya 3D baskı slicing ayarları`:``}).`:`Senaryoda MEB-KİT veya 3B Yazıcı kullanılmadığı için EKLER bölümüne KESİNLİKLE devre bağlantı şemaları veya 3D baskı slicing tabloları eklemeyin. Ekler bölümünde sadece dersin kazanımına uygun çalışma kağıdı şablonları veya rubrik değerlendirme ölçekleri paylaşın.`}
-`,O=c===`etkinlikPlani`?`
+`,E=c===`etkinlikPlani`?`
 Format Kuralı: Çıktını KESİNLİKLE sadece aşağıdaki markdown tablosu formatında ver. Tablonun üstüne veya altına hiçbir açıklama metni, giriş veya çıkış ekleme. Sadece tabloyu yaz.
 
 | Genel Bilgiler | Açıklamalar |
@@ -502,7 +502,7 @@ Format Kuralı: Çıktını KESİNLİKLE sadece aşağıdaki markdown tablosu fo
 | **Genel Bakış** | (Senaryonun genel açıklaması) |
 | **Öğrenme Hedefleri/ Amaçları** | (Maddeler halinde) |
 | **İlgili Kazanımlar** | ${t} |
-| **Beceriler** | (Hedeflenen 4C becerilerini vurgula: ${w}) |
+| **Beceriler** | (Hedeflenen 4C becerilerini vurgula: ${C}) |
 
 | Hazırlık | Açıklamalar |
 |---|---|
@@ -513,7 +513,7 @@ Format Kuralı: Çıktını KESİNLİKLE sadece aşağıdaki markdown tablosu fo
 
 | Uygulama | Açıklamalar |
 |---|---|
-| **Öğrenme Etkinlikleri** | (Seçilen öğrenme alanlarına - ${T.join(`, `)} - göre adımlar. Her adıma ayrılan süreyi "dk." cinsinden belirtin ve toplamın ${g} dakikaya uymasını sağlayın. Her adımın sonuna (İlgili Beceriler: ${w}) ekle.) |
+| **Öğrenme Etkinlikleri** | (Seçilen öğrenme alanlarına - ${T.join(`, `)} - göre adımlar. Her adıma ayrılan süreyi "dk." cinsinden belirtin ve toplamın ${g} dakikaya uymasını sağlayın. Her adımın sonuna (İlgili Beceriler: ${C}) ekle.) |
 
 | Değerlendirme | Açıklamalar |
 |---|---|
@@ -529,18 +529,16 @@ Format Kuralı: Çıktını KESİNLİKLE sadece aşağıdaki markdown tablosu fo
 
 ### EKLER
 (Biçimlendirici, özetleyici formların veya yönergelerin TAM İÇERİĞİNİ ana tablonun içine DEĞİL, BURAYA AYRI VE OKUNAKLI NORMAL MARKDOWN TABLOLARI halinde KESİNLİKLE çizin/yazın.)
-`}let R=`CANVA ENTEGRASYON VE OTOMATİK TASARIM KURALI: Senaryoda veya Çevrim İçi Araçlar / Uygulama adımlarında Canva kullanılıyorsa, doğrudan bu kazanıma özel Canva şablon arama bağlantısını [🎨 Canva'da Şablon İncele](https://www.canva.com/search?q=${encodeURIComponent(C.substring(0,30))}) veya [🎨 Canva'da Tasarım Başlat](https://www.canva.com/design/create?title=${encodeURIComponent(u+`_`+f+`_Etkinlik`)}) şeklinde ekleyin. Ayrıca EKLER (APPENDICES) bölümünün altında mutlaka iki başlık oluşturun:
-1) "Canva Sihirli Tasarım Promptu (Magic Design)": Kullanıcının kopyalayıp Canva Magic Studio (Sihirli Tasarım) yapay zekasına yapıştırarak tasarımı Canva'da tek tıkla otomatik oluşturabilmesi için çok detaylı, hazır bir tasarım komutu (prompt) yazın.
-2) "Canva Toplu Oluşturma (Bulk Create) Verisi": Kullanıcının Canva'nın Toplu Oluşturma özelliğine yükleyip kartları/slaytları otomatik üretebilmesi için kazanımla ilgili soru-cevap veya içerikleri içeren örnek bir markdown tablosu hazırlayın.`,z=await fe(`${E}\nDili akademik, profesyonel, anlaşılır and ${o} olarak kullan. Anlatımı markdown kullanarak biçimlendir.`,`Ders: ${u}\nSeçilen Sınıf Seviyesi: ${f}. Sınıf\nÖğrenme Kazanımı: ${n}\n\nÖNEMLİ KURAL: Eğer 'Öğrenme Kazanımı' metninin başında sınıf seviyesi rakamı kodlanmışsa ve seçilen sınıf seviyesi (${f}) ile çelişiyorsa, KESİNLİKLE kazanım kodunda yazan sınıf seviyesini esas al.\n\nÖNEMLİ MATEMATİKSEL BİÇİM KURALI: Plana veya etkinlik adımlarına KESİNLİKLE LaTeX biçiminde matematiksel formüller ($...$, \\Box, \\frac, \\times, \\Box = vb.) eklemeyiniz. Matematiksel bilinmeyenleri, boş kutuları ve işlemleri herkesin okuyabileceği düz yazı sembolleriyle yazınız (Örneğin: '14 + ? = 20', '14 + [kutu] = 20' veya '14 + x = 20' şeklinde).\n\n${_}\n${b}\n${S}\n${R}\n${A}\n${j}\n${N}\n${P}\n${F}\nSeçilen Öğrenme Alanları: ${T.join(`, `)}\nSeçilen 4C Becerileri: ${w}\nEtkinlik Süresi: ${g} dakika\n\nLütfen yukarıdaki yönergelere uyarak planı/senaryoyu yazınız:\n${O}\n\nÖNEMLİ: Planın en sonuna (EKLER kısmının da altına), oluşturduğun mevcuda uygun 2D yerleşim planı için JSON bloğunu yerleştir:\n\`\`\`json\n{\n  "groups": ["hex", "tri"], \n  "items": ["pcDesk", "pcDesk", "pouf"]\n}\n\`\`\``,e),B=null,ee=z,V=/```json\s*(\{[\s\S]*?\})\s*```/,H=z.match(V);if(H)try{B=JSON.parse(H[1]),ee=z.replace(V,``).trim()}catch(e){console.error(`Failed to parse suggested layout JSON`,e)}L(B),ae(ee);let te=`
+`}let I=await fe(`${w}\nDili akademik, profesyonel, anlaşılır ve ${o} olarak kullan. Anlatımı markdown kullanarak biçimlendir.`,`Ders: ${u}\nSeçilen Sınıf Seviyesi: ${f}. Sınıf\nÖğrenme Kazanımı: ${n}\n\nÖNEMLİ KURAL: Eğer 'Öğrenme Kazanımı' metninin başında sınıf seviyesi rakamı kodlanmışsa ve seçilen sınıf seviyesi (${f}) ile çelişiyorsa, KESİNLİKLE kazanım kodunda yazan sınıf seviyesini esas al.\n\nÖNEMLİ MATEMATİKSEL BİÇİM KURALI: Plana veya etkinlik adımlarına KESİNLİKLE LaTeX biçiminde matematiksel formüller ($...$, \\Box, \\frac, \\times, \\Box = vb.) eklemeyiniz. Matematiksel bilinmeyenleri, boş kutuları ve işlemleri herkesin okuyabileceği düz yazı sembolleriyle yazınız (Örneğin: '14 + ? = 20', '14 + [kutu] = 20' veya '14 + x = 20' şeklinde).\n\n${_}\n${b}\n${S}\n${O}\n${A}\n${j}\n${N}\n${P}\nSeçilen Öğrenme Alanları: ${T.join(`, `)}\nSeçilen 4C Becerileri: ${C}\nEtkinlik Süresi: ${g} dakika\n\nLütfen yukarıdaki yönergelere uyarak planı/senaryoyu yazınız:\n${E}\n\nÖNEMLİ: Planın en sonuna (EKLER kısmının da altına), oluşturduğun mevcuda uygun 2D yerleşim planı için JSON bloğunu yerleştir:\n\`\`\`json\n{\n  "groups": ["hex", "tri"], \n  "items": ["pcDesk", "pcDesk", "pouf"]\n}\n\`\`\``,e),R=null,z=I,B=/```json\s*(\{[\s\S]*?\})\s*```/,ee=I.match(B);if(ee)try{R=JSON.parse(ee[1]),z=I.replace(B,``).trim()}catch(e){console.error(`Failed to parse suggested layout JSON`,e)}L(R),ae(z);let V=`
       <div style="text-align: center; margin-bottom: 25px; border-bottom: 2px solid #e2e8f0; padding-bottom: 15px;">
           <div style="line-height: 1.1; margin-bottom: 8px;">
               <span style="font-family: 'Outfit', 'Segoe UI', Arial, sans-serif; font-size: 26pt; font-weight: 800; color: #4f46e5; letter-spacing: -0.5px;">YENİLİKÇİ</span>
               <span style="font-family: 'Outfit', 'Segoe UI', Arial, sans-serif; font-size: 26pt; font-weight: 400; color: #0f172a; letter-spacing: 0.5px;"> SINIF</span>
           </div>
           <div style="font-family: 'Inter', 'Segoe UI', Arial, sans-serif; font-size: 12pt; font-weight: 600; color: #64748b; letter-spacing: 0.5px; text-transform: uppercase;">
-              ${I}
+              ${F}
           </div>
-      </div>`,ne=pe(ee),re=document.createElement(`div`);re.innerHTML=ne;let ie=!1;re.querySelectorAll(`*`).forEach(e=>{let t=e.innerText.toUpperCase();e.tagName===`H3`&&(t.includes(`EKLER`)||t.includes(`APPENDICES`)||t.includes(`ANHÄNGE`)||t.includes(`ANNEXES`)||t.includes(`الملحقات`))&&(ie=!0),e.tagName===`TABLE`&&(ie?e.className=`standard-table w-full border border-collapse border-slate-200 my-4 text-sm`:e.className=`template-table w-full border border-collapse border-slate-200 my-4 text-sm`)}),me(te+re.innerHTML),G(`Senaryo başarıyla oluşturuldu!`,`success`),setTimeout(()=>{let e=document.getElementById(`resultSection`);e&&e.scrollIntoView({behavior:`smooth`,block:`start`})},300)}catch(e){G(`İçerik oluşturulurken bir hata oluştu: `+e.message,`error`),console.error(e)}finally{re(!1),a.forEach(clearTimeout)}},isLoading:ne,kazanimlarDb:B,selectedSurec:H,setSelectedSurec:te})}),ne&&(0,U.jsxs)(`section`,{id:`loadingSection`,className:`glass-panel rounded-3xl p-8 md:p-12 bg-white shadow-xl border border-slate-100 space-y-8`,children:[(0,U.jsxs)(`div`,{className:`flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-slate-100`,children:[(0,U.jsxs)(`div`,{className:`flex items-center gap-4 text-left`,children:[(0,U.jsx)(`div`,{className:`p-3 bg-indigo-50 text-indigo-600 rounded-2xl animate-spin`,children:(0,U.jsx)(z,{className:`w-8 h-8`})}),(0,U.jsxs)(`div`,{children:[(0,U.jsxs)(`h3`,{className:`text-lg font-black text-indigo-950`,children:[W===1&&`Müfredat Analizi Yapılıyor...`,W===2&&`Pedagojik Yaklaşım Seçiliyor...`,W===3&&`Süre & İstasyon Planlaması Yapılıyor...`,W===4&&`Değerlendirme Kriterleri Tasarlanıyor...`,W>=5&&`Dosya Hazırlanıyor ve Tamamlanıyor...`]}),(0,U.jsxs)(`p`,{className:`text-xs text-slate-500 mt-0.5`,children:[W===1&&`Kazanımlar ve sınıf seviyesi standartları inceleniyor...`,W===2&&`Aktif öğrenme teknikleri ve 4C becerileri entegre ediliyor...`,W===3&&`Öğrenme alanlarına göre zaman dağılımı hesaplanıyor...`,W===4&&`Öz değerlendirme formları ve rubrikler hazırlanıyor...`,W>=5&&`Belge şablonu oluşturuluyor, yapay zekanın yanıtı tamamlanıyor (lütfen bekleyin)...`]})]})]}),(0,U.jsxs)(`div`,{className:`text-2xl font-black text-indigo-600 bg-indigo-50 px-4 py-2 rounded-2xl border border-indigo-100`,children:[W===1&&`20%`,W===2&&`45%`,W===3&&`65%`,W===4&&`85%`,W>=5&&`95%`]})]}),(0,U.jsxs)(`div`,{className:`bg-indigo-50/40 border border-indigo-100/40 rounded-2xl p-6 text-left space-y-4`,children:[(0,U.jsx)(`div`,{className:`text-[10px] md:text-xs font-black text-indigo-700/80 tracking-wider uppercase`,children:`YAPAY ZEKA TASARIM SÜRECİ`}),(0,U.jsxs)(`div`,{className:`flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 lg:gap-2`,children:[(0,U.jsxs)(`div`,{className:`flex items-center gap-2`,children:[(0,U.jsx)(`div`,{className:`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border transition-all ${W>1?`bg-emerald-100 text-emerald-600 border-emerald-300`:W===1?`bg-indigo-100 text-indigo-600 border-indigo-300 animate-pulse`:`bg-slate-100 text-slate-400 border-slate-200`}`,children:W>1?`✓`:`1`}),(0,U.jsx)(`span`,{className:`text-xs font-bold transition-all ${W>1?`text-emerald-600`:W===1?`text-indigo-600`:`text-slate-400`}`,children:`Müfredat Analizi`})]}),(0,U.jsx)(`div`,{className:`hidden lg:block h-0.5 flex-1 bg-slate-200 mx-2`}),(0,U.jsxs)(`div`,{className:`flex items-center gap-2`,children:[(0,U.jsx)(`div`,{className:`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border transition-all ${W>2?`bg-emerald-100 text-emerald-600 border-emerald-300`:W===2?`bg-indigo-100 text-indigo-600 border-indigo-300 animate-pulse`:`bg-slate-100 text-slate-400 border-slate-200`}`,children:W>2?`✓`:`2`}),(0,U.jsx)(`span`,{className:`text-xs font-bold transition-all ${W>2?`text-emerald-600`:W===2?`text-indigo-600`:`text-slate-400`}`,children:`Pedagoji Seçimi`})]}),(0,U.jsx)(`div`,{className:`hidden lg:block h-0.5 flex-1 bg-slate-200 mx-2`}),(0,U.jsxs)(`div`,{className:`flex items-center gap-2`,children:[(0,U.jsx)(`div`,{className:`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border transition-all ${W>3?`bg-emerald-100 text-emerald-600 border-emerald-300`:W===3?`bg-indigo-100 text-indigo-600 border-indigo-300 animate-pulse`:`bg-slate-100 text-slate-400 border-slate-200`}`,children:W>3?`✓`:`3`}),(0,U.jsx)(`span`,{className:`text-xs font-bold transition-all ${W>3?`text-emerald-600`:W===3?`text-indigo-600`:`text-slate-400`}`,children:`Süre & Aşama Hesabı`})]}),(0,U.jsx)(`div`,{className:`hidden lg:block h-0.5 flex-1 bg-slate-200 mx-2`}),(0,U.jsxs)(`div`,{className:`flex items-center gap-2`,children:[(0,U.jsx)(`div`,{className:`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border transition-all ${W>4?`bg-emerald-100 text-emerald-600 border-emerald-300`:W===4?`bg-indigo-100 text-indigo-600 border-indigo-300 animate-pulse`:`bg-slate-100 text-slate-400 border-slate-200`}`,children:W>4?`✓`:`4`}),(0,U.jsx)(`span`,{className:`text-xs font-bold transition-all ${W>4?`text-emerald-600`:W===4?`text-indigo-600`:`text-slate-400`}`,children:`Değerlendirme Tasarımı`})]}),(0,U.jsx)(`div`,{className:`hidden lg:block h-0.5 flex-1 bg-slate-200 mx-2`}),(0,U.jsxs)(`div`,{className:`flex items-center gap-2`,children:[(0,U.jsx)(`div`,{className:`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border transition-all ${W>5?`bg-emerald-100 text-emerald-600 border-emerald-300`:W===5?`bg-indigo-100 text-indigo-600 border-indigo-300 animate-pulse`:`bg-slate-100 text-slate-400 border-slate-200`}`,children:W>5?`✓`:`5`}),(0,U.jsx)(`span`,{className:`text-xs font-bold transition-all ${W>5?`text-emerald-600`:W===5?`text-indigo-600`:`text-slate-400`}`,children:`Kaynakça & Şablonlama`})]})]})]})]}),oe&&!ne&&(0,U.jsxs)(`div`,{className:`space-y-8`,children:[(0,U.jsx)(`section`,{id:`resultSection`,children:(0,U.jsx)(ce,{renderedHtml:oe,onSaveToBrowser:()=>{if(!oe)return;let e=`${u||`Bilinmeyen Ders`} - ${c===`etkinlikPlani`?`Etkinlik Planı`:`Öğrenme Senaryosu`} (${C.length>30?C.substring(0,30)+`...`:C})`,t=Date.now().toString();try{let n=[...o,{id:t,title:e,content:oe,timestamp:Date.now(),rawMarkdown:ie}];s(n),localStorage.setItem(we,JSON.stringify(n)),G(`Senaryo tarayıcı hafızasına başarıyla kaydedildi!`,`success`)}catch(e){console.error(e),G(`Kaydetme işlemi başarısız oldu.`,`error`)}},onCopyOnlyText:()=>{let e=document.createElement(`div`);e.innerHTML=oe;let t=``;e.querySelectorAll(`tr`).forEach(e=>{let n=e.querySelectorAll(`td`);if(n.length===2){let e=n[1].innerText.trim();e&&(t+=e+`
+      </div>`,H=pe(z),te=document.createElement(`div`);te.innerHTML=H;let ne=!1;te.querySelectorAll(`*`).forEach(e=>{let t=e.innerText.toUpperCase();e.tagName===`H3`&&(t.includes(`EKLER`)||t.includes(`APPENDICES`)||t.includes(`ANHÄNGE`)||t.includes(`ANNEXES`)||t.includes(`الملحقات`))&&(ne=!0),e.tagName===`TABLE`&&(ne?e.className=`standard-table w-full border border-collapse border-slate-200 my-4 text-sm`:e.className=`template-table w-full border border-collapse border-slate-200 my-4 text-sm`)}),me(V+te.innerHTML),G(`Senaryo başarıyla oluşturuldu!`,`success`),setTimeout(()=>{let e=document.getElementById(`resultSection`);e&&e.scrollIntoView({behavior:`smooth`,block:`start`})},300)}catch(e){G(`İçerik oluşturulurken bir hata oluştu: `+e.message,`error`),console.error(e)}finally{re(!1),a.forEach(clearTimeout)}},isLoading:ne,kazanimlarDb:B,selectedSurec:H,setSelectedSurec:te})}),ne&&(0,U.jsxs)(`section`,{id:`loadingSection`,className:`glass-panel rounded-3xl p-8 md:p-12 bg-white shadow-xl border border-slate-100 space-y-8`,children:[(0,U.jsxs)(`div`,{className:`flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-slate-100`,children:[(0,U.jsxs)(`div`,{className:`flex items-center gap-4 text-left`,children:[(0,U.jsx)(`div`,{className:`p-3 bg-indigo-50 text-indigo-600 rounded-2xl animate-spin`,children:(0,U.jsx)(z,{className:`w-8 h-8`})}),(0,U.jsxs)(`div`,{children:[(0,U.jsxs)(`h3`,{className:`text-lg font-black text-indigo-950`,children:[W===1&&`Müfredat Analizi Yapılıyor...`,W===2&&`Pedagojik Yaklaşım Seçiliyor...`,W===3&&`Süre & İstasyon Planlaması Yapılıyor...`,W===4&&`Değerlendirme Kriterleri Tasarlanıyor...`,W>=5&&`Dosya Hazırlanıyor ve Tamamlanıyor...`]}),(0,U.jsxs)(`p`,{className:`text-xs text-slate-500 mt-0.5`,children:[W===1&&`Kazanımlar ve sınıf seviyesi standartları inceleniyor...`,W===2&&`Aktif öğrenme teknikleri ve 4C becerileri entegre ediliyor...`,W===3&&`Öğrenme alanlarına göre zaman dağılımı hesaplanıyor...`,W===4&&`Öz değerlendirme formları ve rubrikler hazırlanıyor...`,W>=5&&`Belge şablonu oluşturuluyor, yapay zekanın yanıtı tamamlanıyor (lütfen bekleyin)...`]})]})]}),(0,U.jsxs)(`div`,{className:`text-2xl font-black text-indigo-600 bg-indigo-50 px-4 py-2 rounded-2xl border border-indigo-100`,children:[W===1&&`20%`,W===2&&`45%`,W===3&&`65%`,W===4&&`85%`,W>=5&&`95%`]})]}),(0,U.jsxs)(`div`,{className:`bg-indigo-50/40 border border-indigo-100/40 rounded-2xl p-6 text-left space-y-4`,children:[(0,U.jsx)(`div`,{className:`text-[10px] md:text-xs font-black text-indigo-700/80 tracking-wider uppercase`,children:`YAPAY ZEKA TASARIM SÜRECİ`}),(0,U.jsxs)(`div`,{className:`flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 lg:gap-2`,children:[(0,U.jsxs)(`div`,{className:`flex items-center gap-2`,children:[(0,U.jsx)(`div`,{className:`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border transition-all ${W>1?`bg-emerald-100 text-emerald-600 border-emerald-300`:W===1?`bg-indigo-100 text-indigo-600 border-indigo-300 animate-pulse`:`bg-slate-100 text-slate-400 border-slate-200`}`,children:W>1?`✓`:`1`}),(0,U.jsx)(`span`,{className:`text-xs font-bold transition-all ${W>1?`text-emerald-600`:W===1?`text-indigo-600`:`text-slate-400`}`,children:`Müfredat Analizi`})]}),(0,U.jsx)(`div`,{className:`hidden lg:block h-0.5 flex-1 bg-slate-200 mx-2`}),(0,U.jsxs)(`div`,{className:`flex items-center gap-2`,children:[(0,U.jsx)(`div`,{className:`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border transition-all ${W>2?`bg-emerald-100 text-emerald-600 border-emerald-300`:W===2?`bg-indigo-100 text-indigo-600 border-indigo-300 animate-pulse`:`bg-slate-100 text-slate-400 border-slate-200`}`,children:W>2?`✓`:`2`}),(0,U.jsx)(`span`,{className:`text-xs font-bold transition-all ${W>2?`text-emerald-600`:W===2?`text-indigo-600`:`text-slate-400`}`,children:`Pedagoji Seçimi`})]}),(0,U.jsx)(`div`,{className:`hidden lg:block h-0.5 flex-1 bg-slate-200 mx-2`}),(0,U.jsxs)(`div`,{className:`flex items-center gap-2`,children:[(0,U.jsx)(`div`,{className:`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border transition-all ${W>3?`bg-emerald-100 text-emerald-600 border-emerald-300`:W===3?`bg-indigo-100 text-indigo-600 border-indigo-300 animate-pulse`:`bg-slate-100 text-slate-400 border-slate-200`}`,children:W>3?`✓`:`3`}),(0,U.jsx)(`span`,{className:`text-xs font-bold transition-all ${W>3?`text-emerald-600`:W===3?`text-indigo-600`:`text-slate-400`}`,children:`Süre & Aşama Hesabı`})]}),(0,U.jsx)(`div`,{className:`hidden lg:block h-0.5 flex-1 bg-slate-200 mx-2`}),(0,U.jsxs)(`div`,{className:`flex items-center gap-2`,children:[(0,U.jsx)(`div`,{className:`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border transition-all ${W>4?`bg-emerald-100 text-emerald-600 border-emerald-300`:W===4?`bg-indigo-100 text-indigo-600 border-indigo-300 animate-pulse`:`bg-slate-100 text-slate-400 border-slate-200`}`,children:W>4?`✓`:`4`}),(0,U.jsx)(`span`,{className:`text-xs font-bold transition-all ${W>4?`text-emerald-600`:W===4?`text-indigo-600`:`text-slate-400`}`,children:`Değerlendirme Tasarımı`})]}),(0,U.jsx)(`div`,{className:`hidden lg:block h-0.5 flex-1 bg-slate-200 mx-2`}),(0,U.jsxs)(`div`,{className:`flex items-center gap-2`,children:[(0,U.jsx)(`div`,{className:`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border transition-all ${W>5?`bg-emerald-100 text-emerald-600 border-emerald-300`:W===5?`bg-indigo-100 text-indigo-600 border-indigo-300 animate-pulse`:`bg-slate-100 text-slate-400 border-slate-200`}`,children:W>5?`✓`:`5`}),(0,U.jsx)(`span`,{className:`text-xs font-bold transition-all ${W>5?`text-emerald-600`:W===5?`text-indigo-600`:`text-slate-400`}`,children:`Kaynakça & Şablonlama`})]})]})]})]}),oe&&!ne&&(0,U.jsxs)(`div`,{className:`space-y-8`,children:[(0,U.jsx)(`section`,{id:`resultSection`,children:(0,U.jsx)(ce,{renderedHtml:oe,onSaveToBrowser:()=>{if(!oe)return;let e=`${u||`Bilinmeyen Ders`} - ${c===`etkinlikPlani`?`Etkinlik Planı`:`Öğrenme Senaryosu`} (${C.length>30?C.substring(0,30)+`...`:C})`,t=Date.now().toString();try{let n=[...o,{id:t,title:e,content:oe,timestamp:Date.now(),rawMarkdown:ie}];s(n),localStorage.setItem(we,JSON.stringify(n)),G(`Senaryo tarayıcı hafızasına başarıyla kaydedildi!`,`success`)}catch(e){console.error(e),G(`Kaydetme işlemi başarısız oldu.`,`error`)}},onCopyOnlyText:()=>{let e=document.createElement(`div`);e.innerHTML=oe;let t=``;e.querySelectorAll(`tr`).forEach(e=>{let n=e.querySelectorAll(`td`);if(n.length===2){let e=n[1].innerText.trim();e&&(t+=e+`
 
 `)}else if(n.length===1){let e=n[0].innerText.trim();e&&(t+=e+`
 
