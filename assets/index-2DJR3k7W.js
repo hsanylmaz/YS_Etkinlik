@@ -613,7 +613,71 @@ Format Kuralı: Çıktını KESİNLİKLE sadece aşağıdaki markdown tablosu fo
 
 ### EKLER
 (Biçimlendirici, özetleyici formların veya yönergelerin TAM İÇERİĞİNİ ana tablonun içine DEĞİL, BURAYA AYRI VE OKUNAKLI NORMAL MARKDOWN TABLOLARI halinde KESİNLİKLE çizin/yazın.)
-`}let I=await he(`${w}\nDili akademik, profesyonel, anlaşılır ve ${s} olarak kullan. Anlatımı markdown kullanarak biçimlendir.`,`Ders: ${u}\nSeçilen Sınıf Seviyesi: ${f}. Sınıf\nÖğrenme Kazanımı: ${i}\n\nÖNEMLİ KURAL: Eğer 'Öğrenme Kazanımı' metninin başında sınıf seviyesi rakamı kodlanmışsa ve seçilen sınıf seviyesi (${f}) ile çelişiyorsa, KESİNLİKLE kazanım kodunda yazan sınıf seviyesini esas al.\n\nÖNEMLİ MATEMATİKSEL BİÇİM KURALI: Plana veya etkinlik adımlarına KESİNLİKLE LaTeX biçiminde matematiksel formüller ($...$, \\Box, \\frac, \\times, \\Box = vb.) eklemeyiniz. Matematiksel bilinmeyenleri, boş kutuları ve işlemleri herkesin okuyabileceği düz yazı sembolleriyle yazınız (Örneğin: '14 + ? = 20', '14 + [kutu] = 20' veya '14 + x = 20' şeklinde).\n\n${_}\n${b}\n${S}\n${O}\n${A}\n${j}\n${N}\n${P}\nSeçilen Öğrenme Alanları: ${T.join(`, `)}\nSeçilen 4C Becerileri: ${C}\nEtkinlik Süresi: ${g} dakika\n\nLütfen yukarıdaki yönergelere uyarak planı/senaryoyu yazınız:\n${E}\n\nÖNEMLİ: Planın en sonuna (EKLER kısmının da altına), oluşturduğun mevcuda uygun 2D yerleşim planı için JSON bloğunu yerleştir:\n\`\`\`json\n{\n  "groups": ["hex", "tri"], \n  "items": ["pcDesk", "pcDesk", "pouf"]\n}\n\`\`\``,e),R=null,z=I,B=/```json\s*(\{[\s\S]*?\})\s*```/,ee=I.match(B);if(ee)try{R=JSON.parse(ee[1]),z=I.replace(B,``).trim()}catch(e){console.error(`Failed to parse suggested layout JSON`,e)}L(R),ae(z);let V=`
+`}let I=await he(`${w}\nDili akademik, profesyonel, anlaşılır ve ${s} olarak kullan. Anlatımı markdown kullanarak biçimlendir.`,`Ders: ${u}\nSeçilen Sınıf Seviyesi: ${f}. Sınıf\nÖğrenme Kazanımı: ${i}\n\nÖNEMLİ KURAL: Eğer 'Öğrenme Kazanımı' metninin başında sınıf seviyesi rakamı kodlanmışsa ve seçilen sınıf seviyesi (${f}) ile çelişiyorsa, KESİNLİKLE kazanım kodunda yazan sınıf seviyesini esas al.\n\nÖNEMLİ MATEMATİKSEL BİÇİM KURALI: Plana veya etkinlik adımlarına KESİNLİKLE LaTeX biçiminde matematiksel formüller ($...$, \\Box, \\frac, \\times, \\Box = vb.) eklemeyiniz. Matematiksel bilinmeyenleri, boş kutuları ve işlemleri herkesin okuyabileceği düz yazı sembolleriyle yazınız (Örneğin: '14 + ? = 20', '14 + [kutu] = 20' veya '14 + x = 20' şeklinde).\n\n${_}\n${b}\n${S}\n${O}\n${A}\n${j}\n${N}\n${P}\n
+ÖNEMLİ ÖLÇME VE DEĞERLENDİRME REHBERİ KURALI:
+Planlama içerisindeki "Ölçme ve Değerlendirme" satırını (ve ilgili ekler bölümündeki rubrik/değerlendirme araçlarını) KESİNLİKLE "Aktif Öğrenme Etkinlikleri İçin Ölçme ve Değerlendirme Rehberi" dışına çıkmadan hazırlayın.
+Her etkinlik planında, aşağıdaki 6 aşamaya uygun en az 2-3 adet biçimlendirici (formative) değerlendirme tekniği seçip sürece yedirin ve Değerlendirme hücresine yazın:
+
+1. Bilgiyi Harekete Geçirme (Bilgiye Erişme-Hatırlama):
+   - Tahmin-Kontrol-Açıklama (Predict-Observe-Explain)
+   - Hızlı beyin dökümü (1 dakikalık fikir üretimi)
+   - Kelime bulutu ile ön bilgi yoklama
+   - Yanlış mı doğru mu? (anlık oylama)
+   - Kafalar aşağı
+
+2. Anlamlandırma ve Yorumlama (Kavrama):
+   - Sessiz tartışma (silent discussion)
+   - Bir cümle-bir soru tekniği
+   - Analogilerle anlatım ("Bu kavram ... gibidir çünkü...")
+   - Mikro öğretim videoları (30-60 sn. öğrenci anlatımı)
+   - Canlı kavram duvarı (post-it veya dijital pano)
+   - Düşün-çiz-paylaş (kısa görsel eskizlerle)
+   - Vurgu kalemi (highlighter)
+   - Üç özet (farklı uzunluklarda)
+   - Kavram kontrolü
+   - Karşılıklı sorgulama
+   - Teslim et, dağıt
+   - Dur ve devam et
+   - Dört köşe
+
+3. Uygulama ve Çözüm Üretme (Uygulama):
+   - Gerçek yaşam senaryoları üzerinden anlık çözüm üretme
+   - Düşün-uygula-paylaş döngüsü
+   - Hata avı (error analysis)
+   - Simülasyon ve etkileşimli modeller
+   - Çözüm yolu anlatımı (süreç paylaşımı)
+   - Dört köşe
+   - Tıklayıcı sınıfta (clickers in the classroom)
+
+4. Analiz ve Akıl Yürütme (Analiz):
+   - Kanıta dayalı tartışma (claim-evidence-reasoning)
+   - Karşılaştırmalı vaka analizi
+   - Veri yorumlama oturumları
+   - Sebep-sonuç haritalama
+   - Teslim et, dağıt
+   - Sessiz tartışma (silent discussion)
+   - Karşılıklı sorgulama (gerekçeli)
+
+5. Üretme ve Sentezleme (Üretebilme):
+   - Hızlı prototipleme
+   - Tasarım odaklı düşünme döngüsü (empati-fikir-deneme)
+   - Ürün taslağına anında sözlü geri bildirim
+   - Galeri yürüyüşü (gallery walk)
+   - "Başka nasıl olabilirdi?" oturumu
+   - Duvar yazısı (graffiti)
+
+6. Yansıtma, Karar Verme ve Öz Düzenleme (Üst Biliş):
+   - Öğrenme günlüğü - serbest yansıtma (yazılı/sesli)
+   - Çıkış cümlesi ("Bugün fark ettiğim en önemli şey...")
+   - Hedef güncelleme tartışması
+   - Akran geri bildirim çemberi
+   - Bir dakikalık yazılar
+   - 3-2-1 tekniği
+   - Zarı yuvarla / Küpü yuvarla
+   - Emoji çizimi
+
+Seçilen tekniklerin uygulanışını, hedeflenen kazanımla ilişkilendirerek detaylandırın. Geleneksel/klasik notlandırma amaçlı sınav veya testleri KESİNLİKLE planlamayın. Sadece süreç odaklı, not baskısı oluşturmayan bu aktif değerlendirme araçlarını kullanın.
+\nSeçilen Öğrenme Alanları: ${T.join(`, `)}\nSeçilen 4C Becerileri: ${C}\nEtkinlik Süresi: ${g} dakika\n\nLütfen yukarıdaki yönergelere uyarak planı/senaryoyu yazınız:\n${E}\n\nÖNEMLİ: Planın en sonuna (EKLER kısmının da altına), oluşturduğun mevcuda uygun 2D yerleşim planı için JSON bloğunu yerleştir:\n\`\`\`json\n{\n  "groups": ["hex", "tri"], \n  "items": ["pcDesk", "pcDesk", "pouf"]\n}\n\`\`\``,e),R=null,z=I,B=/```json\s*(\{[\s\S]*?\})\s*```/,ee=I.match(B);if(ee)try{R=JSON.parse(ee[1]),z=I.replace(B,``).trim()}catch(e){console.error(`Failed to parse suggested layout JSON`,e)}L(R),ae(z);let V=`
       <div style="text-align: center; margin-bottom: 25px; border-bottom: 2px solid #e2e8f0; padding-bottom: 15px;">
           <div style="line-height: 1.1; margin-bottom: 8px;">
               <span style="font-family: 'Outfit', 'Segoe UI', Arial, sans-serif; font-size: 26pt; font-weight: 800; color: #4f46e5; letter-spacing: -0.5px;">YENİLİKÇİ</span>
