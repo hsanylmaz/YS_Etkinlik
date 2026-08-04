@@ -457,6 +457,10 @@ PEDAGOJİK VE METODOLOJİK KURALLAR:
 2. 4C Entegrasyonu: Her adımda öğrencilerin İletişim, İş Birliği, Eleştirel Düşünme ve Yaratıcılık becerilerini doğal akış içinde sergilemelerini sağlayın.
 3. Teknolojinin Rolü: Teknolojiyi sadece sunum veya tüketim için değil, esnek öğrenme alanlarına uygun olarak aktif üretim ve analiz için konumlandırın.
 4. KESİN BİÇİMLENDİRME KURALI: Uygulama (Uygulama Adımları / Öğrenme Etkinlikleri) kısmındaki metinlerin içine veya sonuna KESİNLİKLE parantez içinde süreç bileşeni kodları (Örn: '(Süreç Bileşeni: a, b)') veya 4C becerileri etiketi (Örn: '(İlgili Beceriler: İletişim, İş Birliği)') PARANTEZ İÇİNDE YAZMAYINIZ. Adımları doğrudan akıcı, doğal bir öğretmen yönergesi olarak yazınız.
+5. UYGULAMA SÜRESİ VE BÖLÜMLENDİRME KURALI:
+   - Uygulama adımlarını (Öğrenme Etkinlikleri) KESİNLİKLE "0-5 dk:", "5-20 dk:" gibi zaman aralıklarıyla bölmeyin veya bu zaman aralıklarını satır başlarına yazmayın.
+   - Her bir adımın kendi metninin en sonuna, parantez içinde o adıma kaç dakika ayrıldığını belirtin. Örnek: "... (5 dk.)" veya "... (15 dk.)" şeklinde.
+   - Plan içerisindeki adımlara ayrılan bu sürelerin toplamı, Uygulama genel başlığındaki toplam süreye (Örn: Uygulama (Süre: 40 dk.)) ve seçilen toplam ders süresine (${g} dakika) KESİNLİKLE tam olarak eşit olmalıdır!
 ${k?`- MEB-KİT Kodlama ve devre tasarımlarını (Scratch tabanlı) etkinliğe entegre edebilirsiniz.`:`- KESİNLİKLE MEB-KİT (veya MEB KİT) kullanımı, kodlaması, devre tasarımı veya Scratch tabanlı elektronik kodlama önermeyin/yazmayın.`}
 ${M?`- 3B Tasarım/Modelleme (Tinkercad vb.) ve 3B Yazıcıdan fiziksel baskı almayı etkinliğe entegre edebilirsiniz.`:`- KESİNLİKLE 3B (3 boyutlu) tasarım, 3B modelleme, Tinkercad kullanımı veya 3B Yazıcıdan baskı almayı önermeyin/yazmayın.`}
 `,N=`
