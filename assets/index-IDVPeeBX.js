@@ -486,9 +486,10 @@ RESMİ BLOK ETİKETLERİ KURALI (TEMEL EĞİTİM):
 Diyagramdaki bloklarda KESİNLİKLE aşağıdaki resmi MEB-KİT platformu blok isimlerini kullanın:
   * Pin Kontrolü: [dijital oku pin (0)], [analog oku pin (A) (0)], [dijital ayarla pin (0) çıkış (yüksek/düşük)], [PWM ayarla pin (0) çıkış (0)], [pinde çal (0) nota (C4) ile (0) vuruş], [servo pin (0) açı (0)]
   * Seri Port: [Seri porta yaz ("mesaj") alt satıra geç (işaretli/işaretsiz) Baud: (9600)], [seri porttan okunabilir baytlar], [seri porttan byte oku]
-  * Karar/Kontrol: [eğer <koşul> yap [ ... ]], [eğer <koşul> yap [ ... ] değilse [ ... ]], [simülasyonu başlat]
+  * Karar/Kontrol: [eğer <koşul> yap [ ... ]], [eğer <koşul> yap [ ... ] değilse [ ... ]], [eğer <koşul> yap [ ... ] değilse eğer <koşul> yap [ ... ] değilse [ ... ]], [sürekli tekrarla], [olana kadar tekrarla (koşul) yap [ ... ]], [defa tekrarla (10)], [bekle (1) saniye], [simülasyonu başlat]
   * Sensörler: [ultrasonik sensör oku trig pin (1) echo pin (1)], [DHT11 ile ölç pin (2) seç (Sıcaklık (°C) / Nem (%))], [Sıvı Seviye Sensörü Oku Pin No: (A0)], [Toprak-Nem Data Pin (A0)]
-  * Veri Aritmetiği: [aralığa dönüştür (50) konumundan (1, 100) için (1, 1000)], [ (50) kısıtlaması (1) , (100) arasında], [ (123) dönüştür (tam sayı)]
+  * Veri/Matematik/Metin İşlemleri: [aralığa dönüştür (50) konumundan (1, 100) için (1, 1000)], [ (50) kısıtlaması (1) , (100) arasında], [ (123) dönüştür (tam sayı)], [ (değer) mod (değer) ], [ yuvarla (değer) ], [ (değer) > (değer) ], [ (metin) ile (metin) birleştir ], [ (değer) ile (değer) arasında bir sayı tut ]
+  * Sabit ve Değişken: [Değişken oluştur...]
 `}
 
 TABLO VE HÜCRE KURALI: Tablonun kırılmaması için tablo hücresi içinde ASLA üç tırnak (\`\`\`) veya ham alt satıra geçme (Enter/Newline) kullanmayın. Kod veya blok diyagram satırlarını tek bir tablo satırı içinde <br> etiketleri kullanarak \`<code>...</code>\` bloğu içinde yazın.
