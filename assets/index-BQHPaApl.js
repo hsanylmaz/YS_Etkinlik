@@ -474,6 +474,11 @@ MEB-KİT kullanımı seçilmiştir. EKLER (APPENDICES) bölümünün EN ALT KISM
 3B Yazıcı kullanımı seçilmiştir. EKLER (APPENDICES) bölümünün EN ALT KISMINA KESİNLİKLE aşağıdaki şablona göre hazırlanmış "3B TASARIM YÖNERGESİ" tablosunu ekleyin. Tablo içindeki bilgileri seçilen kazanıma (${i}) ve yapılan 3D tasarıma tam uygun şekilde doldurun.
 TABLO BAŞLIĞI VE BAŞLIK HÜCRELERİ KURALI: Tablo başlığı olarak KESİNLİKLE "### 3B TASARIM YÖNERGESİ" yazın. Tablonun en üstüne "Yönerge Adı" ve "Açıklama" sütun başlıklarını YAZMAYIN. "Etkinliğin Adı 3B Yönergesi" adında bir satır KESİNLİKLE EKLEMEYİN. Tabloyu doğrudan "| | |" satırının ardından "Sınıf Oluşturma, Proje Başlatma ve Öğrenci Ekleme" satırı ile başlatın.
 CREALITY K1C YAZICI VE BASKI BOYUTU KURALI: Okulda/Laboratuvarda "Creality K1C" 3B yazıcı kullanılmaktadır. Önerilen 3B model baskı boyutları KESİNLİKLE Creality K1C'nin maksimum baskı hacmi olan 220 mm x 220 mm x 250 mm (22 cm x 22 cm x 25 cm) boyut sınırlarını AŞMAMALIDIR. Tüm boyut tavsiyelerinizi bu sınırlar dahilinde (Örn: 80x80x100 mm vb.) belirleyin.
+3B BASKI ALINACAK ZAMAN DİLİMİ KURALI: '3B Baskı Alınacak Zaman Dilimi' hücresini doldururken aşağıdaki koşullara KESİNLİKLE UYUN:
+1. Öğretmen modeli dersten önce basıp sınıfa getirecekse (hazırlık aşamasında öğretmen baskı alıyorsa): KESİNLİKLE 'Ders Öncesi' yazın.
+2. Tahmini 3B baskı süresi etkinlik süresinden (${g} dakikadan) AZ ise ve baskı derste tamamlanıyorsa: KESİNLİKLE 'Ders Esnasında' yazın.
+3. Tahmini 3B baskı süresi etkinlik süresinden (${g} dakikadan) FAZLA ise ve baskı derste başlayıp ders sonrasında devam edecekse: KESİNLİKLE 'Ders Esnasında, Ders Sonrasında' yazın.
+4. Tasarım derste yapılıp baskı işlemi ders sonrasında başlatılacaksa: KESİNLİKLE 'Ders Sonrasında' yazın.
 İNGİLİZCE ANAHTAR KELİME İLE ARAMA LİNKİ KURALI: 3B model platformlarında (Thingiverse, Printables, Tinkercad) Türkçe sonuç çıkmadığı için, STL ve GCODE linklerini oluştururken KESİNLİKLE kazanım kodunu (BİY.9.1.1 vb.) YAZMAYIN. Seçilen kazanımın konusunu İNGİLİZCEye çevirerek en uygun 1-3 kelimelik İngilizce arama terimlerini (Örn: 'dna double helix', 'plant cell organelles', 'fraction circles', 'solar system', 'heart model' vb.) URL parametresi ('q=ingilizce_terimler') olarak ekleyin.
 ÖNEMLİ TASARIM AŞAMASI KURALI: "Tasarım Aşaması" hücresindeki açıklamalar KESİNLİKLE sabit veya matbu kalıp metin OLMAMALIDIR. Yapay zeka olarak seçilen kazanıma (${i}) ve tasarlanan 3B nesneye/modele özel olarak DENE, DÜŞÜN, FİKRİNİ SUN, KEŞFET, REVİZE ET, TASARLA ve TASLAK ÇİZ adımlarının her biri için tamamen ÖZGÜN, CANLI ve KAZANIMA ÖZEL pedagojik açıklamalar kaleme alın.
 
@@ -488,7 +493,7 @@ CREALITY K1C YAZICI VE BASKI BOYUTU KURALI: Okulda/Laboratuvarda "Creality K1C" 
 | **Baskı Süreci** | Model, dilimleme programına aktarılır ve baskı ayarları yapılır. Gerekli durumlarda (30° den fazla eğimli yüzey veya askıda kalan kısım var ise) destek yapıları etkinleştirilir. Filament türüne uygun sıcaklık ve tabla ayarları belirlenir. Oluşturulan baskı dosyası flash disk veya ağ aracılığıyla yazıcıya aktarılır ve üretim süreci başlatılır. |
 | **Örnek Tasarımın Düzenlenebilir Dosya Linki (.STL)** | [🔍 Thingiverse'de 3B Model Ara](https://www.thingiverse.com/search?q=INGILIZCE_KONU_TERIMLERI) veya [🔍 Printables'da Model Ara](https://www.printables.com/search/models?q=INGILIZCE_KONU_TERIMLERI) |
 | **Örnek Tasarımın Basılabilir Dosya Linki (.GCODE)** | [🔍 Tinkercad Galerisinde İncele](https://www.tinkercad.com/search?q=INGILIZCE_KONU_TERIMLERI) |
-| **3B Baskı Alınacak Zaman Dilimi** | Ders Öncesi / Ders Esnasında / Ders Sonrası |
+| **3B Baskı Alınacak Zaman Dilimi** | (Yukarıdaki 4 koşula göre: Ders Öncesi / Ders Esnasında / Ders Esnasında, Ders Sonrasında / Ders Sonrasında) |
 | **Örnek 3B Baskı Süresi** | (Tahmini baskı süresi, Örn: 1 saat 15 dakika) |
 | **Örnek 3B Baskı Boyutu (En, boy, yükseklik)** | (Creality K1C baskı alanına uygun boyutlar, Örn: 80 mm X 80 mm X 100 mm - Maksimum K1C Hacmi: 220 mm X 220 mm X 250 mm) |
 | **Baskı Öncesi Kontrol Listesi** | Tabla temiz mi? Filament yeterli mi? Ayarlar doğru mu? |
