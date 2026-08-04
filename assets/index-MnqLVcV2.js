@@ -442,8 +442,9 @@ Bu bilgileri MEB'in güncel Türkiye Yüzyılı Maarif Modeli öğretim programl
 `;let e=[];k&&e.push(`MEB-KİT Simülatörü`,`Scratch`),M&&e.push(`Tinkercad`),e.length===0&&e.push(`EBA Etkileşimli İçerikler`,`Canva`),N=`
 PEDAGOJİK VE METODOLOJİK KURALLAR:
 1. Rol Tanımları: Öğrenciler aktif araştırmacı, öğretmen ise rehberdir. Geleneksel düz anlatımı tamamen ortadan kaldırın.
-2. 4C Entegrasyonu: Her adımda öğrencilerin İletişim, İş Birliği, Eleştirel Düşünme ve Yaratıcılık becerilerini nasıl sergilediğini açıklayın.
+2. 4C Entegrasyonu: Her adımda öğrencilerin İletişim, İş Birliği, Eleştirel Düşünme ve Yaratıcılık becerilerini doğal akış içinde sergilemelerini sağlayın.
 3. Teknolojinin Rolü: Teknolojiyi sadece sunum veya tüketim için değil, esnek öğrenme alanlarına uygun olarak aktif üretim ve analiz için konumlandırın.
+4. KESİN BİÇİMLENDİRME KURALI: Uygulama (Uygulama Adımları / Öğrenme Etkinlikleri) kısmındaki metinlerin içine veya sonuna KESİNLİKLE parantez içinde süreç bileşeni kodları (Örn: '(Süreç Bileşeni: a, b)') veya 4C becerileri etiketi (Örn: '(İlgili Beceriler: İletişim, İş Birliği)') PARANTEZ İÇİNDE YAZMAYINIZ. Adımları doğrudan akıcı, doğal bir öğretmen yönergesi olarak yazınız.
 ${k?`- MEB-KİT Kodlama ve devre tasarımlarını (Scratch tabanlı) etkinliğe entegre edebilirsiniz.`:`- KESİNLİKLE MEB-KİT (veya MEB KİT) kullanımı, kodlaması, devre tasarımı veya Scratch tabanlı elektronik kodlama önermeyin/yazmayın.`}
 ${M?`- 3B Tasarım/Modelleme (Tinkercad vb.) ve 3B Yazıcıdan fiziksel baskı almayı etkinliğe entegre edebilirsiniz.`:`- KESİNLİKLE 3B (3 boyutlu) tasarım, 3B modelleme, Tinkercad kullanımı veya 3B Yazıcıdan baskı almayı önermeyin/yazmayın.`}
 `,P=`
@@ -512,7 +513,7 @@ Format Kuralı: Çıktını KESİNLİKLE sadece aşağıdaki markdown tablosu fo
 | **Öğrencilerin Konumu** | Bireysel / Küçük Gruplar / Tüm Sınıf (Hangileri geçerliyse adlarını yaz) |
 | **Öğretmenin Rolü** | Lider / Rehber / Gözlemci (Hangileri geçerliyse adlarını yaz) |
 | **Hazırlık** | (Etkinlik başlamadan önce öğretmenin ve öğrencilerin yapması gereken ön hazırlıklar) |
-| **Uygulama (Süre: ... dk.)** | (Seçilen öğrenme alanlarına - ${T.join(`, `)} - ve aktif öğrenme pedagojisine göre adımlar. Süre toplamı ${g} dakikaya uymalıdır.) |
+| **Uygulama (Süre: ... dk.)** | (Seçilen öğrenme alanlarına - ${T.join(`, `)} - ve aktif öğrenme pedagojisine göre adımlar. Süre toplamı ${g} dakikaya uymalıdır. Metinlerin veya adımların içine/sonuna KESİNLİKLE parantez içinde süreç bileşeni etiketi veya 4C beceri etiketi YAZMAYINIZ, doğrudan doğal anlatımla yazınız.) |
 | **Etkinlik Sonu (Süre: ... dk.)** | (Etkinliğin tamamlanması, geri bildirimlerin alınması ve sınıf genel incelemesi) |
 | **Ölçme ve Değerlendirme** | (Kazanımın alt maddelerini ölçen, rehberden seçilmiş yöntemler) |
 | **Kaynakça** | (Rehbere tam uygun kaynakça) |
@@ -547,7 +548,7 @@ Format Kuralı: Çıktını KESİNLİKLE sadece aşağıdaki markdown tablosu fo
 
 | Uygulama | Açıklamalar |
 |---|---|
-| **Öğrenme Etkinlikleri** | (Seçilen öğrenme alanlarına - ${T.join(`, `)} - göre adımlar. Her adıma ayrılan süreyi "dk." cinsinden belirtin ve toplamın ${g} dakikaya uymasını sağlayın. Her adımın sonuna (İlgili Beceriler: ${w}) ekle.) |
+| **Öğrenme Etkinlikleri** | (Seçilen öğrenme alanlarına - ${T.join(`, `)} - göre adımlar. Her adıma ayrılan süreyi "dk." cinsinden belirtin ve toplamın ${g} dakikaya uymasını sağlayın. Metinlerin veya adımların içine/sonuna KESİNLİKLE parantez içinde süreç bileşeni etiketi veya 4C beceri etiketi YAZMAYINIZ, doğrudan doğal ve akıcı bir öğretmen yönergesi olarak yazınız.) |
 
 | Değerlendirme | Açıklamalar |
 |---|---|
