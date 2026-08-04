@@ -453,10 +453,43 @@ KATEGORİLERE GÖRE TAVSİYE EDİLEN YAPAY ZEKA VE WEB 2.0 ARAÇLARI:
 - İçerik Geliştirme/Kodlama: ${e.join(`, `)}
 - Üretim/Medya Tasarımı: Canva, CapCut, Adobe Express
 - Sunum/Etkileşim: Genially, Prezi, Kahoot
-`,P=`
-ÖNEMLİ YÖNERGE KURALI:
-${k||M?`Eğer senaryoda ${k?`"MEB-KİT" `:``}${M?`"3B Yazıcı" `:``}kullanılıyorsa, EKLER bölümüne KESİNLİKLE detaylı bir "Uygulama Yönergesi" tablosu ekleyin (${k?`devre bağlantıları, pin yapılandırmaları `:``}${M?`veya 3D baskı slicing ayarları`:``}).`:`Senaryoda MEB-KİT veya 3B Yazıcı kullanılmadığı için EKLER bölümüne KESİNLİKLE devre bağlantı şemaları veya 3D baskı slicing tabloları eklemeyin. Ekler bölümünde sadece dersin kazanımına uygun çalışma kağıdı şablonları veya rubrik değerlendirme ölçekleri paylaşın.`}
-`,E=c===`etkinlikPlani`?`
+`,P=`${k?`
+ÖNEMLİ MEB-KİT UYGULAMA YÖNERGESİ TABLO KURALI:
+MEB-KİT kullanımı seçilmiştir. EKLER (APPENDICES) bölümünün EN ALT KISMINA KESİNLİKLE aşağıdaki şablona göre hazırlanmış "MEB-KİT Robotik Kodlama Seti ve MEB-KİT Kodlama Platformu Uygulama Yönergesi" tablosunu ekleyin. Tablo içindeki bilgileri seçilen kazanıma (${n}) ve yapılan etkinliğe tam uygun şekilde doldurun:
+
+### MEB-KİT Robotik Kodlama Seti ve MEB-KİT Kodlama Platformu Uygulama Yönergesi
+
+| Yönerge Adı | Açıklama |
+|---|---|
+| **Grup Oluşturma, Yeni Proje Oluşturma ve Öğrenci Ekleme** | **Grup Oluşturma:** MEB-KİT platformuna giriş yapınız. Sol menüde yer alan “Gruplarım” bölümüne tıklayınız. Sol üstte bulunan “Grup Oluştur” butonuna tıklayıp grubun adını ve açıklamasını giriniz. <br><br> **Yeni Proje Oluşturma ve Öğrenci Ekleme:** Grup içerisinde “Proje Oluştur” butonuna tıklayıınız. Proje adını yazıp C++ veya Blok tabanlı seçimini yapınız. “Üyeler” sekmesinden kullanıcıları gruba davet ediniz. |
+| **Problem Durumu/Amacı** | (Kazanımla ilgili MEB-KİT problem durumu veya çalışma amacı) |
+| **Kullanılacak MEB-KİT Bileşenleri** | (Kazanımla ilgili kullanılacak MEB-KİT PCB Kart, Sensör, Kablo ve Modüller) |
+| **MEB-KİT Devre Bağlantıları** | (Sensör ve pin bağlantılarının detaylı açıklaması) |
+| **İstenen Algoritmaya Göre Kod Düzenleme** | Bloklar veya kodlar, etkinlikte hedeflenen algoritmaya uygun şekilde mantıksal bir sıra ile dizilir. İlgili parametre değerleri (süre, pin numarası, değişken veya sabit değeri) uygulama gereksinimlerine göre ayarlanır. |
+| **Kod Yükleme ve Çalıştırma** | MEB-KİT Kodlama Platformu’nda doğrulanan kodlar simülasyon ekranının sağ alt bölümünde yer alan “Arduino’ya Gönder” seçeneği kullanılarak MEB-KİT Robotik Kodlama Seti’ne aktarılır. Tüm bağlantılar kontrol edildikten sonra sistem çalıştırılır ve elde edilen sonuçlar gözlemlenir. |
+`:``}\n${M?`
+ÖNEMLİ 3B YAZICI UYGULAMA YÖNERGESİ TABLO KURALI:
+3B Yazıcı kullanımı seçilmiştir. EKLER (APPENDICES) bölümünün EN ALT KISMINA KESİNLİKLE aşağıdaki şablona göre hazırlanmış "3B Çevrim İçi Araç Yönergesi" tablosunu ekleyin. Tablo içindeki bilgileri seçilen kazanıma (${n}) ve yapılan 3D tasarıma tam uygun şekilde doldurun:
+
+### 3B Çevrim İçi Araç Yönergesi
+
+| Yönerge Adı | Açıklama |
+|---|---|
+| **Etkinliğin Adı 3B Yönergesi** | (Etkinliğe ve kazanıma özel 3B yönergesi başlığı) |
+| **Sınıf Oluşturma, Proje Başlatma ve Öğrenci Ekleme** | Öğretmen, kullanılan 3B tasarım platformuna giriş yaparak eğitici rolünde profil oluşturur. “Sınıflar” bölümünden yeni bir sınıf oluşturur ve öğrencileri toplu liste veya tek tek ekler. Öğrenciler, kendilerine verilen sınıf kodu ve kullanıcı bilgileriyle sisteme giriş yaparlar. Yeni bir proje oluşturularak 3B tasarım çalışma alanı açılır. |
+| **Problem Durumu/Amacı** | (Kazanımla ilgili 3B tasarım amacı veya problem durumu) |
+| **Tasarım Aşaması** | Tasarım yapılırken öğrencilerin; DENE, DÜŞÜN, FİKRİNİ SUN, KEŞFET, REVİZE ET, TASARLA ve TASLAK ÇİZ adımlarını takip etmeleri sağlanır. Eğer örnek tasarım kullanılacaksa; Verilen örnek tasarım dosyası çalışma alanına aktarılır ve düzenleme modunda açılır. Gerekli tasarımsal değişiklikler yapılır. |
+| **Baskı Öncesi Hazırlık Aşaması** | Tasarımı tamamlanan model, uygun dosya formatında (örneğin STL) dışa aktarılır. Model, baskı süresini ve destek ihtiyacını azaltacak şekilde uygun yönde konumlandırılır. Dayanıklılık için uygun duvar kalınlığı ve dolgu yoğunluğu seçilir. Birden fazla tasarım aynı anda basılacaksa desteklerin çakışmaması ve tasarımlar arası boşlukların ne çok fazla ne de çok az bırakılmaması gerekir. |
+| **Baskı Süreci** | Model, dilimleme programına aktarılır ve baskı ayarları yapılır. Gerekli durumlarda (30° den fazla eğimli yüzey veya askıda kalan kısım var ise) destek yapıları etkinleştirilir. Filament türüne uygun sıcaklık ve tabla ayarları belirlenir. Oluşturulan baskı dosyası flash disk veya ağ aracılığıyla yazıcıya aktarılır ve üretim süreci başlatılır. |
+| **Örnek Tasarımın Düzenlenebilir Dosya Linki (.STL)** | https://meb.ai/UsiumSt |
+| **Örnek Tasarımın Basılabilir Dosya Linki (.GCODE)** | https://meb.ai/nAqgV4 |
+| **3B Baskı Alınacak Zaman Dilimi** | Ders Öncesi / Ders Esnasında / Ders Sonrası |
+| **Örnek 3B Baskı Süresi** | (Tahmini baskı süresi, Örn: 1 saat 15 dakika) |
+| **Örnek 3B Baskı Boyutu (En, boy, yükseklik)** | (Tahmini boyutlar, Örn: 50 mm X 50 mm X 60 mm) |
+| **Baskı Öncesi Kontrol Listesi** | Tabla temiz mi? Filament yeterli mi? Ayarlar doğru mu? |
+| **Baskı Sonrası Kontrol Listesi** | Tabla temizlendi mi? Üretilen ürünün varsa destek parçaları temizlendi mi? Sınıf havalandırıldı mı? |
+| **Diğer Öneriler (varsa)** | (Öğretmene yönelik ek öneri ve ipuçları) |
+`:``}`,E=c===`etkinlikPlani`?`
 Format Kuralı: Çıktını KESİNLİKLE sadece aşağıdaki markdown tablosu formatında ver. Tablonun üstüne veya altına hiçbir açıklama metni, giriş veya çıkış ekleme. Sadece tabloyu yaz.
 
 | Genel Bilgiler | Açıklamalar |
