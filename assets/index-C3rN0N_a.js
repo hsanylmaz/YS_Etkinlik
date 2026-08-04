@@ -471,6 +471,7 @@ MEB-KİT kullanımı seçilmiştir. EKLER (APPENDICES) bölümünün EN ALT KISM
 `:``}\n${M?`
 ÖNEMLİ 3B YAZICI UYGULAMA YÖNERGESİ TABLO KURALI:
 3B Yazıcı kullanımı seçilmiştir. EKLER (APPENDICES) bölümünün EN ALT KISMINA KESİNLİKLE aşağıdaki şablona göre hazırlanmış "3B Çevrim İçi Araç Yönergesi" tablosunu ekleyin. Tablo içindeki bilgileri seçilen kazanıma (${n}) ve yapılan 3D tasarıma tam uygun şekilde doldurun.
+CREALITY K1C YAZICI VE BASKI BOYUTU KURALI: Okulda/Laboratuvarda "Creality K1C" 3B yazıcı kullanılmaktadır. Önerilen 3B model baskı boyutları KESİNLİKLE Creality K1C'nin maksimum baskı hacmi olan 220 mm x 220 mm x 250 mm (22 cm x 22 cm x 25 cm) boyut sınırlarını AŞMAMALIDIR. Tüm boyut tavsiyelerinizi bu sınırlar dahilinde (Örn: 80x80x100 mm vb.) belirleyin.
 LİNK KURALI: KESİNLİKLE rastgele, uydurma veya çalışmayan dosya bağlantıları (meb.ai vb.) yazmayın. STL/GCODE link kısımlarına öğretmenlerin doğrudan gerçek modelleri arayıp indirebileceği Thingiverse, Printables veya Tinkercad arama bağlantılarını tam olarak aşağıdaki şekilde yerleştirin.
 ÖNEMLİ TASARIM AŞAMASI KURALI: "Tasarım Aşaması" hücresinde KESİNLİKLE adımları sadece isim olarak bırakmayın. DENE, DÜŞÜN, FİKRİNİ SUN, KEŞFET, REVİZE ET, TASARLA ve TASLAK ÇİZ adımlarının her biri için seçilen kazanıma (${n}) özel somut, pedagojik ve anlaşılır açıklamalar yazarak doldurun.
 
@@ -488,7 +489,7 @@ LİNK KURALI: KESİNLİKLE rastgele, uydurma veya çalışmayan dosya bağlantı
 | **Örnek Tasarımın Basılabilir Dosya Linki (.GCODE)** | [🔍 Tinkercad Galerisinde İncele](https://www.tinkercad.com/search?q=${encodeURIComponent(C.substring(0,30))}) |
 | **3B Baskı Alınacak Zaman Dilimi** | Ders Öncesi / Ders Esnasında / Ders Sonrası |
 | **Örnek 3B Baskı Süresi** | (Tahmini baskı süresi, Örn: 1 saat 15 dakika) |
-| **Örnek 3B Baskı Boyutu (En, boy, yükseklik)** | (Tahmini boyutlar, Örn: 50 mm X 50 mm X 60 mm) |
+| **Örnek 3B Baskı Boyutu (En, boy, yükseklik)** | (Creality K1C baskı alanına uygun boyutlar, Örn: 80 mm X 80 mm X 100 mm - Maksimum K1C Hacmi: 220 mm X 220 mm X 250 mm) |
 | **Baskı Öncesi Kontrol Listesi** | Tabla temiz mi? Filament yeterli mi? Ayarlar doğru mu? |
 | **Baskı Sonrası Kontrol Listesi** | Tabla temizlendi mi? Üretilen ürünün varsa destek parçaları temizlendi mi? Sınıf havalandırıldı mı? |
 | **Diğer Öneriler (varsa)** | (Öğretmene yönelik ek öneri ve ipuçları) |
