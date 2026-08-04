@@ -694,8 +694,8 @@ Seçilen tekniklerin uygulanışını, hedeflenen kazanımla ilişkilendirerek d
 \nSeçilen Öğrenme Alanları: ${T.join(`, `)}\nSeçilen 4C Becerileri: ${C}\nEtkinlik Süresi: ${g} dakika\n\nLütfen yukarıdaki yönergelere uyarak planı/senaryoyu yazınız:\n${E}\n\nÖNEMLİ: Planın en sonuna (EKLER kısmının da altına), oluşturduğun mevcuda uygun 2D yerleşim planı için JSON bloğunu yerleştir:\n\`\`\`json\n{\n  "groups": ["hex", "tri"], \n  "items": ["pcDesk", "pcDesk", "pouf"]\n}\n\`\`\``,e),R=null,z=I,B=/```json\s*(\{[\s\S]*?\})\s*```/,ee=I.match(B);if(ee)try{R=JSON.parse(ee[1]),z=I.replace(B,``).trim()}catch(e){console.error(`Failed to parse suggested layout JSON`,e)}L(R),ae(z);let V=`
       <div style="text-align: center; margin-bottom: 25px; border-bottom: 2px solid #e2e8f0; padding-bottom: 15px;">
           <div style="line-height: 1.1; margin-bottom: 8px;">
-              <span style="font-family: 'Outfit', 'Segoe UI', Arial, sans-serif; font-size: 26pt; font-weight: 800; color: #4f46e5; letter-spacing: -0.5px;">YENİLİKÇİ</span>
-              <span style="font-family: 'Outfit', 'Segoe UI', Arial, sans-serif; font-size: 26pt; font-weight: 400; color: #0f172a; letter-spacing: 0.5px;"> SINIF</span>
+              <span style="font-family: 'Outfit', 'Segoe UI', Arial, sans-serif; font-size: 26pt; font-weight: 800; color: #3b4e8c; letter-spacing: -0.5px;">YENİLİKÇİ</span>
+              <span style="font-family: 'Outfit', 'Segoe UI', Arial, sans-serif; font-size: 26pt; font-weight: 400; color: #3b4e8c; letter-spacing: 0.5px;"> SINIF</span>
           </div>
           <div style="font-family: 'Inter', 'Segoe UI', Arial, sans-serif; font-size: 12pt; font-weight: 600; color: #64748b; letter-spacing: 0.5px; text-transform: uppercase;">
               ${F}
