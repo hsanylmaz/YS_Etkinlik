@@ -480,7 +480,15 @@ ${t?`
 - Sınıf seviyesi ${f}. Sınıf (Temel Eğitim) olduğu için kodlama yapısı BLOK TABANLI KODLAMAYA GÖRE planlanmalıdır.
 - "Grup Oluşturma" satırında platformda yeni grup oluşturma adımları, "Yeni Proje Oluşturma ve Öğrenci Ekleme" satırında proje türü olarak KESİNLİKLE "Blok tabanlı" seçileceği belirtilmelidir.
 - "İstenen Algoritmaya Göre Kod Düzenleme" satırına genel algoritma yönerge metnini yazın.
-- "Kod Bloğu" satırına kazanıma (${i}) ve MEB-KİT devresine özel Scratch/Blok tabanlı kod yapısını temsil eden metinsel ve çerçeveli bir GÖRSEL BLOK DİYAGRAMINI (<code>...</code> formatında ve satırlar <br> ile bölünmüş olarak) çizen.
+- "Kod Bloğu" satırına MEB-KİT platformunun resmi Türkçe blok etiketlerini kullanarak ASCII GÖRSEL BLOK DİYAGRAMINI (<code>...</code> formatında ve satırlar <br> ile bölünmüş olarak) çizin.
+
+RESMİ BLOK ETİKETLERİ KURALI (TEMEL EĞİTİM):
+Diyagramdaki bloklarda KESİNLİKLE aşağıdaki resmi MEB-KİT platformu blok isimlerini kullanın:
+  * Pin Kontrolü: [dijital oku pin (0)], [analog oku pin (A) (0)], [dijital ayarla pin (0) çıkış (yüksek/düşük)], [PWM ayarla pin (0) çıkış (0)], [pinde çal (0) nota (C4) ile (0) vuruş], [servo pin (0) açı (0)]
+  * Seri Port: [Seri porta yaz ("mesaj") alt satıra geç (işaretli/işaretsiz) Baud: (9600)], [seri porttan okunabilir baytlar], [seri porttan byte oku]
+  * Karar/Kontrol: [eğer <koşul> yap [ ... ]], [eğer <koşul> yap [ ... ] değilse [ ... ]], [simülasyonu başlat]
+  * Sensörler: [ultrasonik sensör oku trig pin (1) echo pin (1)], [DHT11 ile ölç pin (2) seç (Sıcaklık (°C) / Nem (%))], [Sıvı Seviye Sensörü Oku Pin No: (A0)], [Toprak-Nem Data Pin (A0)]
+  * Veri Aritmetiği: [aralığa dönüştür (50) konumundan (1, 100) için (1, 1000)], [ (50) kısıtlaması (1) , (100) arasında], [ (123) dönüştür (tam sayı)]
 `}
 
 TABLO VE HÜCRE KURALI: Tablonun kırılmaması için tablo hücresi içinde ASLA üç tırnak (\`\`\`) veya ham alt satıra geçme (Enter/Newline) kullanmayın. Kod veya blok diyagram satırlarını tek bir tablo satırı içinde <br> etiketleri kullanarak \`<code>...</code>\` bloğu içinde yazın.
