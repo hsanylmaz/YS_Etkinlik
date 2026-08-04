@@ -3662,8 +3662,12 @@
       },
       {
         "code": "COĞ.9.4.2",
-        "description": "Dünya ve Türkiye’deki nüfusun dağılışı ve hareketlerini etkileyen faktörler hakkında haritalar üzerinden çıkarımda bulunabilme Dünya ve Türkiye’de nüfus yoğunluğunun fazla ve az olduğu alanlar ile nüfusun dağılışı ve hareketlerini etkileyen faktörlerin incelenebildiği haritaları ilişkilendirerek çıkarım yapar.",
-        "surecBilesenleri": []
+        "description": "Dünya ve Türkiye’deki nüfusun dağılış ve hareketlerini etkileyen faktörler hakkında haritalar üzerinden çıkarımda bulunabilme",
+        "surecBilesenleri": [
+          "a) Dünya ve Türkiye'de nüfus yoğunluğunun fazla ve az olduğu alanların özelliklerini haritalar üzerinden tanımlar.",
+          "b) Nüfusun dağılışını ve hareketlerini etkileyen doğal ve beşerî faktörlerle ilgili haritaları karşılaştırır ve verileri kaydeder.",
+          "c) Elde ettiği verileri yorumlayarak nüfusun mekânsal dağılışına ilişkin çıkarımlarda bulunur."
+        ]
       },
       {
         "code": "COĞ.9.4.3",
@@ -4157,8 +4161,12 @@
       },
       {
         "code": "COĞ.12.3.3",
-        "description": "Coğrafi faktörlerin dünya ve Türkiye’deki bitki örtüsünün çeşitliliği ve dağılışı üzerindeki etkisi hakkında haritalardan çıkarım yapabilme Dünya ve Türkiye’deki bitki örtüsünün dağılışını etkileyen coğrafi faktörlerin gösterildiği haritalarla bitki örtüsü dağılış haritalarını karşılaştırarak çıkarımlar yapar.",
-        "surecBilesenleri": []
+        "description": "Coğrafi faktörlerin Dünya ve Türkiye’deki bitki örtüsünün çeşitliliği ve dağılışı üzerindeki etkisi hakkında haritalardan çıkarım yapabilme",
+        "surecBilesenleri": [
+          "a) Dünya ve Türkiye’deki bitki örtüsünün dağılışını etkileyen iklim, yer şekilleri ve toprak faktörlerine ilişkin haritaları inceler.",
+          "b) Coğrafi faktör haritaları ile bitki örtüsü dağılış haritalarını karşılaştırarak verileri kaydeder.",
+          "c) Karşılaştırma sonuçlarından hareketle bitki örtüsü çeşitliliği ve dağılışı üzerine coğrafi faktörlerin etkisine ilişkin çıkarımlarda bulunur."
+        ]
       },
       {
         "code": "COĞ.12.4.1",
@@ -7518,7 +7526,9 @@
         "code": "MAT.5.3.7",
         "description": "Matematiksel araç ve teknoloji yardımıyla düzlemde iki noktada kesişen çember çiftinin merkezleri ve kesişim noktalarından biri ile inşa edilen üçgenlerin kenar özelliklerine yönelik muhakeme yapabilme",
         "surecBilesenleri": [
-          "a) İki noktada kesişen çember çiftinin merkezleri ve kesişim noktalarından biri ile inşa edilebilecek üçgenlerin kenar özelliklerine yönelik varsayımlarda bulunur."
+          "a) İki noktada kesişen çember çiftinin merkezleri ve kesişim noktalarından biri ile inşa edilebilecek üçgenlerin kenar özelliklerine yönelik varsayımlarda bulunur.",
+          "b) Varsayımlarını sınamak için iki noktada kesişen çember çiftinin merkezleri ve kesişim noktalarından biri ile inşa edilen üçgenlerin kenar uzunluklarını matematiksel araç ve teknoloji yardımıyla karşılaştırır.",
+          "c) Karşılaştırma sonuçlarını yorumlayarak genellemeler sunar."
         ]
       },
       {
@@ -10221,8 +10231,13 @@
     "7": [
       {
         "code": "SB.7.1.1",
-        "description": "Yazılı ve görsel kaynaklar (OB1, OB4) üzerinden grup içinde ya da toplumsal hayatta olumlu ve olumsuz iletişime ait örnekler öğrencilere sunulur. Süreç dijital kaynaklarla da desteklenebilir (OB2). Bu örnekler öğrencilerin dâhil olduğu gruplardan (aile ve okul), sosyal çevreden (sokak, trafik, alışveriş gibi) ya da dijital iletişim unsurları arasından seçilir. İncelenen kaynaklardaki iletişim örneklerinde dikkatlerini çeken ve merak ettikleri konular belirlenerek listelenir. Listede yer alan konular ve etkili iletişimin önemi ile ilgili 5N1K tekniği kullanılarak sorular hazırlanır (E1.1, E3.8). Öğrenciler tarafından kaynaklara dayanarak hazırlanan sorularla ilgili bilgiler toplanır (OB1). Toplanan bilgiler kayıt altına alınır (OB1). Özellikle empati, sen dili, ben dili, farklılıklara saygı, etkin dinleme ve beden dili gibi kavramların üzerinde durularak saygı değerinin önemi vurgulanır (D14.1). Daha sonra günlük hayatta ve dijital ortamlarda karşılaşılan ve etkili iletişime engel olan durumlara yönelik beyin fırtınası yapılır ve iletişim problemlerinin nedenlerini ortaya koymak amacıyla balık kılçığı tekniği kullanılır. Yapılan çalışma ile sınıf içinde arkadaşlarıyla etkili iletişimin önemine ve dostluk değerine vurgu yapılır (D4.2). Beyin fırtınası süreci gözlem formu, kontrol listesi veya anekdot kaydı ile değerlendirilebilir. İletişime engel olan durumlarda neler yapılması gerektiğine ilişkin arkası yarın tekniği ile verilen örnek olay iletişim çatışmasının başladığı yerde kesilir. Bundan sonra neler olabileceği öğrencilere sorulur (SDB2.2). Gelen cevaplar sırasıyla tahtaya yazılarak olumlu ve olumsuz davranışlar olarak gruplanır. Söylenen davranışlara göre örnek olayın sonuçları tahmin edilir (SDB2.3). Örnek olayın devamı öğrencilere sunulur ve öğrenci tahminleri ile karşılaştırılır. Karşılaştırma sonucunda çatışmayı uzlaşmaya dönüştüren davranışlar kaydedilir (OB1, SDB3.2). İletişimde anlayışlı ve barışçıl olmanın önemi üzerinde durularak sevgi değeri vurgulanır (D15.1). Dersin başında öğrencilerin hazırladığı sorular, elde edilen bilgilerden yola çıkılarak cevaplandırılır. Ailede, dâhil olabilecekleri gruplarda ve sosyal hayatta iletişimin önemi ile ilgili",
-        "surecBilesenleri": []
+        "description": "İletişimi etkileyen tutum ve davranışları analiz ederek olumlu iletişim yollarını açıklayabilme",
+        "surecBilesenleri": [
+          "a) Yazılı ve görsel kaynaklar üzerinden grup içinde ya da toplumsal hayatta olumlu ve olumsuz iletişime ait örnekleri inceler.",
+          "b) İncelenen kaynaklardaki iletişim örneklerinde dikkat çeken ve merak edilen konuları belirleyerek 5N1K soruları hazırlar.",
+          "c) Günlük hayatta ve dijital ortamlarda karşılaşılan etkili iletişime engel durumları empati, ben dili ve etkin dinleme kavramları çerçevesinde değerlendirir.",
+          "ç) Örnek olaylar üzerinden iletişim çatışmalarını uzlaşmaya dönüştüren tutum ve davranışlara ilişkin çıkarımlarda bulunur."
+        ]
       },
       {
         "code": "SB.7.1.2",
