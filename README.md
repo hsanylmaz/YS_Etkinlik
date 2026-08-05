@@ -1,0 +1,67 @@
+# 💡 Yenilikçi Sınıf Eğitim Atölyesi
+
+> **Yapay Zeka Destekli Aktif Öğrenme Planlayıcısı**
+>
+> Öğretmenlerimizin derslerinde aktif öğrenme tekniklerini, **Türkiye Yüzyılı Maarif Modeli** müfredat standartlarını ve **Esnek Öğrenme Alanları** pedagojilerini saniyeler içinde planlayabilmesi için geliştirilmiş modern, yapay zeka destekli bir web uygulamasıdır.
+
+---
+
+## 🌐 Uygulamaya Ulaşın ve Hemen Kullanın
+
+Uygulamayı herhangi bir kurulum yapmadan doğrudan tarayıcınız üzerinden ücretsiz kullanabilirsiniz:
+👉 **[Yenilikçi Sınıf Eğitim Atölyesi Planlayıcısı'nı Aç](https://hsanylmaz.github.io/YS_Etkinlik)**
+
+---
+
+## 🚀 Başlamadan Önce Yapılması Gereken Ayarlar
+
+Sistemi kullanabilmeniz için tarayıcınız üzerinden yapmanız gereken tek bir temel ayar bulunmaktadır:
+
+### 1. Gemini API Anahtarı Tanımlama (Zorunlu)
+Uygulamanın yapay zeka özelliklerini kullanabilmesi için bir Google Gemini API anahtarına ihtiyacı vardır. Bu anahtarı almak tamamen ücretsizdir:
+1. [Google AI Studio](https://aistudio.google.com/) adresine gidin ve Google hesabınızla giriş yapın.
+2. **"Create API Key"** butonuna tıklayarak ücretsiz bir API anahtarı oluşturun ve kopyalayın.
+3. Uygulamanın sağ üst köşesindeki **"API Ayarları"** (vites simgeli) butonuna tıklayın.
+4. Kopyaladığınız anahtarı kutucuğa yapıştırıp **"Kaydet"** butonuna basın.
+
+> **Not:** API anahtarınız kesinlikle hiçbir sunucuya veya dış servise gönderilmez; yalnızca sizin tarayıcınızın yerel hafızasında (`localStorage`) güvenli bir şekilde saklanır.
+
+---
+
+## 🌟 Proje Vizyonu ve Teknolojik Entegrasyonlar
+
+### 🚀 Gelecekteki BİLGE ve Millî Teknoloji Hamlesi Entegrasyonu
+Projemiz, Türkiye'nin dijital eğitim vizyonunu yansıtan TÜBİTAK BİLGE platformu ve "Millî Teknoloji Hamlesi" hedefleriyle tam bir entegrasyon ve sinerji oluşturacak şekilde kurgulanmıştır. Şuanlık gemini API kullanımı yapılsa da ilerleyen günlerde türkçenin kendine özgü yapısını ve kültürel birikimimizi temel alan büyük dil modeli olan TÜBİTAK BİLGE API'sı kullanılacaktır. Öğrencilerin sadece teknolojiyi tüketen değil; aktif öğrenme, tasarım odaklı düşünme ve problem çözme becerileriyle yerli ve millî teknolojik çözümler üreten üretken nesiller olarak yetiştirilmesini amaçlar.
+
+### 🎒 MEB-KİT Uyumluluğu ve Robotik Kodlama Entegrasyonu
+Uygulama, MEB-KİT Robotik Kodlama Seti ve MEB-KİT Kodlama Platformu ile tam uyumludur. Planlama sırasında MEB-KİT entegrasyonu seçildiğinde:
+* Kazanımlara tam uyumlu robotik devre bağlantıları ve sensör şemaları otomatik olarak önerilir.
+* Sınıf seviyesine göre (Ortaokul için blok tabanlı ASCII diyagramları, Lise için C++ kod yapıları) hazır kod blokları ve uygulama yönergeleri plana dahil edilir.
+
+### 🖨️ 3B Yazıcı Arama Kısayolu ve Hızlı Erişim
+Ders planında 3B yazıcı kullanımı etkinleştirildiğinde, sistem kazanımın konusunu otomatik olarak analiz ederek İngilizce anahtar kelimelere dönüştürür:
+* **Thingiverse, Printables, Tinkercad ve Creality Cloud** gibi dünyanın en popüler 3B model kütüphaneleri için tek tıkla arama yapabileceğiniz özel arama kısayolları üretir.
+* Tasarımların okul laboratuvarlarındaki **Creality K1C** gibi modern yazıcıların maksimum baskı hacmi sınırları (220x220x250 mm) içerisinde kalacak şekilde boyutlandırılması için rehberlik sağlar.
+
+---
+
+## 🎨 2D Sınıf Yerleşim Editörü
+
+Uygulamada yer alan interaktif **2D Sınıf Yerleşim Planı** modülü sayesinde:
+* Sınıfınızdaki öğrenci sıralarını, öğretmen kürsüsünü, akıllı tahtayı ve diğer fiziksel elemanları sürükle-bırak yöntemiyle serbestçe konumlandırabilirsiniz.
+* Aktif öğrenme senaryonuza en uygun fiziksel yerleşim düzenini (U-Düzen, Küme Düzeni, Grup Çalışması vb.) görsel olarak tasarlayabilirsiniz.
+* Tasarladığınız bu yerleşim planı, Word belgesi çıktısı aldığınızda otomatik olarak planınızın ekler bölümündeki tabloya görsel olarak entegre edilir.
+
+### 📸 Örnek 2D Sınıf Yerleşim Tasarımı:
+![2D Sınıf Yerleşim Planı Örneği](2d_Ornek.png)
+
+---
+
+## 📂 Google Drive Özellikleri
+Uygulamadaki **"Drive'a Kaydet"** ve **"Drive Klasörü"** özellikleri önceden yapılandırılmıştır. 
+* Hazırladığınız senaryoları doğrudan ortak Google Drive klasörümüze tek tıkla kaydedebilirsiniz.
+* Güvenlik protokolü gereği, sistem sadece **kendi yüklediğiniz dosyaları silmenize** izin verir; diğer öğretmenlerin yüklediği belgelere erişim veya silme yetkiniz bulunmaz.
+
+> **Not:** Eğer "Drive'a Kaydet" seçeneğiyle yükleme yaparken **"Failed to fetch"** hatası alıyorsanız, bu durum tarayıcınızdaki reklam engelleyici eklentilerden (uBlock Origin, AdBlock vb.) veya tarayıcı güvenlik korumalarından (Brave Shields vb.) kaynaklanabilir. Lütfen bu eklentileri bu site için geçici olarak devre dışı bırakıp veya siteyi **Gizli Sekmede** açarak yeniden deneyin.
+
+
