@@ -34,6 +34,7 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
   const [currentChunkIndex, setCurrentChunkIndex] = useState(0);
   const [rate, setRate] = useState(1.0); // 0.75, 1.0, 1.25, 1.5, 2.0
+  const [gender, setGender] = useState('female'); // 'female' (Kadın) or 'male' (Erkek)
   const [availableVoices, setAvailableVoices] = useState([]);
   const [selectedVoiceURI, setSelectedVoiceURI] = useState('');
   const [speechActive, setSpeechActive] = useState(false);
@@ -44,6 +45,7 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
   const sectionIdxRef = useRef(0);
   const chunkIdxRef = useRef(0);
   const rateRef = useRef(1.0);
+  const genderRef = useRef('female');
   const voiceRef = useRef(null);
 
   // Keep refs synchronized
@@ -52,6 +54,27 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
   sectionIdxRef.current = currentSectionIndex;
   chunkIdxRef.current = currentChunkIndex;
   rateRef.current = rate;
+  genderRef.current = gender;
+
+  // Helper to find female / male voice from list
+  const findVoiceByGender = (voices, targetGender) => {
+    if (!voices.length) return null;
+    const femaleKeywords = ['emel', 'filiz', 'dilara', 'gul', 'gül', 'yelda', 'female', 'seda', 'zeynep', 'woman'];
+    const maleKeywords = ['tolga', 'ahmet', 'cem', 'male', 'man', 'mustafa'];
+    
+    const targetKeywords = targetGender === 'female' ? femaleKeywords : maleKeywords;
+    
+    // First search in Turkish voices
+    const trVoices = voices.filter(v => v.lang && v.lang.toLowerCase().startsWith('tr'));
+    const searchPool = trVoices.length > 0 ? trVoices : voices;
+
+    const matched = searchPool.find(v => {
+      const name = v.name.toLowerCase();
+      return targetKeywords.some(k => name.includes(k));
+    });
+
+    return matched || searchPool[0] || voices[0];
+  };
 
   // Load voices when available
   useEffect(() => {
@@ -63,10 +86,11 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
       const list = trVoices.length > 0 ? trVoices : allVoices;
       setAvailableVoices(list);
 
-      // Default to first Turkish voice if available
-      if (list.length > 0 && !selectedVoiceURI) {
-        setSelectedVoiceURI(list[0].voiceURI);
-        voiceRef.current = list[0];
+      // Default to female voice on initial load
+      const preferred = findVoiceByGender(list, genderRef.current);
+      if (preferred) {
+        setSelectedVoiceURI(preferred.voiceURI);
+        voiceRef.current = preferred;
       }
     };
 
@@ -74,7 +98,7 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
     if (window.speechSynthesis.onvoiceschanged !== undefined) {
       window.speechSynthesis.onvoiceschanged = loadVoices;
     }
-  }, [isSupported, selectedVoiceURI]);
+  }, [isSupported]);
 
   // Update selected voice object
   useEffect(() => {
@@ -129,6 +153,7 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
     const utterance = new SpeechSynthesisUtterance(textToSpeak);
     utterance.lang = 'tr-TR';
     utterance.rate = rateRef.current;
+    utterance.pitch = genderRef.current === 'female' ? 1.15 : 0.88;
     
     if (voiceRef.current) {
       utterance.voice = voiceRef.current;
@@ -153,6 +178,22 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
     };
 
     window.speechSynthesis.speak(utterance);
+  };
+
+  // Switch Voice Gender (Kadın / Erkek)
+  const handleGenderChange = (targetGender) => {
+    setGender(targetGender);
+    genderRef.current = targetGender;
+    
+    const matchedVoice = findVoiceByGender(availableVoices, targetGender);
+    if (matchedVoice) {
+      setSelectedVoiceURI(matchedVoice.voiceURI);
+      voiceRef.current = matchedVoice;
+    }
+
+    if (isPlaying && !isPaused) {
+      playCurrentChunk(sectionIdxRef.current, chunkIdxRef.current);
+    }
   };
 
   // Play / Resume
@@ -356,6 +397,34 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
 
         {/* Speed & Voice Options */}
         <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+          {/* Gender (Kadın / Erkek) Selector Pills */}
+          <div className="flex items-center bg-slate-800/90 rounded-xl p-1 border border-indigo-500/30 text-xs">
+            <button
+              onClick={() => handleGenderChange('female')}
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-lg font-medium transition-all ${
+                gender === 'female'
+                  ? 'bg-pink-600 text-white font-bold shadow-sm'
+                  : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
+              }`}
+              title="Kadın Sesi Tonu"
+              aria-label="Kadın Sesi ile Dinle"
+            >
+              <span>👩 Kadın</span>
+            </button>
+            <button
+              onClick={() => handleGenderChange('male')}
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-lg font-medium transition-all ${
+                gender === 'male'
+                  ? 'bg-indigo-600 text-white font-bold shadow-sm'
+                  : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
+              }`}
+              title="Erkek Sesi Tonu"
+              aria-label="Erkek Sesi ile Dinle"
+            >
+              <span>👨 Erkek</span>
+            </button>
+          </div>
+
           {/* Speed Selector Pills */}
           <div className="flex items-center bg-slate-800/90 rounded-xl p-1 border border-indigo-500/30 text-xs">
             <span className="text-[11px] text-slate-400 px-2 flex items-center gap-1 font-semibold">
@@ -384,7 +453,15 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
               <select
                 id="voice-select"
                 value={selectedVoiceURI}
-                onChange={(e) => setSelectedVoiceURI(e.target.value)}
+                onChange={(e) => {
+                  const uri = e.target.value;
+                  setSelectedVoiceURI(uri);
+                  const v = availableVoices.find(item => item.voiceURI === uri);
+                  if (v) voiceRef.current = v;
+                  if (isPlaying && !isPaused) {
+                    playCurrentChunk(sectionIdxRef.current, chunkIdxRef.current);
+                  }
+                }}
                 className="bg-slate-800/90 text-xs text-indigo-200 border border-indigo-500/40 rounded-xl px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all max-w-[150px] truncate"
                 title="Ses Tonu Seçin"
               >
