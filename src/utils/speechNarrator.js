@@ -2,14 +2,23 @@
 
 /**
  * Parses raw markdown or text into clean, human-readable sections suitable for speech synthesis.
- * Removes markdown syntax, table pipes, markdown links, images, and special symbols.
+ * Intelligent breakdown into individual plan components:
+ * 1. Başlık ve Genel Bilgiler
+ * 2. Ders ve Kazanım Bilgileri
+ * 3. Donanım ve Materyaller
+ * 4. Hazırlık Süreci
+ * 5. Uygulama Aşamaları
+ * 6. Etkinlik Sonu
+ * 7. Ölçme ve Değerlendirme
+ * 8. Kaynakça
+ * 9. Ekler ve Yönergeler
  */
 export function extractSpeechSections(markdownText, rawHtml = '') {
   if (!markdownText && !rawHtml) return [];
 
   let text = markdownText || '';
 
-  // If we only have raw HTML, do a basic conversion
+  // If we only have raw HTML, do a basic text conversion
   if (!text && rawHtml) {
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = rawHtml;
@@ -19,51 +28,166 @@ export function extractSpeechSections(markdownText, rawHtml = '') {
   const sections = [];
   const lines = text.split('\n');
 
-  let currentTitle = 'Genel Bilgiler ve Başlık';
+  let currentCategory = '';
+  let currentTitle = '';
   let currentParagraphs = [];
 
-  const pushCurrentSection = () => {
-    const combinedText = cleanTextForSpeech(currentParagraphs.join(' '));
-    if (combinedText.trim().length > 0) {
-      sections.push({
-        id: sections.length + 1,
-        title: currentTitle,
-        text: combinedText
-      });
+  const flushSection = () => {
+    if (currentParagraphs.length > 0) {
+      const combinedText = cleanTextForSpeech(currentParagraphs.join(' '));
+      if (combinedText.trim().length > 0) {
+        sections.push({
+          id: sections.length + 1,
+          category: currentCategory || 'Genel',
+          title: currentTitle || 'Bölüm',
+          text: combinedText
+        });
+      }
+      currentParagraphs = [];
     }
-    currentParagraphs = [];
   };
+
+  const startNewSection = (title, category) => {
+    flushSection();
+    currentTitle = title;
+    currentCategory = category || title;
+  };
+
+  startNewSection('Başlık ve Genel Bilgiler', 'Genel');
 
   for (let line of lines) {
     const trimmed = line.trim();
     if (!trimmed) continue;
 
-    // Check if line is a major Markdown heading (## or ###)
-    if (trimmed.startsWith('## ') || trimmed.startsWith('### ')) {
-      pushCurrentSection();
-      currentTitle = cleanTextForSpeech(trimmed.replace(/^#+\s*/, ''));
+    // Ignore markdown code block fences
+    if (trimmed.startsWith('```')) continue;
+
+    // Major Markdown headings (##, ###, ####) - usually for Appendices / Ekler
+    if (/^#{2,4}\s+/.test(trimmed)) {
+      const headerText = cleanTextForSpeech(trimmed.replace(/^#+\s*/, ''));
+      if (headerText.toLowerCase() === 'ekler') {
+        startNewSection('Ekler ve Yönergeler', 'Ekler');
+      } else {
+        startNewSection(headerText, 'Ekler');
+      }
       continue;
     }
 
-    // If it's a table row
+    // Markdown Table Rows (| Col1 | Col2 |)
     if (trimmed.startsWith('|') && trimmed.endsWith('|')) {
       // Ignore separator lines (|---|---|)
       if (/^\|[-:| ]+\|$/.test(trimmed)) continue;
-      
+
       const cells = trimmed
         .split('|')
         .map(c => c.trim())
         .filter(c => c !== '');
-      
-      if (cells.length > 0) {
-        // If 2 cells, format like "Label: Value"
-        if (cells.length === 2) {
-          currentParagraphs.push(`${cells[0]}: ${cells[1]}.`);
-        } else {
-          currentParagraphs.push(cells.join(', ') + '.');
+
+      if (cells.length >= 2) {
+        const rawKey = cells[0].replace(/\*\*/g, '').trim().toLowerCase();
+        const rawVal = cells.slice(1).join(' - ').trim();
+
+        // 1. Title / General Info
+        if (
+          rawKey.includes('etkinlik başlığı') || 
+          rawKey.includes('senaryo adı') || 
+          rawKey.includes('etkinlik id') || 
+          rawKey.includes('senaryo id') || 
+          rawKey.includes('genel bakış') || 
+          rawKey.includes('etkinlik süresi') ||
+          rawKey.includes('ders/kademe/süre')
+        ) {
+          if (currentTitle !== 'Başlık ve Genel Bilgiler') {
+            startNewSection('Başlık ve Genel Bilgiler', 'Genel');
+          }
+          currentParagraphs.push(`${cells[0].replace(/\*\*/g, '')}: ${rawVal}.`);
+          continue;
         }
+
+        // 2. Curriculum & Outcomes
+        if (
+          rawKey.includes('ders adı') || 
+          rawKey.includes('ünite') || 
+          rawKey.includes('öğrenme alanı') || 
+          rawKey.includes('tema') || 
+          rawKey.includes('konu') || 
+          rawKey.includes('içerik çerçevesi') || 
+          rawKey.includes('öğrenme çıktıları') || 
+          rawKey.includes('kazanım') || 
+          rawKey.includes('sınıf seviyesi') || 
+          rawKey.includes('kademe') ||
+          rawKey.includes('öğrenme hedefleri') ||
+          rawKey.includes('beceriler')
+        ) {
+          if (currentTitle !== 'Ders ve Kazanım Bilgileri') {
+            startNewSection('Ders ve Kazanım Bilgileri', 'Müfredat');
+          }
+          currentParagraphs.push(`${cells[0].replace(/\*\*/g, '')}: ${rawVal}.`);
+          continue;
+        }
+
+        // 3. Hardware, Tools & Space
+        if (
+          rawKey.includes('donanım') || 
+          rawKey.includes('çevrim içi araç') || 
+          rawKey.includes('öğretim materyalleri') || 
+          rawKey.includes('etkinlik alanı') || 
+          rawKey.includes('öğrencilerin konumu') || 
+          rawKey.includes('öğretmenin rolü') || 
+          rawKey.includes('araçlar/teknolojiler') ||
+          rawKey.includes('öğrenme yaklaşımı') ||
+          rawKey.includes('görevler')
+        ) {
+          if (currentTitle !== 'Donanım ve Materyaller') {
+            startNewSection('Donanım ve Materyaller', 'Ortam');
+          }
+          currentParagraphs.push(`${cells[0].replace(/\*\*/g, '')}: ${rawVal}.`);
+          continue;
+        }
+
+        // 4. Preparation (Hazırlık)
+        if (rawKey.startsWith('hazırlık')) {
+          startNewSection('Hazırlık Süreci', 'Hazırlık');
+          currentParagraphs.push(`Hazırlık Süreci: ${rawVal}`);
+          continue;
+        }
+
+        // 5. Implementation (Uygulama)
+        if (rawKey.startsWith('uygulama') || rawKey.includes('öğrenme etkinlikleri')) {
+          startNewSection('Uygulama Aşamaları', 'Uygulama');
+          currentParagraphs.push(`Uygulama Aşamaları: ${rawVal}`);
+          continue;
+        }
+
+        // 6. Conclusion (Etkinlik Sonu)
+        if (rawKey.includes('etkinlik sonu') || rawKey.includes('kapanış')) {
+          startNewSection('Etkinlik Sonu', 'Kapanış');
+          currentParagraphs.push(`Etkinlik Sonu: ${rawVal}`);
+          continue;
+        }
+
+        // 7. Assessment (Ölçme ve Değerlendirme)
+        if (rawKey.includes('ölçme') || rawKey.includes('değerlendirme')) {
+          startNewSection('Ölçme ve Değerlendirme', 'Değerlendirme');
+          currentParagraphs.push(`Ölçme ve Değerlendirme: ${rawVal}`);
+          continue;
+        }
+
+        // 8. Bibliography (Kaynakça)
+        if (rawKey.includes('kaynakça') || rawKey.includes('referans') || rawKey.includes('bağlantılar')) {
+          startNewSection('Kaynakça', 'Kaynakça');
+          currentParagraphs.push(`Kaynakça: ${rawVal}`);
+          continue;
+        }
+
+        if (rawKey.includes('ekler')) {
+          continue;
+        }
+
+        // Fallback for general table row
+        currentParagraphs.push(`${cells[0].replace(/\*\*/g, '')}: ${rawVal}.`);
+        continue;
       }
-      continue;
     }
 
     // List items or regular lines
@@ -76,12 +200,13 @@ export function extractSpeechSections(markdownText, rawHtml = '') {
   }
 
   // Push final remaining section
-  pushCurrentSection();
+  flushSection();
 
   // If no structured sections were created, fallback to single section
   if (sections.length === 0 && text.trim()) {
     sections.push({
       id: 1,
+      category: 'Genel',
       title: 'Ders Planı',
       text: cleanTextForSpeech(text)
     });
@@ -168,13 +293,6 @@ export function chunkTextIntoSentences(text, maxLength = 130) {
   }
 
   return chunks;
-}
-
-/**
- * Returns direct cloud stream URL for real Turkish female voice (Google TTS).
- */
-export function getGoogleTTSUrl(text, lang = 'tr') {
-  return `https://translate.google.com/translate_tts?ie=UTF-8&tl=${lang}&client=tw-ob&q=${encodeURIComponent(text)}`;
 }
 
 /**

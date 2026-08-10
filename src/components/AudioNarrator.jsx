@@ -11,7 +11,9 @@ import {
   Gauge, 
   Sparkles, 
   AudioLines,
-  UserCheck
+  ListOrdered,
+  ChevronRight,
+  RotateCcw
 } from 'lucide-react';
 import { 
   extractSpeechSections, 
@@ -19,10 +21,20 @@ import {
   getAvailableVoices 
 } from '../utils/speechNarrator';
 
-export default function AudioNarrator({ markdownText, renderedHtml, documentTitle = 'Ders Planı' }) {
-  // Speech synthesis support check
-  const isSupported = typeof window !== 'undefined';
+// Icons mapped to section titles
+const SECTION_ICONS = {
+  'Başlık ve Genel Bilgiler': '📋',
+  'Ders ve Kazanım Bilgileri': '🎯',
+  'Donanım ve Materyaller': '🛠️',
+  'Hazırlık Süreci': '⏳',
+  'Uygulama Aşamaları': '🚀',
+  'Etkinlik Sonu': '🏁',
+  'Ölçme ve Değerlendirme': '📊',
+  'Kaynakça': '📚',
+  'Ekler ve Yönergeler': '📎'
+};
 
+export default function AudioNarrator({ markdownText, renderedHtml, documentTitle = 'Ders Planı' }) {
   // Extract structured chapters from content
   const sections = useMemo(() => {
     return extractSpeechSections(markdownText, renderedHtml);
@@ -263,6 +275,30 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
     }
   };
 
+  // Skip to previous sentence chunk
+  const handlePreviousChunk = () => {
+    if (currentChunkIndex > 0) {
+      const prev = currentChunkIndex - 1;
+      setCurrentChunkIndex(prev);
+      if (isPlaying) playCurrentChunk(currentSectionIndex, prev);
+    } else {
+      handlePreviousSection();
+    }
+  };
+
+  // Skip to next sentence chunk
+  const handleNextChunk = () => {
+    const currentSection = sections[currentSectionIndex];
+    const chunks = chunkTextIntoSentences(currentSection?.text || '', 140);
+    if (currentChunkIndex < chunks.length - 1) {
+      const next = currentChunkIndex + 1;
+      setCurrentChunkIndex(next);
+      if (isPlaying) playCurrentChunk(currentSectionIndex, next);
+    } else {
+      handleNextSection();
+    }
+  };
+
   // Skip to previous section
   const handlePreviousSection = () => {
     const prevIdx = Math.max(0, currentSectionIndex - 1);
@@ -283,13 +319,13 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
     }
   };
 
-  // Select section directly
+  // Select and immediately play section directly
   const handleSelectSection = (index) => {
     setCurrentSectionIndex(index);
     setCurrentChunkIndex(0);
-    if (isPlaying) {
-      playCurrentChunk(index, 0);
-    }
+    setIsPlaying(true);
+    setIsPaused(false);
+    playCurrentChunk(index, 0);
   };
 
   if (!sections.length) return null;
@@ -314,17 +350,17 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
                 🎙️ Planı Sesli Dinle
               </span>
               <span className="bg-indigo-500/20 text-indigo-300 text-[11px] font-semibold px-2 py-0.5 rounded-full border border-indigo-400/30">
-                Erişilebilirlik Modu
+                {sections.length} Bölüm
               </span>
             </div>
-            <p className="text-xs text-slate-300 truncate max-w-md">
+            <p className="text-xs text-slate-300 truncate max-w-md mt-0.5">
               {isPlaying ? (
                 <span className="flex items-center gap-1.5 text-emerald-300 font-medium">
                   <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                  Bölüm {currentSectionIndex + 1}/{sections.length}: <strong>{activeSection?.title}</strong>
+                  Okunan Bölüm ({currentSectionIndex + 1}/{sections.length}): <strong>{activeSection?.title}</strong>
                 </span>
               ) : (
-                <span>Tüm planı veya istediğiniz bölümü akıcı Türkçe sesle dinleyin.</span>
+                <span>Tüm planı baştan sona dinleyin veya istediğiniz bölüme tıklayarak oradan başlatın.</span>
               )}
             </p>
           </div>
@@ -337,11 +373,11 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
             id="section-select"
             value={currentSectionIndex}
             onChange={(e) => handleSelectSection(Number(e.target.value))}
-            className="bg-slate-800/90 text-xs text-indigo-100 border border-indigo-500/40 rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all max-w-[220px] truncate"
+            className="bg-slate-800/90 text-xs text-indigo-100 border border-indigo-500/40 rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all max-w-[240px] truncate"
           >
             {sections.map((sec, idx) => (
               <option key={sec.id} value={idx}>
-                {idx + 1}. {sec.title}
+                {idx + 1}. {SECTION_ICONS[sec.title] || '📌'} {sec.title}
               </option>
             ))}
           </select>
@@ -350,17 +386,26 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
 
       {/* Main Controls Row */}
       <div className="flex flex-wrap items-center justify-between gap-3 pt-3">
-        {/* Playback Buttons */}
-        <div className="flex items-center gap-2">
+        {/* Playback & Skipping Buttons */}
+        <div className="flex items-center gap-1.5 sm:gap-2">
           {/* Previous Section */}
           <button
             onClick={handlePreviousSection}
             disabled={currentSectionIndex === 0}
             className="p-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-200 disabled:opacity-30 disabled:cursor-not-allowed transition-all active:scale-95 border border-slate-700"
-            title="Önceki Bölüme Geç"
+            title="Önceki Bölüm"
             aria-label="Önceki Bölüm"
           >
             <SkipBack className="w-4 h-4" />
+          </button>
+
+          {/* Previous Sentence Chunk */}
+          <button
+            onClick={handlePreviousChunk}
+            className="px-2.5 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition-all text-xs font-semibold border border-slate-700 active:scale-95"
+            title="Önceki Cümle / Parça"
+          >
+            ⏪ Cümle
           </button>
 
           {/* Play / Pause / Resume Primary Button */}
@@ -386,6 +431,15 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
             )}
           </button>
 
+          {/* Next Sentence Chunk */}
+          <button
+            onClick={handleNextChunk}
+            className="px-2.5 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition-all text-xs font-semibold border border-slate-700 active:scale-95"
+            title="Sonraki Cümle / Parça"
+          >
+            Cümle ⏩
+          </button>
+
           {/* Stop Button */}
           {isPlaying && (
             <button
@@ -403,7 +457,7 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
             onClick={handleNextSection}
             disabled={currentSectionIndex >= sections.length - 1}
             className="p-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-200 disabled:opacity-30 disabled:cursor-not-allowed transition-all active:scale-95 border border-slate-700"
-            title="Sonraki Bölüme Geç"
+            title="Sonraki Bölüm"
             aria-label="Sonraki Bölüm"
           >
             <SkipForward className="w-4 h-4" />
@@ -421,10 +475,9 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
                   ? 'bg-pink-600 text-white font-bold shadow-sm'
                   : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
               }`}
-              title="Gerçek Doğal Türkçe Kadın Sesi (ResponsiveVoice)"
-              aria-label="Doğal Kadın Sesi ile Dinle"
+              title="Doğal Kadın Sesi (ResponsiveVoice)"
             >
-              <span>👩 Kadın Sesi</span>
+              <span>👩 Kadın</span>
             </button>
             <button
               onClick={() => handleGenderChange('male')}
@@ -434,9 +487,8 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
                   : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
               }`}
               title="Erkek Sesi (Microsoft Tolga / Erkek Spiker)"
-              aria-label="Erkek Sesi ile Dinle"
             >
-              <span>👨 Erkek Sesi</span>
+              <span>👨 Erkek</span>
             </button>
           </div>
 
@@ -454,12 +506,48 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
                     ? 'bg-indigo-600 text-white font-bold shadow-sm'
                     : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
                 }`}
-                aria-label={`Okuma hızı ${s} katı`}
               >
                 {s}x
               </button>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Interactive Quick Chapter Jump Pills (Tıklanabilir Hızlı Bölüm Başlıkları) */}
+      <div className="mt-3.5 pt-3 border-t border-indigo-800/30">
+        <div className="flex items-center gap-2 mb-2">
+          <span className="text-[11px] font-bold uppercase tracking-wider text-indigo-300 flex items-center gap-1">
+            <ListOrdered className="w-3.5 h-3.5" /> Hızlı Bölüm Seçimi (İstediğiniz Aşamaya Tıklayın):
+          </span>
+        </div>
+        <div className="flex flex-wrap gap-1.5 sm:gap-2">
+          {sections.map((sec, idx) => {
+            const isActive = currentSectionIndex === idx;
+            const isCurrentlyPlaying = isActive && isPlaying && !isPaused;
+            const icon = SECTION_ICONS[sec.title] || '📌';
+
+            return (
+              <button
+                key={sec.id}
+                onClick={() => handleSelectSection(idx)}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium transition-all border ${
+                  isCurrentlyPlaying
+                    ? 'bg-emerald-600 text-white border-emerald-400 shadow-md shadow-emerald-600/30 font-bold scale-[1.02]'
+                    : isActive
+                    ? 'bg-indigo-700 text-white border-indigo-400 font-semibold'
+                    : 'bg-slate-800/70 hover:bg-slate-700/80 text-slate-300 hover:text-white border-slate-700/60'
+                }`}
+                title={`${sec.title} bölümünü dinle`}
+              >
+                <span>{icon}</span>
+                <span>{sec.title}</span>
+                {isCurrentlyPlaying && (
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
+                )}
+              </button>
+            );
+          })}
         </div>
       </div>
     </div>
