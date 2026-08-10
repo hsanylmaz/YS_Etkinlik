@@ -1477,6 +1477,7 @@ Seçilen tekniklerin uygulanışını, hedeflenen kazanımla ilişkilendirerek d
               <span className="bg-slate-100 px-4 py-2 rounded-full border border-slate-200 shadow-sm">💾 Yerel Arşivleme</span>
               <span className="bg-slate-100 px-4 py-2 rounded-full border border-slate-200 shadow-sm">▲ Drive Entegrasyonu</span>
               <span className="bg-slate-100 px-4 py-2 rounded-full border border-slate-200 shadow-sm">📄 Word Şablon Doldurucu</span>
+              <span className="bg-slate-100 px-4 py-2 rounded-full border border-slate-200 shadow-sm">🎙️ Sesli Okuma / Dinleme</span>
             </div>
           </section>
         )}
@@ -1692,6 +1693,7 @@ Seçilen tekniklerin uygulanışını, hedeflenen kazanımla ilişkilendirerek d
             <section id="resultSection">
               <ResultPanel
                 renderedHtml={renderedHtml}
+                rawMarkdown={lastResponseText}
                 onSaveToBrowser={handleSaveToBrowser}
                 onCopyOnlyText={handleCopyOnlyText}
                 onDownloadWord={handleDownloadWord}

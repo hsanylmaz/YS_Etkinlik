@@ -1,9 +1,11 @@
 // src/components/ResultPanel.jsx
 import React, { useRef, useEffect } from 'react';
 import { Save, Copy, Download, Share2, Trash2, HelpCircle } from 'lucide-react';
+import AudioNarrator from './AudioNarrator';
 
 export default function ResultPanel({
   renderedHtml,
+  rawMarkdown,
   onSaveToBrowser,
   onCopyOnlyText,
   onDownloadWord,
@@ -133,6 +135,9 @@ export default function ResultPanel({
             <strong>İpucu:</strong> Kendi Word şablonunuzu dolduruyorsanız, tabloların içindeki hücrelerin üzerine farenizi getirdiğinizde beliren <strong>"Kopyala"</strong> butonunu kullanarak sadece o hücrenin içeriğini kopyalayabilirsiniz.
           </span>
         </p>
+
+        {/* Sesli Okuma Paneli (Audio Narrator) */}
+        <AudioNarrator markdownText={rawMarkdown} renderedHtml={renderedHtml} />
 
         <div
           ref={contentRef}
