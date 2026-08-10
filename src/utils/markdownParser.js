@@ -154,7 +154,7 @@ function sanitizeMarkdownTables(markdown) {
                 keyword = urlMatch[1];
             }
             const cleanKeyword = keyword.replace(/[\/\(\)\<\>\@\#\$\%\^\&\*\+\=\[\]\{\}\:\;\'\"\|\,\?\~\`]/g, "");
-            line = `| **Örnek Tasarımın Düzenlenebilir Dosya Linki (.STL)** | • [🔍 Thingiverse'de Ara](https://www.thingiverse.com/search?q=${cleanKeyword}) <br> • [🔍 Printables'da Ara](https://www.printables.com/search/models?q=${cleanKeyword}) <br> • [🔍 Tinkercad'de Ara](https://www.tinkercad.com/search?q=${cleanKeyword}) <br> • [🔍 Creality Cloud'da Ara](https://www.crealitycloud.com/search-results/model?keyword=${cleanKeyword}) |`;
+            line = `| **Örnek Tasarımın Düzenlenebilir Dosya Linki (.STL)** | • [🔍 Thingiverse'de Ara](https://www.thingiverse.com/search?q=${cleanKeyword}) <br> • [🔍 Printables'da Ara](https://www.printables.com/search/models?q=${cleanKeyword}) <br> • [🔍 Tinkercad'de Ara](https://www.tinkercad.com/search?q=${cleanKeyword}) <br> • [🔍 Creality Cloud'da Ara](https://www.crealitycloud.com/search/model?q=${cleanKeyword}) |`;
         }
         
         // Auto-fix GCODE link row to always show standard instruction text
