@@ -1372,6 +1372,7 @@ Seçilen tekniklerin uygulanışını, hedeflenen kazanımla ilişkilendirerek d
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-3.5 py-2 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 rounded-xl text-xs font-bold text-white hover:opacity-90 hover:shadow transition-all shadow-sm active:scale-95 whitespace-nowrap"
+              title="Instagram: @hsan.ylmaz"
             >
               <svg
                 className="w-3.5 h-3.5 text-white"
@@ -1388,6 +1389,29 @@ Seçilen tekniklerin uygulanışını, hedeflenen kazanımla ilişkilendirerek d
                 <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
               </svg>
               <span>@hsan.ylmaz</span>
+            </a>
+
+            {/* Nsosyal social link */}
+            <a
+              href="https://nsosyal.com/hsanylmaz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3.5 py-2 bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600 rounded-xl text-xs font-bold text-white hover:opacity-90 hover:shadow transition-all shadow-sm active:scale-95 whitespace-nowrap"
+              title="Nsosyal: @hsanylmaz"
+            >
+              <svg
+                className="w-3.5 h-3.5 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M4 20V4l16 16V4" />
+              </svg>
+              <span>@hsanylmaz</span>
             </a>
           </div>
 
