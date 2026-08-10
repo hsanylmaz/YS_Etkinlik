@@ -448,10 +448,20 @@ Eklenen Kaynakça bölümü "Yenilikçi Sınıf Kaynakça Yazım Rehberi"ne uygu
 - Öğretim Programları: Milli Eğitim Bakanlığı. (2024). [Ders Adı] dersi öğretim programı. Talim ve Terbiye Kurulu Başkanlığı. Erişim tarihi 10 Mayıs 2026 URL
 DİKKAT: Kaynakça tablosunun içine sadece düz metin kaynakları yaz. Çevrim İçi Araçlar bölümünde belirttiğiniz araçları kaynakçaya eklemeyi UNUTMAYIN!
 `,N=`
-ÖNEMLİ MÜFREDAT KURALI (TÜRKİYE YÜZYILI MAARİF MODELİ 2024/2026):
-"Ünite/Tema/Öğrenme Alanı" ve "Konu/İçerik Çerçevesi" bölümlerini kesinlikle uydurmayın veya genel geçer şekilde doldurmayın. Öğretmenin girdiği "Ders" (Örn: Matematik, Temel Matematik, Matematik Uygulamaları, Fen Bilimleri, Fizik, Kimya, Biyoloji, Türkçe, Türk Dili ve Edebiyatı, Sosyal Bilgiler, Tarih, T.C. İnkılap Tarihi ve Atatürkçülük, Coğrafya, Felsefe vb.), "Sınıf Seviyesi" ve "Kazanım" bilgilerini analiz edin. 
-Bu bilgileri MEB'in güncel Türkiye Yüzyılı Maarif Modeli öğretim programları ile eşleştirerek, tam ve doğru "Öğrenme Alanı/Tema/Ünite" adını ve "Konu/İçerik Çerçevesi"ni tespit edip tablodaki ilgili alanlara yazın.
-KAZANIM VE SÜREÇ BİLEŞENİ ÇİFT YAZMA YASAĞI: 'Öğrenme Çıktıları ve Süreç Bileşenleri /Kazanımlar' hücresine metin yazarken KESİNLİKLE aynı süreç bileşenlerini veya 'Süreç Bileşenleri:' başlığını İKİ DEFA ÜST ÜSTE YAZMAYIN. Şablonla verilen metni birebir tek defa yazın.
+ÖNEMLİ MÜFREDAT VE ÖĞRETİM PROGRAMI EŞLEŞTİRME KURALI (TÜRKİYE YÜZYILI MAARİF MODELİ):
+1. KAZANIM KODU ANALİZİ VE MÜFREDAT EŞLEŞTİRMESİ:
+   - Seçilen kazanım kodunu analiz edin. (Örn: 'İTA.8.2.1', 'SB.7.6.1', 'MAT.5.3.1' vb.)
+   - Koddaki 1. kısım dersin adını, 2. kısım sınıf seviyesini, 3. kısım İLGİLİ ÜNİTE / TEMA / ÖĞRETİM ALANI NUMARASINI, 4. kısım ise kazanım/çıktı numarasını gösterir.
+
+2. "Ünite/Tema/Öğretim Alanı" SATIRINA YAZILACAK VERİ:
+   - Kazanım kodundaki ünite numarasına karşılık gelen, resmi MEB Öğretim Programındaki "ÜNİTE / TEMA / ÖĞRETİM ALANI" ADINI BİREBİR yazın.
+   - ÖRNEK: 'İTA.8.2.1' kazanımı için (2. Ünite): "MİLLÎ UYANIŞ: BAĞIMSIZLIK YOLUNDA ATILAN ADIMLAR" gibi ünite başlığını yazın.
+
+3. "Konu/İçerik Çerçevesi" SATIRINA YAZILACAK VERİ:
+   - İlgili MEB Öğretim Programında, o ünitenin altında yer alan resmi "İÇERİK ÇERÇEVESİ" başlığındaki konu ve içerik listesini BİREBİR yazın.
+   - ÖRNEK: 'İTA.8.2.1' kazanımı için: "Birinci Dünya Savaşı’nın Nedenleri, Osmanlı Devleti’nin Savaşa Katılması, Osmanlı Devleti’nin Savaştığı Cepheler, Birinci Dünya Savaşı’nın Sonuçları, Birinci Dünya Savaşı’nın Türk Toplumuna Etkileri" gibi içerik listesini yazın.
+
+4. KAZANIM VE SÜREÇ BİLEŞENİ ÇİFT YAZMA YASAĞI: 'Öğrenme Çıktıları ve Süreç Bileşenleri /Kazanımlar' hücresine metin yazarken KESİNLİKLE aynı süreç bileşenlerini veya 'Süreç Bileşenleri:' başlığını İKİ DEFA ÜST ÜSTE YAZMAYIN.
 `;let e=[];k&&e.push(`MEB-KİT Simülatörü`,`Scratch`),M&&e.push(`Tinkercad`),e.length===0&&e.push(`EBA Etkileşimli İçerikler`,`Canva`),P=`
 PEDAGOJİK VE METODOLOJİK KURALLAR:
 1. Rol Tanımları: Öğrenciler aktif araştırmacı, öğretmen ise rehberdir. Geleneksel düz anlatımı tamamen ortadan kaldırın.
@@ -568,8 +578,8 @@ Format Kuralı: Çıktını KESİNLİKLE sadece aşağıdaki markdown tablosu fo
 | **Kademe** | ${a} |
 | **Sınıf Seviyesi** | ${f}. Sınıf |
 | **Ders Adı** | ${u} |
-| **Ünite/Tema/Öğrenme Alanı** | (Güncel müfredattan tespit et) |
-| **Konu/İçerik Çerçevesi** | (Kazanımla eşleşen tam konu çerçevesi) |
+| **Ünite/Tema/Öğrenme Alanı** | (Kazanım kodundaki ünite numarasına karşılık gelen MEB Öğretim Programındaki resmi Ünite/Tema/Öğrenme Alanı adını birebir yaz) |
+| **Konu/İçerik Çerçevesi** | (İlgili MEB Öğretim Programındaki resmi İÇERİK ÇERÇEVESİ metinlerini birebir yaz) |
 | **Öğrenme Çıktıları ve Süreç Bileşenleri /Kazanımlar** | ${n} |
 | **Donanım** | ${h} |
 | **Çevrim İçi Araçlar ve İçerikler** | (Öğrenci cihazı yok! Sadece öğretmenin tahtadan veya bilgisayardan açacağı araçlar/simülasyonlar) |
