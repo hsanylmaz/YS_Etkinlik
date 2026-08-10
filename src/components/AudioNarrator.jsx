@@ -59,7 +59,7 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
   // Helper to find female / male voice from list
   const findVoiceByGender = (voices, targetGender) => {
     if (!voices.length) return null;
-    const femaleKeywords = ['emel', 'filiz', 'dilara', 'gul', 'gül', 'yelda', 'female', 'seda', 'zeynep', 'woman'];
+    const femaleKeywords = ['emel', 'filiz', 'dilara', 'gul', 'gül', 'yelda', 'female', 'seda', 'zeynep', 'ayse', 'woman', 'google'];
     const maleKeywords = ['tolga', 'ahmet', 'cem', 'male', 'man', 'mustafa'];
     
     const targetKeywords = targetGender === 'female' ? femaleKeywords : maleKeywords;
@@ -73,7 +73,15 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
       return targetKeywords.some(k => name.includes(k));
     });
 
-    return matched || searchPool[0] || voices[0];
+    if (matched) return matched;
+
+    // If looking for male and none matched, return first Turkish voice
+    if (targetGender === 'male') {
+      return searchPool[0];
+    }
+
+    // If looking for female and no female voice found, return null so pitch manipulation applies cleanly
+    return null;
   };
 
   // Load voices when available
@@ -91,6 +99,9 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
       if (preferred) {
         setSelectedVoiceURI(preferred.voiceURI);
         voiceRef.current = preferred;
+      } else if (list.length > 0) {
+        setSelectedVoiceURI(list[0].voiceURI);
+        voiceRef.current = null; // Use browser pitch engine
       }
     };
 
@@ -152,8 +163,15 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
     const textToSpeak = chunks[chkIdx];
     const utterance = new SpeechSynthesisUtterance(textToSpeak);
     utterance.lang = 'tr-TR';
-    utterance.rate = rateRef.current;
-    utterance.pitch = genderRef.current === 'female' ? 1.15 : 0.88;
+    
+    // Distinct pitch and speed modulation for clear gender distinction
+    if (genderRef.current === 'female') {
+      utterance.pitch = 1.38; // Tiz, akıcı kadın tonu
+      utterance.rate = rateRef.current * 1.05;
+    } else {
+      utterance.pitch = 0.80; // Tok, bas erkek tonu
+      utterance.rate = rateRef.current * 0.95;
+    }
     
     if (voiceRef.current) {
       utterance.voice = voiceRef.current;
@@ -189,6 +207,13 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
     if (matchedVoice) {
       setSelectedVoiceURI(matchedVoice.voiceURI);
       voiceRef.current = matchedVoice;
+    } else {
+      // If no explicit female voice is installed in OS, fallback to browser pitch engine
+      if (targetGender === 'female') {
+        voiceRef.current = null;
+      } else if (availableVoices.length > 0) {
+        voiceRef.current = availableVoices[0];
+      }
     }
 
     if (isPlaying && !isPaused) {
@@ -446,10 +471,10 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
             ))}
           </div>
 
-          {/* Voice selector (if multiple voices are detected) */}
-          {availableVoices.length > 1 && (
+          {/* Voice selector */}
+          {availableVoices.length > 0 && (
             <div className="flex items-center">
-              <label htmlFor="voice-select" className="sr-only">Ses Seç</label>
+              <label htmlFor="voice-select" className="sr-only">Ses Motoru</label>
               <select
                 id="voice-select"
                 value={selectedVoiceURI}
@@ -462,12 +487,12 @@ export default function AudioNarrator({ markdownText, renderedHtml, documentTitl
                     playCurrentChunk(sectionIdxRef.current, chunkIdxRef.current);
                   }
                 }}
-                className="bg-slate-800/90 text-xs text-indigo-200 border border-indigo-500/40 rounded-xl px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all max-w-[150px] truncate"
-                title="Ses Tonu Seçin"
+                className="bg-slate-800/90 text-xs text-indigo-200 border border-indigo-500/40 rounded-xl px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all max-w-[170px] truncate"
+                title="Sisteminizdeki Ses Motorunu Seçin"
               >
                 {availableVoices.map((v) => (
                   <option key={v.voiceURI} value={v.voiceURI}>
-                    {v.name.replace(/(Microsoft|Google|Desktop|Natural)/gi, '').trim()} ({v.lang})
+                    {v.name.replace(/(Desktop|Natural)/gi, '').trim()}
                   </option>
                 ))}
               </select>
