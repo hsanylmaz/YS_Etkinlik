@@ -1359,60 +1359,59 @@ Seçilen tekniklerin uygulanışını, hedeflenen kazanımla ilişkilendirerek d
 
         {/* Bottom Row - Split between Name/Instagram on the left, and 3-button menu on the right */}
         <div className="w-full flex flex-col lg:flex-row justify-between items-center gap-4">
-          {/* Teacher info + Instagram link next to it */}
+          {/* Teacher info + Stacked Social links */}
           <div className="flex flex-wrap justify-center lg:justify-start items-center gap-3">
-            <div className="bg-indigo-50 text-indigo-700 px-3.5 py-1.5 rounded-2xl text-[10px] md:text-xs font-bold border border-indigo-100 shadow-sm leading-relaxed text-left">
+            <div className="bg-indigo-50 text-indigo-700 px-3.5 py-2 rounded-2xl text-[10px] md:text-xs font-bold border border-indigo-100 shadow-sm leading-relaxed text-left flex flex-col justify-center">
               <div>👨‍🏫 Hasan YILMAZ - Matematik Öğretmeni</div>
               <div className="text-indigo-600/90 font-medium">Ordu Yeğitek Proje Koordinatörü</div>
             </div>
             
-            {/* Instagram social link next to the name badge */}
-            <a
-              href="https://www.instagram.com/hsan.ylmaz"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3.5 py-2 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 rounded-xl text-xs font-bold text-white hover:opacity-90 hover:shadow transition-all shadow-sm active:scale-95 whitespace-nowrap"
-              title="Instagram: @hsan.ylmaz"
-            >
-              <svg
-                className="w-3.5 h-3.5 text-white"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+            {/* Social media links stacked vertically under each other */}
+            <div className="flex flex-col gap-1.5">
+              {/* Instagram link */}
+              <a
+                href="https://www.instagram.com/hsan.ylmaz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 rounded-xl text-[11px] font-bold text-white hover:opacity-90 hover:shadow transition-all shadow-sm active:scale-95 whitespace-nowrap"
+                title="Instagram Profilim: @hsan.ylmaz"
               >
-                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-              </svg>
-              <span>@hsan.ylmaz</span>
-            </a>
+                <svg
+                  className="w-3.5 h-3.5 text-white flex-shrink-0"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+                <span>@hsan.ylmaz</span>
+              </a>
 
-            {/* Nsosyal social link */}
-            <a
-              href="https://nsosyal.com/hsanylmaz"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3.5 py-2 bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600 rounded-xl text-xs font-bold text-white hover:opacity-90 hover:shadow transition-all shadow-sm active:scale-95 whitespace-nowrap"
-              title="Nsosyal: @hsanylmaz"
-            >
-              <svg
-                className="w-3.5 h-3.5 text-white"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+              {/* Nsosyal link with official Nsosyal logo */}
+              <a
+                href="https://nsosyal.com/hsanylmaz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-[#07d0e0] to-[#324bff] rounded-xl text-[11px] font-bold text-white hover:opacity-90 hover:shadow transition-all shadow-sm active:scale-95 whitespace-nowrap"
+                title="Nsosyal Profilim: @hsanylmaz"
               >
-                <path d="M4 20V4l16 16V4" />
-              </svg>
-              <span>@hsanylmaz</span>
-            </a>
+                <svg
+                  className="w-3.5 h-3.5 flex-shrink-0 fill-white"
+                  viewBox="0 0 575 574"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M171.226 0H0V573.751H171.226V0Z" />
+                  <path d="M76.1875 0L191.016 300.603L275.573 520.404C289.183 552.162 326.104 573.751 367.482 573.751H501.631C538.082 573.751 574.142 535.579 574.142 494.748V0H402.917V323.053L398.458 311.632L278.858 0H76.1875Z" />
+                </svg>
+                <span>@hsanylmaz</span>
+              </a>
+            </div>
           </div>
 
           {/* Far Right: 3-button menu */}
