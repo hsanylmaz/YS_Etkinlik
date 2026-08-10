@@ -1482,12 +1482,26 @@ Seçilen tekniklerin uygulanışını, hedeflenen kazanımla ilişkilendirerek d
 
             {/* Steps */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left max-w-4xl mx-auto pt-6 border-t border-slate-100">
-              <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-indigo-200 hover:shadow-md transition-all">
-                <div className="text-xs font-extrabold text-indigo-600 mb-1">ADIM 1</div>
-                <h4 className="font-bold text-slate-800 text-sm md:text-base mb-2">API Ayarını Yapın</h4>
-                <p className="text-xs md:text-sm text-slate-500 leading-relaxed">
-                  Sağ üstteki "API Ayarları" menüsünden ücretsiz aldığınız Gemini API anahtarınızı tanımlayın.
-                </p>
+              <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-indigo-200 hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                  <div className="text-xs font-extrabold text-indigo-600 mb-1">ADIM 1</div>
+                  <h4 className="font-bold text-slate-800 text-sm md:text-base mb-2">API Ayarını Yapın</h4>
+                  <p className="text-xs md:text-sm text-slate-500 leading-relaxed">
+                    Sağ üstteki "API Ayarları" menüsünden ücretsiz aldığınız Gemini API anahtarınızı tanımlayın.
+                  </p>
+                </div>
+                <a 
+                  href="https://www.youtube.com/watch?v=9XI-bJYSotk" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 mt-3 px-3 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 hover:text-rose-800 text-xs font-semibold rounded-xl border border-rose-200 shadow-sm transition-all group w-fit"
+                  title="YouTube'da Gemini API Anahtarı Alma Videosunu İzleyin"
+                >
+                  <svg className="w-4 h-4 fill-rose-600 group-hover:scale-110 transition-transform shrink-0" viewBox="0 0 24 24">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  </svg>
+                  <span>Video Rehberi İzle</span>
+                </a>
               </div>
               <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-indigo-200 hover:shadow-md transition-all">
                 <div className="text-xs font-extrabold text-indigo-600 mb-1">ADIM 2</div>
