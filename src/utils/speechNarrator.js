@@ -141,9 +141,9 @@ export function cleanTextForSpeech(raw) {
 }
 
 /**
- * Splits a long text into shorter, natural sentence chunks to prevent browser SpeechSynthesis timeouts.
+ * Splits a long text into shorter, natural sentence chunks to prevent browser SpeechSynthesis timeouts and enable cloud TTS streaming.
  */
-export function chunkTextIntoSentences(text, maxLength = 160) {
+export function chunkTextIntoSentences(text, maxLength = 130) {
   if (!text) return [];
 
   // Match sentences ending in punctuation
@@ -168,6 +168,13 @@ export function chunkTextIntoSentences(text, maxLength = 160) {
   }
 
   return chunks;
+}
+
+/**
+ * Returns direct cloud stream URL for real Turkish female voice (Google TTS).
+ */
+export function getGoogleTTSUrl(text, lang = 'tr') {
+  return `https://translate.google.com/translate_tts?ie=UTF-8&tl=${lang}&client=tw-ob&q=${encodeURIComponent(text)}`;
 }
 
 /**
