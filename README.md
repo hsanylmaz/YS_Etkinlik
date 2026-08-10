@@ -24,11 +24,16 @@ Uygulamanın yapay zeka özelliklerini kullanabilmesi için bir Google Gemini AP
 3. Uygulamanın sağ üst köşesindeki **"API Ayarları"** (vites simgeli) butonuna tıklayın.
 4. Kopyaladığınız anahtarı kutucuğa yapıştırıp **"Kaydet"** butonuna basın.
 
+📺 **Video Rehber:** [Gemini API Anahtarı Nasıl Alınır? (YouTube)](https://www.youtube.com/watch?v=9XI-bJYSotk)
+
 > **Not:** API anahtarınız kesinlikle hiçbir sunucuya veya dış servise gönderilmez; yalnızca sizin tarayıcınızın yerel hafızasında (`localStorage`) güvenli bir şekilde saklanır.
 
 ---
 
 ## 🌟 Proje Vizyonu ve Teknolojik Entegrasyonlar
+
+### 🎙️ Kapsayıcı ve Etkileşimli Sesli Plan Dinleme Özelliği
+Platformumuz, **Türkiye Yüzyılı Maarif Modeli**’nin kapsayıcı eğitim vizyonuna uygun olarak görme engelli veya öğrenme güçlüğü yaşayan öğretmenlerin içeriklere engelsiz erişimini sağlayan **Sesli Dinleme Modülü** ile donatılmıştır. Üretilen ders planı; *Genel Bilgiler, Kazanımlar, Hazırlık, Uygulama ve Değerlendirme* başlıklarına akıllıca ayrıştırılarak gerçekçi Türkçe ses sentezleyicisi ile seslendirilir. Öğretmenler planın tamamını dinleyebileceği gibi doğrudan istediği bölüme tıklayarak atlayabilir, okuma hızını ayarlayabilir ve cümle cümle ilerletebilir. Bu özellik, öğretmenlerin materyal hazırlığı esnasında çoklu görev yürüterek zamandan tasarruf etmesini ve derse odaklanmasını sağlar.
 
 ### 🚀 Gelecekteki BİLGE ve Millî Teknoloji Hamlesi Entegrasyonu
 Projemiz, Türkiye'nin dijital eğitim vizyonunu yansıtan TÜBİTAK BİLGE platformu ve "Millî Teknoloji Hamlesi" hedefleriyle tam bir entegrasyon ve sinerji oluşturacak şekilde kurgulanmıştır. Şuanlık gemini API kullanımı yapılsa da ilerleyen günlerde türkçenin kendine özgü yapısını ve kültürel birikimimizi temel alan büyük dil modeli olan TÜBİTAK BİLGE API'sı kullanılacaktır. Öğrencilerin sadece teknolojiyi tüketen değil; aktif öğrenme, tasarım odaklı düşünme ve problem çözme becerileriyle yerli ve millî teknolojik çözümler üreten üretken nesiller olarak yetiştirilmesini amaçlar.
