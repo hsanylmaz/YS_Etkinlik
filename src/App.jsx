@@ -162,11 +162,10 @@ export default function App() {
       return;
     }
 
-    // Dynamic duration calculations identical to docxGenerator.js
-    const evalSure = 10;
-    const guideSure = Math.max(0, sureNum - evalSure);
-    const sonuSure = guideSure > 35 ? 10 : 5;
-    const uygulamaSure = Math.max(0, guideSure - sonuSure);
+    // Dynamic duration calculations: Total = Uygulama + Etkinlik Sonu + Ölçme ve Değerlendirme
+    const evalSure = sureNum >= 60 ? 15 : (sureNum >= 40 ? 10 : 5);
+    const sonuSure = sureNum >= 60 ? 10 : 5;
+    const uygulamaSure = Math.max(0, sureNum - sonuSure - evalSure);
 
     if (selectedZones.length === 0) {
       showToast("Lütfen en az bir öğrenme alanı seçin.", "error");
@@ -761,12 +760,14 @@ PEDAGOJİK VE METODOLOJİK KURALLAR:
 2. 4C Entegrasyonu: Her adımda öğrencilerin İletişim, İş Birliği, Eleştirel Düşünme ve Yaratıcılık becerilerini doğal akış içinde sergilemelerini sağlayın.
 3. Teknolojinin Rolü: Teknolojiyi sadece sunum veya tüketim için değil, esnek öğrenme alanlarına uygun olarak aktif üretim ve analiz için konumlandırın.
 4. KESİN BİÇİMLENDİRME KURALI: Uygulama (Uygulama Adımları / Öğrenme Etkinlikleri) kısmındaki metinlerin içine veya sonuna KESİNLİKLE parantez içinde süreç bileşeni kodları (Örn: '(Süreç Bileşeni: a, b)') veya 4C becerileri etiketi (Örn: '(İlgili Beceriler: İletişim, İş Birliği)') PARANTEZ İÇİNDE YAZMAYINIZ. Adımları doğrudan akıcı, doğal bir öğretmen yönergesi olarak yazınız.
-5. UYGULAMA SÜRESİ VE BÖLÜMLENDİRME KURALI:
-   - Uygulama adımlarını (Öğrenme Etkinlikleri) KESİNLİKLE "0-5 dk:", "5-20 dk:" gibi zaman aralıklarıyla bölmeyin veya bu zaman aralıklarını satır başlarına yazmayın.
-   - Giriş veya bağlaç ifadelerinde KESİNLİKLE "İlk 5 dakikada...", "15 dakikalık süreçte...", "Son 10 dakikada...", "Dersin başında..." gibi zaman belirten ifadeler kullanmayın. Cümleye doğrudan eylem ile başlayın (Örn: "Sınıf genelinde hızlı bir problem senaryosu üzerinden...") ve süreyi sadece cümlenin/adımın sonunda parantez içinde belirtin (Örn: "... yapılır. (5 dk.)").
-   - Her bir adımın kendi metninin en sonuna, parantez içinde o adıma kaç dakika ayrıldığını belirtin. Örnek: "... (5 dk.)" veya "... (15 dk.)" şeklinde.
-   - Plan içerisindeki "Uygulama" adımlarına ayrılan bu sürelerin toplamı KESİNLİKLE tam olarak ${uygulamaSure} dakika olmalıdır! (Örn: adımların süreleri 10 dk + 10 dk + 5 dk = 25 dk olmalı ve toplam ${uygulamaSure} dakikayı geçmemeli veya eksik kalmamalıdır).
-   - Benzer şekilde, "Etkinlik Sonu" bölümünün içindeki veya sonundaki açıklamada süre belirtilmişse, bu süre KESİNLİKLE tam olarak ${sonuSure} dakika olmalıdır.
+5. KESİN SÜRE DAĞILIMI VE HAZIRLIK KURALI:
+   - HAZIRLIK SÜRESİ YASAĞI: "Hazırlık" bölümü dersten önce öğretmenin ve öğrencilerin yaptığı ön hazırlıkları (materyallerin temini, kâğıt basımı, cihaz hazırlığı vb.) kapsar. KESİNLİKLE "Hazırlık" başlığının yanına, içine veya adımlarına parantez içinde süre (Örn: '(10 dk.)', '(15 dk.)' vb.) YAZMAYINIZ. Hazırlık aşaması dersten önce yapıldığı için süresizdir.
+   - DERS İÇİ SÜRE TOPLAMLARI: Kullanıcının girdiği toplam ders süresi (${sureNum} dakika), yalnızca ders esnasında gerçekleşen 3 aşamaya dağıtılır:
+     1. "Uygulama" (Öğrenme Etkinlikleri): Tam olarak ${uygulamaSure} dakika. (Adımların sonundaki parantez içi sürelerin toplamı tam ${uygulamaSure} dk olmalıdır).
+     2. "Etkinlik Sonu": Tam olarak ${sonuSure} dakika.
+     3. "Ölçme ve Değerlendirme": Tam olarak ${evalSure} dakika.
+   - Bu üç aşamanın süreleri toplamı KESİNLİKLE tam olarak girilen toplam ders süresine eşit olmalıdır (${uygulamaSure} dk Uygulama + ${sonuSure} dk Etkinlik Sonu + ${evalSure} dk Ölçme Değerlendirme = ${sureNum} dk)!
+   - Uygulama adımlarını (Öğrenme Etkinlikleri) KESİNLİKLE "0-5 dk:", "5-20 dk:" gibi zaman aralıklarıyla bölmeyin. Cümleye doğrudan eylem ile başlayın ve süreyi sadece cümlenin/adımın sonunda parantez içinde belirtin (Örn: "... tamamlanır. (5 dk.)").
 ${useMebKit ? '- MEB-KİT Kodlama ve devre tasarımlarını (Scratch tabanlı) etkinliğe entegre edebilirsiniz.' : '- KESİNLİKLE MEB-KİT (veya MEB KİT) kullanımı, kodlaması, devre tasarımı veya Scratch tabanlı elektronik kodlama önermeyin/yazmayın.'}
 ${use3DPrinter ? '- 3B Tasarım/Modelleme (Tinkercad vb.) ve 3B Yazıcıdan fiziksel baskı almayı etkinliğe entegre edebilirsiniz.' : '- KESİNLİKLE 3B (3 boyutlu) tasarım, 3B modelleme, Tinkercad kullanımı veya 3B Yazıcıdan baskı almayı önermeyin/yazmayın.'}
 `;
@@ -893,10 +894,10 @@ Format Kuralı: Çıktını KESİNLİKLE sadece aşağıdaki markdown tablosu fo
 | **Etkinlik Alanı** | (Pedagojik yaklaşıma göre sınıfı nasıl esnettiğinizi belirtin. Hangi öğrenme alanlarını bir arada kullandığınızı ve tekerlekli masaların durumunu belirtin.) |
 | **Öğrencilerin Konumu** | (Etkinliğe uygun konumları [x] veya ☒ ile işaretle. Diğerlerini [ ] veya ☐ bırak. Örnek: '☒ Bireysel  ☒ Küçük Gruplar  ☐ Tüm Sınıf') |
 | **Öğretmenin Rolü** | (Etkinliğe uygun rolleri [x] veya ☒ ile işaretle. Diğerlerini [ ] veya ☐ bırak. Örnek: '☐ Lider  ☒ Rehber  ☒ Gözlemci') |
-| **Hazırlık** | (Etkinlik başlamadan önce öğretmenin ve öğrencilerin yapması gereken ön hazırlıklar) |
+| **Hazırlık** | (Ders başlamadan önce öğretmenin ve öğrencilerin yapması gereken ön hazırlıklar. Dersten önce yapıldığı için KESİNLİKLE süre yazmayınız!) |
 | **Uygulama (Süre: ${uygulamaSure} dk.)** | (Seçilen öğrenme alanlarına - ${selectedZones.join(', ')} - ve aktif öğrenme pedagojisine göre adımlar. Her adımın sonuna süresini parantez içinde yazın. Bu adımların süreleri toplamı KESİNLİKLE tam olarak ${uygulamaSure} dakika olmalıdır. Metinlerin veya adımların içine/sonuna KESİNLİKLE parantez içinde süreç bileşeni etiketi veya 4C beceri etiketi YAZMAYINIZ, doğrudan doğal anlatımla yazınız.) |
 | **Etkinlik Sonu (Süre: ${sonuSure} dk.)** | (Etkinliğin tamamlanması, geri bildirimlerin alınması ve sınıf genel incelemesi. Bu bölümün süresi KESİNLİKLE tam olarak ${sonuSure} dakika olmalıdır.) |
-| **Ölçme ve Değerlendirme** | (Kazanımın alt maddelerini ölçen, rehberden seçilmiş yöntemler) |
+| **Ölçme ve Değerlendirme (Süre: ${evalSure} dk.)** | (Kazanımın alt maddelerini ölçen, rehberden seçilmiş yöntemler. Bu bölümün süresi KESİNLİKLE tam olarak ${evalSure} dakika olmalıdır.) |
 | **Kaynakça** | (Rehbere tam uygun kaynakça) |
 | **Ekler** | Formlar ve yönergeler en altta sunulmuştur. |
 

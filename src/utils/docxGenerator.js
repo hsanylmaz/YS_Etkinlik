@@ -297,12 +297,11 @@ export async function generateDocxBlob(lastResponseText, renderedHtmlContent, op
         return p;
     }
 
-    // Dynamic duration calculations
+    // Dynamic duration calculations: Total = Uygulama + Etkinlik Sonu + Ölçme ve Değerlendirme
     const totalSure = parseInt(sure || data.sure || "40", 10) || 40;
-    const evalSure = 10;
-    const guideSure = Math.max(0, totalSure - evalSure);
-    const sonuSure = guideSure > 35 ? 10 : 5;
-    const uygulamaSure = Math.max(0, guideSure - sonuSure);
+    const evalSure = totalSure >= 60 ? 15 : (totalSure >= 40 ? 10 : 5);
+    const sonuSure = totalSure >= 60 ? 10 : 5;
+    const uygulamaSure = Math.max(0, totalSure - sonuSure - evalSure);
 
     // Fill standard cells
     fillCell(0, 1, data.etkinlikId || "ETK-01");
