@@ -435,7 +435,7 @@ Règle de format: La sortie DOIT être dans le format exact du tableau Markdown 
 
 ### الملحقات
 (اكتب نماذج التقييم والقواعد الإرشادية خارج الجدول الرئيسي كجداول ماركداون منفصلة بالأسفل.)
-`;else{B=c===`etkinlikPlani`?`TEKNOLOJİ DESTEKLİ AKTİF ÖĞRENME ETKİNLİK PLANI`:`TEKNOLOJİ ODAKLI ÖĞRENME SENARYOSU`;let e={Matematik:`MAT`,"Fen Bilimleri":`FEN`,Türkçe:`TR`,"Sosyal Bilgiler":`SB`,"T.C. İnkılap Tarihi ve Atatürkçülük":`İTA`,"Bilişim Teknolojileri ve Yazılım":`BİL`,İngilizce:`İNG`,Almanca:`ALM`,Fransızca:`FRA`,Arapça:`ARP`,"Görsel Sanatlar":`GÖR`,Müzik:`MÜZ`,"Beden Eğitimi ve Spor":`BED`,"Din Kültürü ve Ahlak Bilgisi":`DKAB`,"Teknoloji ve Tasarım":`TT`,Fizik:`FİZ`,Kimya:`KİM`,Biyoloji:`BİY`,Tarih:`TAR`,Coğrafya:`COĞ`,Felsefe:`FEL`,"Türk Dili ve Edebiyatı":`TDE`},t=i.match(/\b([A-ZÇĞİÖŞÜa-zçğıöşü]{2,4}\.\d+\.\d+\.\d+)\b/),r=e[u]||(u?u.substring(0,3).toUpperCase():`DERS`),d=`ETK-${t?t[1].toUpperCase():`${r}.${f}.K01`}${k&&M?`-KIT-3B`:k?`-KIT`:M?`-3B`:``}-${Math.random().toString(36).substring(2,5).toUpperCase()}`;j=`Sen, Yenilikçi Sınıf Eğitim Atölyesi için MEB müfredat standartlarına tam uyumlu çalışan pedagoji uzmanı bir yapay zeka asistanısın. Görevin, öğretmenin verdiği bilgiler doğrultusunda "Teknoloji Destekli Aktif Öğrenme Etkinlik Planı" hazırlamaktır.`,P=`
+`;else{B=c===`etkinlikPlani`?`TEKNOLOJİ DESTEKLİ AKTİF ÖĞRENME ETKİNLİK PLANI`:`TEKNOLOJİ ODAKLI ÖĞRENME SENARYOSU`;let e={Matematik:`MAT`,"Fen Bilimleri":`FEN`,Türkçe:`TR`,"Sosyal Bilgiler":`SB`,"T.C. İnkılap Tarihi ve Atatürkçülük":`İTA`,"Bilişim Teknolojileri ve Yazılım":`BİL`,İngilizce:`İNG`,Almanca:`ALM`,Fransızca:`FRA`,Arapça:`ARP`,"Görsel Sanatlar":`GÖR`,Müzik:`MÜZ`,"Beden Eğitimi ve Spor":`BED`,"Din Kültürü ve Ahlak Bilgisi":`DKAB`,"Teknoloji ve Tasarım":`TT`,Fizik:`FİZ`,Kimya:`KİM`,Biyoloji:`BİY`,Tarih:`TAR`,Coğrafya:`COĞ`,Felsefe:`FEL`,"Türk Dili ve Edebiyatı":`TDE`},t=i.match(/\b([A-ZÇĞİÖŞÜa-zçğıöşü]{2,4}\.\d+\.\d+\.\d+)\b/),r=e[u]||(u?u.substring(0,3).toUpperCase():`DERS`),d=t?t[1].toUpperCase():`${r}.${f}.K01`,p=k&&M?`-KIT-3B`:k?`-KIT`:M?`-3B`:``,m=Math.random().toString(36).substring(2,5).toUpperCase(),_=`${new Date().getFullYear().toString().slice(-2)}-${d}${p}-${m}`;j=`Sen, Yenilikçi Sınıf Eğitim Atölyesi için MEB müfredat standartlarına tam uyumlu çalışan pedagoji uzmanı bir yapay zeka asistanısın. Görevin, öğretmenin verdiği bilgiler doğrultusunda "Teknoloji Destekli Aktif Öğrenme Etkinlik Planı" hazırlamaktır.`,P=`
 ÖNEMLİ - KAYNAKÇA YAZIM KURALLARI:
 Eklenen Kaynakça bölümü "Yenilikçi Sınıf Kaynakça Yazım Rehberi"ne uygun OLMALIDIR:
 - Madde işareti (bullet), tire (-), numaralandırma veya girinti KESİNLİKLE KULLANMA. Düz metin olarak yaz.
@@ -464,8 +464,8 @@ DİKKAT: Kaynakça tablosunun içine sadece düz metin kaynakları yaz. Çevrim 
 4. KAZANIM VE SÜREÇ BİLEŞENİ ÇİFT YAZMA YASAĞI: 'Öğrenme Çıktıları ve Süreç Bileşenleri /Kazanımlar' hücresine metin yazarken KESİNLİKLE aynı süreç bileşenlerini veya 'Süreç Bileşenleri:' başlığını İKİ DEFA ÜST ÜSTE YAZMAYIN.
 
 5. ETKİNLİK ID KURALI:
-   - 'Etkinlik ID' hücresine KESİNLİKLE tam olarak '${d}' değerini yazınız. Format: ETK-[KAZANIM_KODU][TEKNOLOJİ_ROZETİ]-[BENZERSİZ_KOD] (Örn: 'ETK-İTA.8.2.1-A7K', 'ETK-MAT.5.1.2-KIT-3X8', 'ETK-FEN.6.3.1-3B-9M2', 'ETK-BİL.5.2.1-KIT-3B-4R1').
-`;let p=[];k&&p.push(`MEB-KİT Simülatörü`,`Scratch`),M&&p.push(`Tinkercad`),p.length===0&&p.push(`EBA Etkileşimli İçerikler`,`Canva`),I=`
+   - 'Etkinlik ID' hücresine KESİNLİKLE tam olarak '${_}' değerini yazınız. Format: [YIL]-[KAZANIM_KODU][TEKNOLOJİ_ROZETİ]-[BENZERSİZ_KOD] (Örn: '26-İTA.8.2.1-A7K', '26-MAT.5.1.2-KIT-3X8', '26-FEN.6.3.1-3B-9M2', '26-BİL.5.2.1-KIT-3B-4R1').
+`;let y=[];k&&y.push(`MEB-KİT Simülatörü`,`Scratch`),M&&y.push(`Tinkercad`),y.length===0&&y.push(`EBA Etkileşimli İçerikler`,`Canva`),I=`
 PEDAGOJİK VE METODOLOJİK KURALLAR:
 1. Rol Tanımları: Öğrenciler aktif araştırmacı, öğretmen ise rehberdir. Geleneksel düz anlatımı tamamen ortadan kaldırın.
 2. 4C Entegrasyonu: Her adımda öğrencilerin İletişim, İş Birliği, Eleştirel Düşünme ve Yaratıcılık becerilerini doğal akış içinde sergilemelerini sağlayın.
@@ -485,15 +485,15 @@ ${M?`- 3B Tasarım/Modelleme (Tinkercad vb.) ve 3B Yazıcıdan fiziksel baskı a
 KATEGORİLERE GÖRE TAVSİYE EDİLEN YAPAY ZEKA VE WEB 2.0 ARAÇLARI:
 - Bilgi Toplama/Araştırma: Perplexity, Google Akademik, EBA
 - İş Birliği/Geri Bildirim: Padlet, Mentimeter, Miro
-- İçerik Geliştirme/Kodlama: ${p.join(`, `)}
+- İçerik Geliştirme/Kodlama: ${y.join(`, `)}
 - Üretim/Medya Tasarımı: Canva, CapCut, Adobe Express
 - Sunum/Etkileşim: Genially, Prezi, Kahoot
-`;let m=[`9`,`10`,`11`,`12`].includes(String(f));z=`${k?`
+`;let b=[`9`,`10`,`11`,`12`].includes(String(f));z=`${k?`
 ÖNEMLİ MEB-KİT UYGULAMA YÖNERGESİ TABLO KURALI:
 MEB-KİT kullanımı seçilmiştir. EKLER (APPENDICES) bölümünün EN ALT KISMINA KESİNLİKLE aşağıdaki şablona göre hazırlanmış "MEB-KİT Robotik Kodlama Seti ve MEB-KİT Kodlama Platformu Uygulama Yönergesi" tablosunu ekleyin. Tablo içindeki bilgileri seçilen kazanıma (${i}) ve yapılan robotik kodlama etkinliğine tam uygun şekilde doldurun:
 
-SEVİYE VE KODLAMA TÜRÜ KURALLARI (${f}. Sınıf - ${m?`Ortaöğretim/Lise C++ Dili`:`Temel Eğitim/Ortaokul Blok Tabanlı Kodlama`}):
-${m?`
+SEVİYE VE KODLAMA TÜRÜ KURALLARI (${f}. Sınıf - ${b?`Ortaöğretim/Lise C++ Dili`:`Temel Eğitim/Ortaokul Blok Tabanlı Kodlama`}):
+${b?`
 - Sınıf seviyesi ${f}. Sınıf (Ortaöğretim) olduğu için kodlama yapısı C++ DİLİNE GÖRE planlanmalıdır.
 - "Grup Oluşturma" satırında platformda yeni grup oluşturma adımları, "Yeni Proje Oluşturma ve Öğrenci Ekleme" satırında proje türü olarak KESİNLİKLE "C++" seçileceği belirtilmelidir.
 - "İstenen Algoritmaya Göre Kod Düzenleme" satırına genel algoritma yönerge metnini yazın.
@@ -521,13 +521,13 @@ TABLO VE HÜCRE KURALI: Tablonun kırılmaması için tablo hücresi içinde ASL
 | Yönerge Adı | Açıklama |
 |---|---|
 | **Grup Oluşturma** | MEB-KİT platformuna giriş yapınız. Sol menüde yer alan “Gruplarım” bölümüne tıklayınız. Sol üstte bulunan “Grup Oluştur” butonuna tıklayıp grubun adını ve açıklamasını giriniz. |
-| **Yeni Proje Oluşturma ve Öğrenci Ekleme** | Grup içerisinde proje oluşturmak için “Proje Oluştur” butonuna tıklayınız. Açılan pencerede proje adını yazın. Projenin ${m?`C++`:`Blok tabanlı`} olacağını seçiniz. Bilgileri tamamladıktan sonra tekrar “Proje Oluştur” butonuna tıklayarak projeyi oluşturunuz. Kullanıcı erişimlerini düzenlemek için “Üyeler” sekmesini açınız. Arama bölümünden kullanıcıyı bulup “Davet Et” butonuna tıklayarak gruba ekleyiniz. |
+| **Yeni Proje Oluşturma ve Öğrenci Ekleme** | Grup içerisinde proje oluşturmak için “Proje Oluştur” butonuna tıklayınız. Açılan pencerede proje adını yazın. Projenin ${b?`C++`:`Blok tabanlı`} olacağını seçiniz. Bilgileri tamamladıktan sonra tekrar “Proje Oluştur” butonuna tıklayarak projeyi oluşturunuz. Kullanıcı erişimlerini düzenlemek için “Üyeler” sekmesini açınız. Arama bölümünden kullanıcıyı bulup “Davet Et” butonuna tıklayarak gruba ekleyiniz. |
 | **Problem Durumu/Amacı** | (Kazanımla ilgili MEB-KİT problem durumu veya çalışma amacı) |
 | **Kullanılacak MEB-KİT Bileşenleri** | (Kazanımla ilgili kullanılacak MEB-KİT deney kartı, Sensör, Kablo ve Modüller) |
 | **MEB-KİT Devre Bağlantıları** | (Sensör ve pin bağlantılarının detaylı açıklaması, Örn: LDR Modülü MEB-KİT deney kartı üzerinde belirlenen alana takılır. LDR’nin bağlantısını yapmak için 'Sensörler' kısmında bulunan pinlerden uygun pine jumper kablo yardımıyla bağlanır...) |
 | **Devre Tasarımı** | ![MEB-KİT Devre Tasarımı](mebkit_devre_tasarimi.png) |
 | **İstenen Algoritmaya Göre Kod Düzenleme** | Bloklar veya kodlar, etkinlikte hedeflenen algoritmaya uygun şekilde mantıksal bir sıra ile dizilir. İlgili parametre değerleri (süre, pin numarası, değişken veya sabit değeri) uygulama gereksinimlerine göre ayarlanır. |
-| **Kod Bloğu** | ${m?`Seçilen kazanıma (${i}) uygun tam C++ Kod Bloğu: <br><br> <code>// MEB-KİT C++ Kod Yapısı<br>void setup() {<br>  pinMode(A0, INPUT);<br>  Serial.begin(9600);<br>}<br>void loop() {<br>  int sensorVal = analogRead(A0);<br>  Serial.println(sensorVal);<br>  delay(100);<br>}</code><br><br>Kodlar C++ dilinde yazılır.`:`Seçilen kazanıma (${i}) uygun Blok Tabanlı Kodlama Diyagramı: <br><br> <code>┌────────────────────────────────────────────────────────┐<br>│ 🚀 [BAŞLA / SÜREKLİ TEKRARLA]                          │<br>│   ├─ 🔹 [Sensör_Değeri = AnalogOku(A0)]                │<br>│   ├─ 🔹 [EĞER Sensör_Değeri > Eşik İSE]                │<br>│   │     └─ 💡 [LED_Yaz(D13, YÜKSEK)]                   │<br>│   └─ ⏱️ [100 milisaniye bekle]                         │<br>└────────────────────────────────────────────────────────┘</code><br><br>Bloklar hedeflenen algoritmaya uygun sıralanır.`} |
+| **Kod Bloğu** | ${b?`Seçilen kazanıma (${i}) uygun tam C++ Kod Bloğu: <br><br> <code>// MEB-KİT C++ Kod Yapısı<br>void setup() {<br>  pinMode(A0, INPUT);<br>  Serial.begin(9600);<br>}<br>void loop() {<br>  int sensorVal = analogRead(A0);<br>  Serial.println(sensorVal);<br>  delay(100);<br>}</code><br><br>Kodlar C++ dilinde yazılır.`:`Seçilen kazanıma (${i}) uygun Blok Tabanlı Kodlama Diyagramı: <br><br> <code>┌────────────────────────────────────────────────────────┐<br>│ 🚀 [BAŞLA / SÜREKLİ TEKRARLA]                          │<br>│   ├─ 🔹 [Sensör_Değeri = AnalogOku(A0)]                │<br>│   ├─ 🔹 [EĞER Sensör_Değeri > Eşik İSE]                │<br>│   │     └─ 💡 [LED_Yaz(D13, YÜKSEK)]                   │<br>│   └─ ⏱️ [100 milisaniye bekle]                         │<br>└────────────────────────────────────────────────────────┘</code><br><br>Bloklar hedeflenen algoritmaya uygun sıralanır.`} |
 | **Kod Yükleme ve Çalıştırma** | MEB-KİT Kodlama Platformu’nda doğrulanan kodlar simülasyon ekranının sağ alt bölümünde yer alan “Arduino’ya Gönder” seçeneği kullanılarak MEB-KİT Robotik Kodlama Seti’ne aktarılır. Tüm bağlantılar kontrol edildikten sonra sistem çalıştırılır ve elde edilen sonuçlar gözlemlenir. |
 `:``}\n${M?`
 ÖNEMLİ 3B YAZICI UYGULAMA YÖNERGESİ TABLO KURALI:
@@ -576,7 +576,7 @@ Format Kuralı: Çıktını KESİNLİKLE sadece aşağıdaki markdown tablosu fo
 
 | Genel Bilgiler | Açıklamalar |
 |---|---|
-| **Etkinlik ID** | ${d} |
+| **Etkinlik ID** | ${_} |
 | **Etkinlik Başlığı** | (Yaratıcı İsim - TAMAMI BÜYÜK HARFLERLE) |
 | **Genel Bakış** | (Etkinliğin genel amacı ve özeti) |
 | **Etkinlik Süresi** | ${g} Dakika |
