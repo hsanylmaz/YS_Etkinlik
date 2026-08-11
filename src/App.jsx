@@ -742,7 +742,8 @@ Règle de format: La sortie DOIT être dans le format exact du tableau Markdown 
       const mappedDersKodu = DERS_KOD_MAP[ders] || (ders ? ders.substring(0, 3).toUpperCase() : 'DERS');
       const baseCode = kazanimCodeMatch ? kazanimCodeMatch[1].toUpperCase() : `${mappedDersKodu}.${sinif}.K01`;
       const techSuffix = (useMebKit && use3DPrinter) ? '-KIT-3B' : (useMebKit ? '-KIT' : (use3DPrinter ? '-3B' : ''));
-      const standardEtkinlikId = `ETK-${baseCode}${techSuffix}`;
+      const uniqueSuffix = Math.random().toString(36).substring(2, 5).toUpperCase();
+      const standardEtkinlikId = `ETK-${baseCode}${techSuffix}-${uniqueSuffix}`;
 
       roleInstruction = `Sen, Yenilikçi Sınıf Eğitim Atölyesi için MEB müfredat standartlarına tam uyumlu çalışan pedagoji uzmanı bir yapay zeka asistanısın. Görevin, öğretmenin verdiği bilgiler doğrultusunda "Teknoloji Destekli Aktif Öğrenme Etkinlik Planı" hazırlamaktır.`;
       
@@ -776,7 +777,7 @@ DİKKAT: Kaynakça tablosunun içine sadece düz metin kaynakları yaz. Çevrim 
 4. KAZANIM VE SÜREÇ BİLEŞENİ ÇİFT YAZMA YASAĞI: 'Öğrenme Çıktıları ve Süreç Bileşenleri /Kazanımlar' hücresine metin yazarken KESİNLİKLE aynı süreç bileşenlerini veya 'Süreç Bileşenleri:' başlığını İKİ DEFA ÜST ÜSTE YAZMAYIN.
 
 5. ETKİNLİK ID KURALI:
-   - 'Etkinlik ID' hücresine KESİNLİKLE tam olarak '${standardEtkinlikId}' değerini yazınız. Format: ETK-[KAZANIM_KODU][TEKNOLOJİ_ROZETİ] (Örn: 'ETK-İTA.8.2.1', 'ETK-MAT.5.1.2-KIT', 'ETK-FEN.6.3.1-3B', 'ETK-BİL.5.2.1-KIT-3B').
+   - 'Etkinlik ID' hücresine KESİNLİKLE tam olarak '${standardEtkinlikId}' değerini yazınız. Format: ETK-[KAZANIM_KODU][TEKNOLOJİ_ROZETİ]-[BENZERSİZ_KOD] (Örn: 'ETK-İTA.8.2.1-A7K', 'ETK-MAT.5.1.2-KIT-3X8', 'ETK-FEN.6.3.1-3B-9M2', 'ETK-BİL.5.2.1-KIT-3B-4R1').
 `;
       // Constructing tools list dynamically based on choices
       let kodlamaAraclari = [];
