@@ -711,6 +711,39 @@ Règle de format: La sortie DOIT être dans le format exact du tableau Markdown 
     } else {
       // Default: Türkçe
       altBaslik = belgeTuru === "etkinlikPlani" ? "TEKNOLOJİ DESTEKLİ AKTİF ÖĞRENME ETKİNLİK PLANI" : "TEKNOLOJİ ODAKLI ÖĞRENME SENARYOSU";
+      
+      // Standard Etkinlik ID generator: ETK-[KAZANIM_KODU][TEKNOLOJI_ROZETI]
+      const DERS_KOD_MAP = {
+        'Matematik': 'MAT',
+        'Fen Bilimleri': 'FEN',
+        'Türkçe': 'TR',
+        'Sosyal Bilgiler': 'SB',
+        'T.C. İnkılap Tarihi ve Atatürkçülük': 'İTA',
+        'Bilişim Teknolojileri ve Yazılım': 'BİL',
+        'İngilizce': 'İNG',
+        'Almanca': 'ALM',
+        'Fransızca': 'FRA',
+        'Arapça': 'ARP',
+        'Görsel Sanatlar': 'GÖR',
+        'Müzik': 'MÜZ',
+        'Beden Eğitimi ve Spor': 'BED',
+        'Din Kültürü ve Ahlak Bilgisi': 'DKAB',
+        'Teknoloji ve Tasarım': 'TT',
+        'Fizik': 'FİZ',
+        'Kimya': 'KİM',
+        'Biyoloji': 'BİY',
+        'Tarih': 'TAR',
+        'Coğrafya': 'COĞ',
+        'Felsefe': 'FEL',
+        'Türk Dili ve Edebiyatı': 'TDE'
+      };
+
+      const kazanimCodeMatch = plainKazanimText.match(/\b([A-ZÇĞİÖŞÜa-zçğıöşü]{2,4}\.\d+\.\d+\.\d+)\b/);
+      const mappedDersKodu = DERS_KOD_MAP[ders] || (ders ? ders.substring(0, 3).toUpperCase() : 'DERS');
+      const baseCode = kazanimCodeMatch ? kazanimCodeMatch[1].toUpperCase() : `${mappedDersKodu}.${sinif}.K01`;
+      const techSuffix = (useMebKit && use3DPrinter) ? '-KIT-3B' : (useMebKit ? '-KIT' : (use3DPrinter ? '-3B' : ''));
+      const standardEtkinlikId = `ETK-${baseCode}${techSuffix}`;
+
       roleInstruction = `Sen, Yenilikçi Sınıf Eğitim Atölyesi için MEB müfredat standartlarına tam uyumlu çalışan pedagoji uzmanı bir yapay zeka asistanısın. Görevin, öğretmenin verdiği bilgiler doğrultusunda "Teknoloji Destekli Aktif Öğrenme Etkinlik Planı" hazırlamaktır.`;
       
       kaynakcaInstruction = `
@@ -741,6 +774,9 @@ DİKKAT: Kaynakça tablosunun içine sadece düz metin kaynakları yaz. Çevrim 
    - ÖRNEK: 'İTA.8.2.1' kazanımı için: "Birinci Dünya Savaşı’nın Nedenleri, Osmanlı Devleti’nin Savaşa Katılması, Osmanlı Devleti’nin Savaştığı Cepheler, Birinci Dünya Savaşı’nın Sonuçları, Birinci Dünya Savaşı’nın Türk Toplumuna Etkileri" gibi içerik listesini yazın.
 
 4. KAZANIM VE SÜREÇ BİLEŞENİ ÇİFT YAZMA YASAĞI: 'Öğrenme Çıktıları ve Süreç Bileşenleri /Kazanımlar' hücresine metin yazarken KESİNLİKLE aynı süreç bileşenlerini veya 'Süreç Bileşenleri:' başlığını İKİ DEFA ÜST ÜSTE YAZMAYIN.
+
+5. ETKİNLİK ID KURALI:
+   - 'Etkinlik ID' hücresine KESİNLİKLE tam olarak '${standardEtkinlikId}' değerini yazınız. Format: ETK-[KAZANIM_KODU][TEKNOLOJİ_ROZETİ] (Örn: 'ETK-İTA.8.2.1', 'ETK-MAT.5.1.2-KIT', 'ETK-FEN.6.3.1-3B', 'ETK-BİL.5.2.1-KIT-3B').
 `;
       // Constructing tools list dynamically based on choices
       let kodlamaAraclari = [];
@@ -878,7 +914,7 @@ Format Kuralı: Çıktını KESİNLİKLE sadece aşağıdaki markdown tablosu fo
 
 | Genel Bilgiler | Açıklamalar |
 |---|---|
-| **Etkinlik ID** | (ETK-01 vb. bir ID ata) |
+| **Etkinlik ID** | ${standardEtkinlikId} |
 | **Etkinlik Başlığı** | (Yaratıcı İsim - TAMAMI BÜYÜK HARFLERLE) |
 | **Genel Bakış** | (Etkinliğin genel amacı ve özeti) |
 | **Etkinlik Süresi** | ${sure} Dakika |

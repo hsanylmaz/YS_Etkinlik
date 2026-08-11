@@ -48,6 +48,24 @@ Ders planında 3B yazıcı kullanımı etkinleştirildiğinde, sistem kazanımı
 * **Thingiverse, Printables, Tinkercad ve Creality Cloud** gibi dünyanın en popüler 3B model kütüphaneleri için tek tıkla arama yapabileceğiniz özel arama kısayolları üretir.
 * Tasarımların okul laboratuvarlarındaki **Creality K1C** gibi modern yazıcıların maksimum baskı hacmi sınırları (220x220x250 mm) içerisinde kalacak şekilde boyutlandırılması için rehberlik sağlar.
 
+### 🏷️ Standart ve Kurumsal Etkinlik ID Sistemi
+Platformumuzda üretilen tüm ders planları, MEB Maarif Modeli kazanım kodları ve kullanılan teknolojik araçlarla otomatik olarak eşleşen standart bir **Etkinlik ID** kodu ile etiketlenir:
+
+* **Format Yapısı:** `ETK-[KAZANIM_KODU][TEKNOLOJİ_ROZETİ]`
+  * **Önek:** Her zaman `ETK`
+  * **Kazanım Kodu:** `[DERS].[SINIF].[ÜNİTE].[KAZANIM]` (Örn: `İTA.8.2.1`, `MAT.5.1.2`, `FEN.6.3.1`, `SB.7.6.1`)
+  * **Teknoloji Rozeti (Varsa):** MEB-KİT için `-KIT`, 3B Yazıcı için `-3B`, ikisi birlikte ise `-KIT-3B`
+
+#### 📋 Örnek İsimlendirme Tablosu:
+| Seçilen Ders, Sınıf, Kazanım ve Araçlar | Oluşan Standart Etkinlik ID |
+|---|---|
+| 8. Sınıf T.C. İnkılap Tarihi (`İTA.8.2.1`) | **`ETK-İTA.8.2.1`** |
+| 5. Sınıf Matematik (`MAT.5.1.2`) + **MEB-KİT** | **`ETK-MAT.5.1.2-KIT`** |
+| 6. Sınıf Fen Bilimleri (`FEN.6.3.1`) + **3B Yazıcı** | **`ETK-FEN.6.3.1-3B`** |
+| 5. Sınıf Bilişim Teknolojileri (`BİL.5.2.1`) + **MEB-KİT & 3B** | **`ETK-BİL.5.2.1-KIT-3B`** |
+| 7. Sınıf Sosyal Bilgiler (`SB.7.6.1`) | **`ETK-SB.7.6.1`** |
+| 9. Sınıf Kimya (`KİM.9.1.2`) | **`ETK-KİM.9.1.2`** |
+
 ---
 
 ## 🎨 2D Sınıf Yerleşim Editörü
