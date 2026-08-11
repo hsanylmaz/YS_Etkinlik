@@ -546,7 +546,9 @@ export async function generateDocxBlob(lastResponseText, renderedHtmlContent, op
     }
 
     // Apply exact mathematical duration replacements in Word table cell headers
-    replaceDurationInCellText(16, 0, "... dk.", `${guideSure} dk.`);
+    replaceDurationInCellText(16, 0, "(Süre: ... dk.)", "");
+    replaceDurationInCellText(16, 0, "(... dk.)", "");
+    replaceDurationInCellText(16, 0, "... dk.", "");
     replaceDurationInCellText(17, 1, "... dk.", `${uygulamaSure} dk.`);
     replaceDurationInCellText(18, 1, "... dk.", `${sonuSure} dk.`);
     replaceDurationInCellText(19, 0, "... dk.", `${evalSure} dk.`);
