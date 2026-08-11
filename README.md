@@ -87,12 +87,3 @@ Uygulamadaki **"Drive'a Kaydet"** ve **"Drive Klasörü"** özellikleri önceden
 
 > **Not:** Eğer "Drive'a Kaydet" seçeneğiyle yükleme yaparken **"Failed to fetch"** hatası alıyorsanız, bu durum tarayıcınızdaki reklam engelleyici eklentilerden (uBlock Origin, AdBlock vb.) veya tarayıcı güvenlik korumalarından (Brave Shields vb.) kaynaklanabilir. Lütfen bu eklentileri bu site için geçici olarak devre dışı bırakıp veya siteyi **Gizli Sekmede** açarak yeniden deneyin.
 
----
-
-## 🗺️ 3 Aşamalı Entegrasyon & Yol Haritası (Gelecek Vizyonu)
-
-Yenilikçi Sınıf Eğitim Atölyesi'nin sürdürülebilir, yerli ve millî eğitim teknolojileri vizyonunu özetleyen 3 aşamalı entegrasyon yol haritası infografiği:
-
-![3 Aşamalı Entegrasyon ve Yol Haritası İnfografiği](yol_haritasi.png)
-
-
