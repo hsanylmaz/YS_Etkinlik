@@ -49,23 +49,23 @@ Ders planında 3B yazıcı kullanımı etkinleştirildiğinde, sistem kazanımı
 * Tasarımların okul laboratuvarlarındaki **Creality K1C** gibi modern yazıcıların maksimum baskı hacmi sınırları (220x220x250 mm) içerisinde kalacak şekilde boyutlandırılması için rehberlik sağlar.
 
 ### 🏷️ Standart ve Kurumsal Etkinlik ID Sistemi
-Platformumuzda üretilen tüm ders planları, MEB Maarif Modeli kazanım kodları, kullanılan teknolojik araçlar ve **çakışmaları önleyen benzersiz bir kimlik kodu** ile otomatik olarak eşleşen standart bir **Etkinlik ID** kodu ile etiketlenir:
+Platformumuzda üretilen tüm ders planları; **üretim yılı (Örn: 2026 için `26`)**, MEB Maarif Modeli kazanım kodları, kullanılan teknolojik araçlar ve **çakışmaları önleyen benzersiz bir kimlik kodu** ile otomatik olarak eşleşen standart bir **Etkinlik ID** kodu ile etiketlenir:
 
-* **Format Yapısı:** `ETK-[KAZANIM_KODU][TEKNOLOJİ_ROZETİ]-[BENZERSİZ_KOD]`
-  * **Önek:** Her zaman `ETK`
+* **Format Yapısı:** `[YIL]-[KAZANIM_KODU][TEKNOLOJİ_ROZETİ]-[BENZERSİZ_KOD]`
+  * **Üretim Yılı (Önek):** Üretildiği yılın son 2 hanesi (Örn: 2026 için `26`, 2027 için `27`)
   * **Kazanım Kodu:** `[DERS].[SINIF].[ÜNİTE].[KAZANIM]` (Örn: `İTA.8.2.1`, `MAT.5.1.2`, `FEN.6.3.1`, `SB.7.6.1`)
   * **Teknoloji Rozeti (Varsa):** MEB-KİT için `-KIT`, 3B Yazıcı için `-3B`, ikisi birlikte ise `-KIT-3B`
   * **Benzersiz Kod (Short ID):** İki farklı öğretmenin aynı kazanım için plan üretmesi durumunda arşivde ve Drive'da çakışmayı önleyen 3 haneli rastgele alfanümerik kod (Örn: `A7K`, `8X2`, `9M4`).
 
-#### 📋 Örnek İsimlendirme Tablosu:
+#### 📋 Örnek İsimlendirme Tablosu (2026 Yılı İçin):
 | Seçilen Ders, Sınıf, Kazanım ve Araçlar | Oluşan Standart Etkinlik ID |
 |---|---|
-| 8. Sınıf T.C. İnkılap Tarihi (`İTA.8.2.1`) | **`ETK-İTA.8.2.1-A7K`** |
-| 5. Sınıf Matematik (`MAT.5.1.2`) + **MEB-KİT** | **`ETK-MAT.5.1.2-KIT-3X8`** |
-| 6. Sınıf Fen Bilimleri (`FEN.6.3.1`) + **3B Yazıcı** | **`ETK-FEN.6.3.1-3B-9M2`** |
-| 5. Sınıf Bilişim Teknolojileri (`BİL.5.2.1`) + **MEB-KİT & 3B** | **`ETK-BİL.5.2.1-KIT-3B-4R1`** |
-| 7. Sınıf Sosyal Bilgiler (`SB.7.6.1`) | **`ETK-SB.7.6.1-5T9`** |
-| 9. Sınıf Kimya (`KİM.9.1.2`) | **`ETK-KİM.9.1.2-8W3`** |
+| 8. Sınıf T.C. İnkılap Tarihi (`İTA.8.2.1`) | **`26-İTA.8.2.1-A7K`** |
+| 5. Sınıf Matematik (`MAT.5.1.2`) + **MEB-KİT** | **`26-MAT.5.1.2-KIT-3X8`** |
+| 6. Sınıf Fen Bilimleri (`FEN.6.3.1`) + **3B Yazıcı** | **`26-FEN.6.3.1-3B-9M2`** |
+| 5. Sınıf Bilişim Teknolojileri (`BİL.5.2.1`) + **MEB-KİT & 3B** | **`26-BİL.5.2.1-KIT-3B-4R1`** |
+| 7. Sınıf Sosyal Bilgiler (`SB.7.6.1`) | **`26-SB.7.6.1-5T9`** |
+| 9. Sınıf Kimya (`KİM.9.1.2`) | **`26-KİM.9.1.2-8W3`** |
 
 ---
 
