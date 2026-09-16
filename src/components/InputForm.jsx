@@ -35,20 +35,29 @@ export default function InputForm({
   selectedSurec, setSelectedSurec
 }) {
 
-  // Parse current kazanım code from state (supports 3-digit MAT.5.1.1 or 4-digit BİY.9.1.1.1)
-  const currentCodeMatch = kazanim ? kazanim.match(/^([A-ZÇĞİÖŞÜ]{2,5})\.(\d{1,2})\.(\d{1,2})\.([LRSW]?\d{1,2})/) : null;
-  const currentCode = currentCodeMatch ? `${currentCodeMatch[1]}.${currentCodeMatch[2]}.${currentCodeMatch[3]}.${currentCodeMatch[4]}` : '';
+  // Parse current kazanım code from state (supports MAT.5.1.1, BİY.9.1.1.1, TDE.9.1.1, MAN.1.1, SBÇ.I.1.1 vb.)
+  const currentCodeMatch = kazanim ? kazanim.match(/^([A-ZÇĞİÖŞÜa-z0-9\._\-]+?)(?:\.|\s|$)/) : null;
+  const currentCode = currentCodeMatch ? currentCodeMatch[1] : '';
   
+  // Resolve alias (e.g., 'Din Kültürü' or 'DKAB' -> 'Din Kültürü ve Ahlak Bilgisi')
+  const resolveDersKey = (d) => {
+    if (!d || !kazanimlarDb) return d;
+    if (kazanimlarDb[d]) return d;
+    if ((d === 'Din Kültürü' || d === 'DKAB') && kazanimlarDb['Din Kültürü ve Ahlak Bilgisi']) return 'Din Kültürü ve Ahlak Bilgisi';
+    return d;
+  };
+  const activeDers = resolveDersKey(ders);
+
   // Find the outcome item in database (flexible match for BİY.9.1.1 or BİY.9.1.1.1)
-  const currentOutcomeItem = (ders && sinif && kazanimlarDb && kazanimlarDb[ders] && kazanimlarDb[ders][sinif]) 
-    ? kazanimlarDb[ders][sinif].find(k => k.code === currentCode || (currentCode && currentCode.startsWith(k.code)) || (kazanim && kazanim.includes(k.code)))
+  const currentOutcomeItem = (activeDers && sinif && kazanimlarDb && kazanimlarDb[activeDers] && kazanimlarDb[activeDers][sinif]) 
+    ? kazanimlarDb[activeDers][sinif].find(k => k.code === currentCode || (currentCode && currentCode.startsWith(k.code)) || (kazanim && kazanim.includes(k.code)))
     : null;
      
   const surecBilesenleriList = currentOutcomeItem ? (currentOutcomeItem.surecBilesenleri || []) : [];
 
-  // Resolve dynamic grades based on selected course, restricted to grades 5-12
-  const availableGrades = (ders && kazanimlarDb && kazanimlarDb[ders])
-    ? Object.keys(kazanimlarDb[ders])
+  // Resolve dynamic grades based on selected course, strictly limited to 5-12
+  const availableGrades = (activeDers && kazanimlarDb && kazanimlarDb[activeDers])
+    ? Object.keys(kazanimlarDb[activeDers])
         .map(Number)
         .filter(n => n >= 5 && n <= 12)
         .sort((a, b) => a - b)
@@ -56,8 +65,8 @@ export default function InputForm({
 
   // Automatically adjust selected grade if the current grade is not available for the newly selected course
   useEffect(() => {
-    if (ders && kazanimlarDb && kazanimlarDb[ders]) {
-      const grades = Object.keys(kazanimlarDb[ders])
+    if (activeDers && kazanimlarDb && kazanimlarDb[activeDers]) {
+      const grades = Object.keys(kazanimlarDb[activeDers])
         .map(Number)
         .filter(n => n >= 5 && n <= 12)
         .sort((a, b) => a - b);
@@ -65,7 +74,7 @@ export default function InputForm({
         setSinif(grades[0].toString());
       }
     }
-  }, [ders, kazanimlarDb, sinif, setSinif]);
+  }, [activeDers, kazanimlarDb, sinif, setSinif]);
 
   const toggleZone = (zoneName) => {
     if (selectedZones.includes(zoneName)) {
@@ -105,7 +114,7 @@ export default function InputForm({
           <div className="space-y-2">
             <label className="text-sm font-bold text-slate-700 ml-1">Ders Adı</label>
             <select 
-              value={ders && kazanimlarDb && Object.keys(kazanimlarDb).includes(ders) ? ders : (ders ? "other" : "")}
+              value={activeDers && kazanimlarDb && Object.keys(kazanimlarDb).includes(activeDers) ? activeDers : (ders ? "other" : "")}
               onChange={(e) => {
                 const val = e.target.value;
                 if (val === "other") {
@@ -125,7 +134,7 @@ export default function InputForm({
             </select>
 
             {/* Diğer seçildiğinde veya elle yazıldığında serbest metin girişi kutusu belirir */}
-            {(ders === "" || (kazanimlarDb && !Object.keys(kazanimlarDb).includes(ders) && ders !== "")) && (
+            {(ders === "" || (kazanimlarDb && !Object.keys(kazanimlarDb).includes(activeDers) && ders !== "")) && (
               <input 
                 type="text" 
                 value={ders}
@@ -245,19 +254,19 @@ export default function InputForm({
         </div>
 
         {/* Kazanım Seçim Alanı (Yalnızca Ders ve Sınıf Seçildiğinde ve veri mevcut olduğunda görünür) */}
-        {ders && sinif && kazanimlarDb && kazanimlarDb[ders] && kazanimlarDb[ders][sinif] && (
+        {activeDers && sinif && kazanimlarDb && kazanimlarDb[activeDers] && kazanimlarDb[activeDers][sinif] && (
           <div className="mb-6 bg-indigo-50/50 p-5 rounded-2xl border border-indigo-100 shadow-sm space-y-2">
             <label className="text-xs font-extrabold text-indigo-950 ml-1 flex items-center gap-1.5">
               <span>📖 Resmî Kazanım Seçin (Türkiye Yüzyılı Maarif Modeli)</span>
               <span className="text-[9px] bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full font-bold">
-                {kazanimlarDb[ders][sinif].length} Kazanım Mevcut
+                {kazanimlarDb[activeDers][sinif].length} Kazanım Mevcut
               </span>
             </label>
             <select 
               onChange={(e) => {
                 setSelectedSurec([]); // Clear processes when outcome changes
                 if (e.target.value) {
-                  const selected = kazanimlarDb[ders][sinif].find(k => k.code === e.target.value);
+                  const selected = kazanimlarDb[activeDers][sinif].find(k => k.code === e.target.value);
                   if (selected) {
                     setKazanim(`${selected.code}. ${selected.description}`);
                   }
@@ -268,7 +277,7 @@ export default function InputForm({
               className="w-full px-3 py-2.5 rounded-xl border border-indigo-200 focus:ring-2 focus:ring-indigo-500 outline-none transition-all bg-white text-xs font-semibold text-slate-800"
             >
               <option value="">-- Kazanım Seçiniz (Aşağıdaki metin kutusu otomatik dolacaktır) --</option>
-              {kazanimlarDb[ders][sinif].map(k => (
+              {kazanimlarDb[activeDers][sinif].map(k => (
                 <option key={k.code} value={k.code}>
                   {k.code} - {k.description.substring(0, 110)}...
                 </option>

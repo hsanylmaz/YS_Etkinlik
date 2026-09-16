@@ -728,6 +728,8 @@ Règle de format: La sortie DOIT être dans le format exact du tableau Markdown 
         'Müzik': 'MÜZ',
         'Beden Eğitimi ve Spor': 'BED',
         'Din Kültürü ve Ahlak Bilgisi': 'DKAB',
+        'Din Kültürü': 'DKAB',
+        'DKAB': 'DKAB',
         'Teknoloji ve Tasarım': 'TT',
         'Fizik': 'FİZ',
         'Kimya': 'KİM',
@@ -735,7 +737,20 @@ Règle de format: La sortie DOIT être dans le format exact du tableau Markdown 
         'Tarih': 'TAR',
         'Coğrafya': 'COĞ',
         'Felsefe': 'FEL',
-        'Türk Dili ve Edebiyatı': 'TDE'
+        'Türk Dili ve Edebiyatı': 'TDE',
+        "Kur'an-ı Kerim": 'KK',
+        'Peygamberimizin Hayatı': 'PH',
+        'Mantık': 'MAN',
+        'Psikoloji': 'PSK',
+        'Sosyoloji': 'SOS',
+        'Çağdaş Türk ve Dünya Tarihi': 'ÇTDT',
+        'Türk Kültür ve Medeniyet Tarihi': 'TKMT',
+        'İslam Bilim Tarihi': 'İBT',
+        'Sağlık Bilgisi ve Trafik Kültürü': 'SBTK',
+        'Demokrasi ve İnsan Hakları': 'DİH',
+        'Sosyal Bilim Çalışmaları': 'SBÇ',
+        'Temel Matematik': 'TMAT',
+        'Matematik Uygulamaları': 'MATU'
       };
 
       const kazanimCodeMatch = plainKazanimText.match(/\b([A-ZÇĞİÖŞÜa-zçğıöşü]{2,4}\.\d+\.\d+\.\d+)\b/);
@@ -759,6 +774,7 @@ Eklenen Kaynakça bölümü "Yenilikçi Sınıf Kaynakça Yazım Rehberi"ne uygu
 - Çevrim İçi Araçlar (Hazır içerik): Platform Adı. (t.y.). İçeriğin adı. Erişim tarihi 10 Mayıs 2026 URL
 - Çevrim İçi Araçlar (Kendi ürettiği içerik): Milli Eğitim Bakanlığı. (Yıl, Gün Ay). YS-İçeriğin adı. Platform Adı. Erişim tarihi 10 Mayıs 2026 URL
 - Öğretim Programları: Milli Eğitim Bakanlığı. (2024). [Ders Adı] dersi öğretim programı. Talim ve Terbiye Kurulu Başkanlığı. Erişim tarihi 10 Mayıs 2026 URL
+- KESİN URL KURALI: Canva kaynağı yazılırken URL adresi KESİNLİKLE sadece https://www.canva.com olarak yazılmalıdır. Yanına veya arkasına /meb-oruntuler, /meb-etkinlik vb. gibi uydurma veya var olmayan alt sayfalar KESİNLİKLE EKLEMEYİN.
 DİKKAT: Kaynakça tablosunun içine sadece düz metin kaynakları yaz. Çevrim İçi Araçlar bölümünde belirttiğiniz araçları kaynakçaya eklemeyi UNUTMAYIN!
 `;
       mufredatKurali = `

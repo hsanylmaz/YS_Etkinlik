@@ -3,6 +3,9 @@
 export function formatMarkdown(text) {
     if (!text) return "";
     
+    // Clean Canva URLs to always point directly to https://www.canva.com
+    text = text.replace(/https?:\/\/(?:www\.)?canva\.com\/[^\s\)\|\,\<\>]+/gi, 'https://www.canva.com');
+    
     let html = text + "\n"; 
     
     // Parse tables (supports empty headers | | |)
@@ -138,6 +141,8 @@ function getStandardizedKey(key) {
 
 function sanitizeMarkdownTables(markdown) {
     if (!markdown) return "";
+    // Clean Canva URLs in markdown to always point directly to https://www.canva.com
+    markdown = markdown.replace(/https?:\/\/(?:www\.)?canva\.com\/[^\s\)\|\,\<\>]+/gi, 'https://www.canva.com');
     const lines = markdown.split('\n');
     const resultLines = [];
     let insideTable = false;
