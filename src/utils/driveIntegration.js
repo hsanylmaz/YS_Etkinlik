@@ -1,6 +1,6 @@
 // src/utils/driveIntegration.js
 
-export const driveFolderUrl = "https://drive.google.com/drive/folders/1O3TVQP_i8sZfpBStbSlgwZk3U7kL0du3?usp=drive_link";
+export const driveFolderUrl = "https://drive.google.com/drive/folders/1TI_lG89-Mbv1Q_RMiZxo2liF3_0WrZGh2pkj2Buqx1hoH99m9zSfrW2RgokbOrEik3nqW9Yc?usp=sharing";
 export const appsScriptUrl = "https://script.google.com/macros/s/AKfycbwWVBJyWWmsmK7Y6Zul7xA0gxAv9WYM74wPYk7WCfIcQ1s34n7Aq8Bl1fLdnrjikQti5g/exec";
 
 export async function uploadToGoogleDrive(base64Docx, filename) {

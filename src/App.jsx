@@ -1495,7 +1495,7 @@ Seçilen tekniklerin uygulanışını, hedeflenen kazanımla ilişkilendirerek d
             </button>
 
             <a
-              href="https://drive.google.com/drive/folders/1O3TVQP_i8sZfpBStbSlgwZk3U7kL0du3?usp=drive_link"
+              href="https://drive.google.com/drive/folders/1TI_lG89-Mbv1Q_RMiZxo2liF3_0WrZGh2pkj2Buqx1hoH99m9zSfrW2RgokbOrEik3nqW9Yc?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-3 py-2 bg-white border border-slate-200 rounded-xl text-xs font-bold text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm active:scale-95 whitespace-nowrap"

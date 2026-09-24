@@ -102,7 +102,7 @@ export default function ResultPanel({
 
             {/* Drive Klasörü Görüntüleme */}
             <button
-              onClick={() => window.open("https://drive.google.com/drive/folders/1O3TVQP_i8sZfpBStbSlgwZk3U7kL0du3?usp=drive_link", '_blank')}
+              onClick={() => window.open("https://drive.google.com/drive/folders/1TI_lG89-Mbv1Q_RMiZxo2liF3_0WrZGh2pkj2Buqx1hoH99m9zSfrW2RgokbOrEik3nqW9Yc?usp=sharing", '_blank')}
               className="flex items-center gap-2 bg-slate-700 hover:bg-slate-800 text-white px-4 py-2 rounded-lg text-sm font-bold transition-all shadow-md active:scale-95"
               title="Google Drive klasörünü görüntüler."
             >
